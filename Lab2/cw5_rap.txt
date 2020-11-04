@@ -1,0 +1,8 @@
+Stworzyłem skrypt cw5.sh który co sekunde wyświetla na stdout napis "hello world"
+Dodałem w nim również komende trap której przypisałem ignorowanie większości sygnałów, które domyślnie
+powodowałyby zakończenie pracy procesu. W wyniku tego proces po uruchomieniu nie daje się zabić przy 
+pomocy większości sygnałów np kill -(1,2,13,14,15). W odpowiedzi na próbe zatrzymania proces wyświetla wiadomość
+"NOT THIS TIME"
+
+Po przetestowaniu skryptu jedyny sygnał jaki nie może zostać zablokowany i który jako jedyny zatrzymuje proces
+to sygnał kill -9 zabijający wszystko 
