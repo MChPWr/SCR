@@ -1,0 +1,42 @@
+Przykładowe procesy i ich wartości priorytetu i liczby nice (wszystkie wynoszą odpowiednio 80 i 0)
+
+pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR$ ps -al
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0  1255  1253  0  80   0 - 60084 -      tty1     00:00:00 Xorg
+0 S   120  1346  1253  0  80   0 - 68319 -      tty1     00:00:00 gnome-session-b
+4 S     0  2630  2628  1  80   0 - 69519 -      tty2     00:16:43 Xorg
+0 S  1000  2642  2628  0  80   0 - 49832 poll_s tty2     00:00:00 gnome-session-b
+4 R  1000 30519  7775  0  80   0 -  5286 -      pts/0    00:00:00 ps
+
+Korzystając z komendy nice możemy uruchomić proces ze zmienioną wartością tej liczby np:
+nice -n 10 ./cw3.sh 
+
+Uruchomi skrypt z cwiczenia 3 z priorytetem zmienionym o 10 i liczbą nice równą 10
+
+pszydlik@pop-os:~/Desktop/SCR L$ ps -al
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0  1255  1253  0  80   0 - 60084 -      tty1     00:00:00 Xorg
+0 S   120  1346  1253  0  80   0 - 68319 -      tty1     00:00:00 gnome-session-b
+4 S     0  2630  2628  1  80   0 - 69519 -      tty2     00:16:53 Xorg
+0 S  1000  2642  2628  0  80   0 - 49832 poll_s tty2     00:00:00 gnome-session-b
+0 S  1000 31518  7775  0  90  10 -  4842 do_wai pts/0    00:00:00 cw3.sh
+0 S  1000 31532 31518  0  90  10 -  4459 hrtime pts/0    00:00:00 sleep
+4 R  1000 31533 30855  0  80   0 -  5286 -      pts/1    00:00:00 ps
+
+Korzystając z komendy renice możemy teraz zmienić wartość nice przypisaną działającemu już procesowi np
+
+pszydlik@pop-os:~/Desktop/SCR L$ renice -n 15 -p 31518
+31518 (process ID) old priority 5, new priority 15
+
+W wyniku czego otrzymamy:
+pszydlik@pop-os:~/Desktop/SCR L$ ps -al
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S     0  1255  1253  0  80   0 - 60084 -      tty1     00:00:00 Xorg
+0 S   120  1346  1253  0  80   0 - 68319 -      tty1     00:00:00 gnome-session-b
+4 S     0  2630  2628  1  80   0 - 69519 -      tty2     00:16:58 Xorg
+0 S  1000  2642  2628  0  80   0 - 49832 poll_s tty2     00:00:00 gnome-session-b
+0 S  1000 31518  7775  0  95  15 -  4842 do_wai pts/0    00:00:00 cw3.sh
+0 S  1000 32487 31518  0  95  15 -  4459 hrtime pts/0    00:00:00 sleep
+4 R  1000 32488 30855  0  80   0 -  5286 -      pts/1    00:00:00 ps
+
+Operacji zwiększenia liczby nice możemy dokonywać dowoli natomiast operacja zmniejszenia wymaga dostępu administratora "sudo"
