@@ -1,0 +1,16 @@
+Stworzyłem skrypt cw3.sh który co sekunde wypisuje na stoudt "hello world"
+Następnie w potoku przekazałem wyjście z tego skryptu do funkcji grep a z tej do funkcji cat.
+Wywołanie 
+./cw3.sh | grep "hello" | cat
+
+Następnie wywołame ps-f aby sprawdzić działające skrypty:
+
+UID        PID  PPID  C STIME TTY          TIME CMD
+pszydlik  3497  3585  0 22:07 pts/0    00:00:00 /bin/bash ./cw3.sh
+pszydlik  3501  3585  0 22:07 pts/0    00:00:00 grep --color=auto hello
+pszydlik  3505  3585  0 22:07 pts/0    00:00:00 cat
+pszydlik  3523  3497  0 22:08 pts/0    00:00:00 sleep 1
+pszydlik  3525  3585  0 22:08 pts/0    00:00:00 ps -f
+pszydlik  3585  3535  0 18:42 pts/0    00:00:00 /bin/bash
+
+Jak widać wszystkie części potoku są dziećmy jednego rodzica, którym jest /bin/bash  3585
