@@ -1,0 +1,18 @@
+Zad1. 
+
+Polecenie 'ps' służy do wyświetlania aktywnych procesów. Bez użycia opcji wyświetla tylko procesy 
+aktywne w danym terminalu. Wyświetla tylko parametry: numer procesu i oznaczenie terminala np. pts/
+1', czas procesora i nazwę aktywnego procesu. Dodanie opcji '-f' powoduje dodatkowe wyświetlenie 
+informacji o nazwie użytkownika, numerze procesu macierzystego i czasie lokalnym systemu 
+(godzinie). Dodanie opcji '-l' powoduje dodatkowe wyświetlenie informacji m. in. o numerze ID użytkownika.
+Polecenie 'ps -u nazwa_uzytkownika' wyświetla wszystkie aktywne procesy danego użytkownika w formacie:
+numer_procesu sesja_terminala czas_procesora nazwa_procesu
+
+Polecenie 'ps -t oznaczenie_sesji_terminala' wyświetla wszystkie aktywne procesy danej sesji terminala w formacie:
+numer_procesu sesja_terminala czas_procesora nazwa_procesu
+
+Polecenie 'ps -p lista_proesow' wyświetla wszystkie aktywne procesy o podanych numerach w formacie:
+numer_procesu sesja_terminala czas_procesora nazwa_procesu
+
+Moich procesów w chwili wywolania 'ps -u uzytkownik' było 64.
+Wyświetliło sie 0 procesów sshd.

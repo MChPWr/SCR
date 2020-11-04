@@ -1,0 +1,6 @@
+Zad3.
+ 
+Wszystkie 3 polecenia potoku './Zad3.sh | grep 1 | cat &' są pezpośrednimi potomkami terminala 
+'bash'. Polecenie 'cat' po pewnej chwili zaczęło wyświetlać na stdout wynik z poprzednich poleceń. 
+Jest to związane z tym, że drugi potok czekał na wynik pierwszego potoku. Po zakończeniu 
+pierwszego potoku rozpoczęło się wykorzystanie drugiego potoku.
