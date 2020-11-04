@@ -1,0 +1,20 @@
+mbagnsk@pop-os:~/Desktop/SCRLAB/SCR/Lab2$ ./lab3_5.sh | grep 997 | cat &
+[1] 7579
+mbagnsk@pop-os:~/Desktop/SCRLAB/SCR/Lab2$ ps
+    PID TTY          TIME CMD
+   6897 pts/1    00:00:00 bash
+   7577 pts/1    00:00:00 lab3_5.sh
+   7578 pts/1    00:00:00 grep
+   7579 pts/1    00:00:00 cat
+   7583 pts/1    00:00:00 sleep
+   7584 pts/1    00:00:00 ps
+mbagnsk@pop-os:~/Desktop/SCRLAB/SCR/Lab2$ ps -l
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    6897    6870  0  80   0 -  2058 do_wai pts/1    00:00:00 bash
+0 S  1000    7577    6897  0  80   0 -   652 do_wai pts/1    00:00:00 lab3_5.sh
+0 S  1000    7578    6897  0  80   0 -  1595 pipe_w pts/1    00:00:00 grep
+0 S  1000    7579    6897  0  80   0 -  1396 pipe_w pts/1    00:00:00 cat
+0 S  1000    7588    7577  0  80   0 -  1360 hrtime pts/1    00:00:00 sleep
+0 R  1000    7589    6897  0  80   0 -  2185 -      pts/1    00:00:00 ps
+
+Jak mozna zauwazyc wszystkie procesy uruchomione w potoku maja tego samego rodzica, proces bash o PID  6897. Domyslnie sa rowniez wywolywane z tym samym priorytetem.
