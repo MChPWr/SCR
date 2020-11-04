@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #print time every second
-trap '""' HUP INT FPE ILL 
+trap '""' 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 while true;
 do
 	echo echo;
@@ -9,4 +9,5 @@ do
 done
 
 # zgodnie z tym co w instrukcji, w tym momencie nie mozna zamknac procesu tymi czterema sygnalami
-# o co chodzi z tymi 15 podstawowymi?
+
+# SIGKILL zabije proces mimo przechwytywanie 15 podstawowych sygnalow
