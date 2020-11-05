@@ -1,0 +1,13 @@
+polecenie ps pozwala uzyskac informacje na temat procesow
+
+opcja -f i -l robi full-format listing, tj. zmienia format wyswietlanych informacji na bardziej szczegolowy
+
+opcja -u wyswietla procesy danego uzytkownika
+opcja -t wyswietla procesy wybierane po TTY (ttylist) terminala
+opcja -p wyswietla procesy wybierane po PID (process id)
+
+
+W chwili wywolania polecenia ps istnialo u mnie 197 procesow
+
+polecenie pgrep przeszukuje aktualnie uruchomione procesy i listuje te ktorych ID wspolgra z wyborem kryteriow
+pgrep -u root sshd

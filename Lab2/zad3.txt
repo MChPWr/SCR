@@ -1,0 +1,38 @@
+w pliku zad3.sh znajduje sie skrypt ktory wypisuje "tekst" co 2 sekundy
+
+tworze potok
+./zad3.sh | cat | cat
+
+jakub@jakub-VirtualBox:~/Desktop/SCR/lab2$ ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4  1000    1614    1560  20   0 166536  6628 poll_s Ssl+ tty2       0:00 /usr/li
+4  1000    1622    1614  20   0 678508 67484 ep_pol Sl+  tty2       0:19 /usr/li
+0  1000    1686    1614  20   0 193376 15984 poll_s Sl+  tty2       0:00 /usr/li
+0  1000    3593    3585  20   0  13540  5700 do_wai Ss   pts/0      0:00 bash
+0  1000    7813    3585  20   0  13540  5496 do_wai Ss   pts/1      0:00 bash
+0  1000    7969    3593  20   0  12156  3764 do_wai S+   pts/0      0:00 /bin/ba
+0  1000    7970    3593  20   0  10752   592 pipe_w S+   pts/0      0:00 cat
+0  1000    7971    3593  20   0  10752   576 pipe_w S+   pts/0      0:00 cat
+0  1000    7981    7969  20   0  10608   588 hrtime S+   pts/0      0:00 sleep 2
+0  1000    7982    7813  20   0  13936  3344 -      R+   pts/1      0:00 ps l
+
+
+
+./zad3.sh | cat | cat > /dev/null
+
+
+jakub@jakub-VirtualBox:~/Desktop/SCR/lab2$ ps l
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4  1000    1614    1560  20   0 166536  6628 poll_s Ssl+ tty2       0:00 /usr/li
+4  1000    1622    1614  20   0 678508 67628 ep_pol Sl+  tty2       0:21 /usr/li
+0  1000    1686    1614  20   0 193376 15984 poll_s Sl+  tty2       0:00 /usr/li
+0  1000    3593    3585  20   0  13540  5700 do_wai Ss   pts/0      0:00 bash
+0  1000    7813    3585  20   0  13540  5496 do_wai Ss   pts/1      0:00 bash
+0  1000    8076    3593  20   0  12156  3808 do_wai S+   pts/0      0:00 /bin/ba
+0  1000    8077    3593  20   0  10752   588 pipe_w S+   pts/0      0:00 cat
+0  1000    8078    3593  20   0  10752   588 pipe_w S+   pts/0      0:00 cat
+0  1000    8083    8076  20   0  10608   588 hrtime S+   pts/0      0:00 sleep 2
+0  1000    8084    7813  20   0  13936  3176 -      R+   pts/1      0:00 ps l
+
+
+polecenia sa dziecmi basha co widac po PPID 3593

@@ -1,0 +1,36 @@
+
+korzystam z plikow A.sh  /  B.sh  /  C.sh
+
+./A.sh
+
+
+po wspisaniu polecenia ps f dostaje:
+
+jakub@jakub-VirtualBox:~/Desktop/SCR/lab2$ ps f
+    PID TTY      STAT   TIME COMMAND
+   8616 pts/1    Ss     0:00 bash
+   8663 pts/1    R+     0:00  \_ ps f
+   3593 pts/0    Ss     0:00 bash
+   8659 pts/0    S+     0:00  \_ /bin/bash ./A.sh
+   8660 pts/0    S+     0:00      \_ /bin/bash ./B.sh
+   8661 pts/0    S+     0:00          \_ /bin/bash ./C.sh
+   8662 pts/0    S+     0:00              \_ sleep 3000
+
+dostaje hierarchie trzech procesow
+poleceniem kill wysylam sygnal do proces w srodku hierarchii (B)
+czyli PID 8660
+
+
+jakub@jakub-VirtualBox:~/Desktop/SCR/lab2$ kill -9 8660
+jakub@jakub-VirtualBox:~/Desktop/SCR/lab2$ ps f
+    PID TTY      STAT   TIME COMMAND
+   8616 pts/1    Ss     0:00 bash
+   8715 pts/1    R+     0:00  \_ ps f
+   3593 pts/0    Ss     0:00 bash
+   8659 pts/0    S+     0:00  \_ /bin/bash ./A.sh
+   8711 pts/0    S+     0:00      \_ sleep 3000
+   8661 pts/0    S+     0:00 /bin/bash ./C.sh
+   8662 pts/0    S+     0:00  \_ sleep 3000
+
+
+Rodzic procesu (A - element wyzej w hierarchii) pracuje dalej, a dziecko procesu B (C - element nizej w hierarchii) zostalo przejete przez init
