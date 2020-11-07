@@ -1,0 +1,11 @@
+Po stworzeniu potoku nazwanego FIFO przy użyciu komendy
+mknod potok p
+
+Podłączyłem następnie 2 terminale do pisania do potoku oraz 2 terminale, które odczytywały z potoku. 
+Terminale odczytujące dane współdzielą jeden potok a w związku z tym nie da się przewidzieć, do którego z terminali
+trafi wysłana informacja. Podział odbierania informacji z potoku był całkowicie losowy.
+
+Terminale odbierające dane są cały czas otwarte dopóki istnieje chociaż jeden terminal nadający informacje do potoku.
+Po zamknięciu wszystkich terminali nadających dane terminale odbierające samoczynnie się zamykają.
+
+W drugą stronę w przypadku zamknięcia wszystkich terminali odbierających dane terminale nadające informacje pozostają nadal aktywne.
