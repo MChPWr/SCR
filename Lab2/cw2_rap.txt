@@ -1,0 +1,21 @@
+Uruchomiłem kolejno 3 procesy bash jeden wewnątrz drugiego.
+Wynik wykonania polecenia ps -f
+
+UID        PID  PPID  C STIME TTY          TIME CMD
+pszydlik  3585  3535  0 18:42 pts/0    00:00:00 /bin/bash
+pszydlik 31077  3585  0 21:59 pts/0    00:00:00 bash
+pszydlik 31083 31077  0 21:59 pts/0    00:00:00 bash
+pszydlik 31089 31083  0 21:59 pts/0    00:00:00 bash
+pszydlik 31130 31089  0 21:59 pts/0    00:00:00 ps -f
+
+Jak widać kolejne procesy basha były dziećmi poprzednich procesów.
+Teraz zabije wewnętrzny proces basha (B) , który ma PID = 31083 poleceniem kill -1 31083.
+Następnie ponownie sprawdzam stan procesów poleceniem ps -f
+
+UID        PID  PPID  C STIME TTY          TIME CMD
+pszydlik  3585  3535  0 18:42 pts/0    00:00:00 /bin/bash
+pszydlik 31077  3585  0 21:59 pts/0    00:00:00 bash
+pszydlik 31140 31077  0 21:59 pts/0    00:00:00 ps -f
+
+Jak widać aktywne zostały tylko procesy powyżej procesu zabitego. 
+Natomiast procesy, które były niżej w hierarchi zostały przygarnięte przez init a następnie on obsłużył ich zabicie. 
