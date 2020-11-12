@@ -1,0 +1,5 @@
+SIGSTOP zawiesza proces. 
+SIGSTOP daje taki sam efekt jak naciśnięcie klawisza Ctrl+Z na terminalu.
+SIGCONT wznawia, przywraca zawieszony proces tak jak fg i bg (bardziej).
+
+

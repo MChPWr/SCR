@@ -1,0 +1,8 @@
+Polecenie 'ps' wyświetla wszystkie procesy w terminalu. 
+Polecenie 'ps -f' wyświetla procesy z poszczególnymi informacjami: UID, PID, PPID, C, STIME, TTY, TIME, CMD.
+Polecenie 'ps -l' wyświetla procesy z bardziej szczegółowymi informacjami: F, S, UID, PID, PPID, C, PRI, NI, ADDR, SZ, WCHAN, TTY, TIME, CMD.
+Polecenie 'ps -u' wyświetla procesy użytkownika.
+Polecenie 'ps -t' wyświetla procesy podłączone do terminala.
+Polecenie 'ps -p nr PID procesu' wyświetla proces po numerze PID. 
+
+W chwili wywołania 'ps' istaniało 98 moich procesów oraz 0 procesów sshd po poleceniu 'pgrep root | wc -l'.

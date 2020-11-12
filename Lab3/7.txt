@@ -1,0 +1,34 @@
+Jeśli chodzi o priorytety to procesy mogą mieć wartość priorytetu od -20 do 20. Najwyższy priorytet jest dla najmniejszej wartości, czyli -20. 
+
+
+Poleceniem 'top' można sprawdzić wartość priorytetów oraz liczbe nice:
+
+%CPU:  0,4 uż,  0,8 sy,  0,0 ni, 98,9 be,  0,0 io,  0,0 hi,  0,0 si,  0,0 sk
+KiB RAM :  5014328 razem,  1225272 wolne,  2089996 użyte,  1699060 buf/cache
+KiB Swap:   483800 razem,   483800 wolne,        0 użyte.  2520864 dost. RAM 
+
+  PID UŻYTK.   PR  NI    WIRT    REZ    WSP S  %CPU %PAM     CZAS+ KOMENDA     
+ 1512 patrycja  20   0 1203008 245544  91088 S   2,3  4,9   5:18.69 Xorg        
+ 1718 patrycja  20   0 4222488 370556 130808 S   2,3  7,4  25:06.60 gnome-shell 
+ 7149 patrycja  20   0  793944  37640  28504 S   2,3  0,8   0:00.93 gnome-term+ 
+ 1506 patrycja  20   0  282828   7864   6896 S   0,8  0,2   0:00.23 gnome-keyr+ 
+ 1761 patrycja  20   0  356520   8944   6616 S   0,8  0,2   0:24.07 ibus-daemon 
+ 2180 patrycja  20   0 1406396 182928  37120 S   0,8  3,6   0:09.08 gnome-soft+ 
+ 2651 patrycja  20   0 4803528 105928  81572 S   0,8  2,1   0:31.77 chrome      
+ 8040 patrycja  20   0   43256   3968   3304 R   0,8  0,1   0:00.16 top         
+    1 root      20   0  225576   9288   6712 S   0,0  0,2   0:13.69 systemd     
+    2 root      20   0       0      0      0 S   0,0  0,0   0:00.02 kthreadd    
+    3 root       0 -20       0      0      0 I   0,0  0,0   0:00.00 rcu_gp      
+    4 root       0 -20       0      0      0 I   0,0  0,0   0:00.00 rcu_par_gp  
+    6 root       0 -20       0      0      0 I   0,0  0,0   0:00.00 kworker/0:+ 
+    9 root       0 -20       0      0      0 I   0,0  0,0   0:00.00 mm_percpu_+ 
+   10 root      20   0       0      0      0 S   0,0  0,0   0:00.07 ksoftirqd/0 
+   11 root      20   0       0      0      0 I   0,0  0,0   0:06.05 rcu_sched   
+   12 root      rt   0       0      0      0 S   0,0  0,0   0:00.15 migration/0 
+
+
+Priorytet procesu można zmieniać poleceniem: renice -n priorytet -p PID
+Np.:
+patrycja@patrycja-VirtualBox:~/Pulpit/SCR/Lab3$ renice -n 15 -p 2651
+2651 (process ID): stary priorytet 0, nowy priorytet 15
+
