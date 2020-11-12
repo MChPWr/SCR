@@ -1,0 +1,7 @@
+SIGINT – znak przerwania
+SIGQUIT – znak zakończenia 
+SIGFPE – błąd sprzętowy
+SIGILL – niedozwolony rozkaz
+SIGKILL – zakończenie procesu
+
+Proces można uśmiercić sygnałem SIGKILL, przy reszcie zostaje przechwycony.
