@@ -1,0 +1,2 @@
+Utowrzyłam potok nazwany (FIFO) poleceniem mknod fifo p i otworzyłam cztery terminale. W dwóch wywołałam pisanie, a w kolejnych dwóch czytanie z tego potoku. 
+Po wpisaniu do potoku informacje te wyświetlały się losowo w różnych termnalach w których było otwarte odczytywanie. Gdy zamknęłam jedno z okien terminala, w którym można było odczytywać dane nie wpłynęło to na reszte okien terminali, jednak gdy zamknęłam terminale do zapisu to wszystkie pozostałe okna też się zamknęły. 
