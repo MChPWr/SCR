@@ -1,0 +1,16 @@
+Stworzyłam skrypt 3.sh który wypisuje tekst co 3 sekundy. 
+
+patrycja@patrycja-VirtualBox:~/Pulpit/SCR-proba/Lab3$ ./3.sh | grep cos | cat &
+[1] 5337
+patrycja@patrycja-VirtualBox:~/Pulpit/SCR-proba/Lab3$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+patrycja  5117  5107  0 18:35 pts/0    00:00:00 bash
+patrycja  5335  5117  0 18:42 pts/0    00:00:00 /bin/bash ./3.sh
+patrycja  5336  5117  0 18:42 pts/0    00:00:00 grep --color=auto cos
+patrycja  5337  5117  0 18:42 pts/0    00:00:00 cat
+patrycja  5339  5335  0 18:43 pts/0    00:00:00 sleep 3
+patrycja  5340  5117  0 18:43 pts/0    00:00:00 ps -f
+
+
+
+Zachodzi między nimi pokrewieństwo. Po PPID widać, że te procesy są dziećmi basha (PID=5117).
