@@ -1,0 +1,14 @@
+Zad. 7.
+
+Wartości priorytetów procesów można sprawdzić używając programu top wyświetlająego poza tym m. in. 
+użytkownika wykorzystującego proces, wykorzystanie CPU i pamięci. Spośród procesów na wyświetlonej 
+liście procesy użytkownika mają priorytet o wartościach od 0 do 20, a procesy jądra mogą też mieć 
+priorytety o wartościach mniejszych od 0. Im mniejsza wartość priorytetu tym większy priorytet. 
+Zmieniając wartości priorytetu przeglądarki firefox poleceniem 'renice -n x numer_procesu', gdzie 
+x oznacza liczbę NICE, a PRIORYTET=20+NICE możliwe było ustawienie wartości liczby NICE -20 lub 
+więcej, a więc wartości procesu 0 lub więcej.
+
+Przykładem działania obniżonego priorytetu może być jednoczesne uruchomienie 2 skryptów, ale 
+pierwszy z nich (wyświetlający liczbę '1') ma zminejszoną wartosc priorytetu. Jako pierwszy 
+komunikat wyswietlil proces wywolany jako drugi (wyświetlający liczbę '2') o niezmniejszonym 
+priorytecie. Wykorzystane polecenie: 'nice -n 3 ./Zad7_1.sh & ./Zad7_2.sh &'.
