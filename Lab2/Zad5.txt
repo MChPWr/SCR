@@ -1,0 +1,41 @@
+Zad. 5.
+
+TTY pts/0
+konrad@konrad-Vostro-3500:~$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     31881   31873  0 19:53 pts/0    Ss     0:00 bash
+konrad     32830   31881  0 20:08 pts/0    S+     0:00  \_ /bin/bash ./Zad5.sh
+konrad     32841   32830  0 20:08 pts/0    S+     0:00      \_ sleep 1
+konrad@konrad-Vostro-3500:~$ kill -1 32830
+konrad@konrad-Vostro-3500:~$ kill -2 32864
+konrad@konrad-Vostro-3500:~$ kill -3 32864
+konrad@konrad-Vostro-3500:~$ kill -4 32864
+konrad@konrad-Vostro-3500:~$ kill -5 33038
+konrad@konrad-Vostro-3500:~$ kill -6 33073
+konrad@konrad-Vostro-3500:~$ kill -7 33101
+konrad@konrad-Vostro-3500:~$ kill -8 33128
+konrad@konrad-Vostro-3500:~$ kill -9 33164
+konrad@konrad-Vostro-3500:~$ kill -10 33191
+konrad@konrad-Vostro-3500:~$ kill -11 33220
+konrad@konrad-Vostro-3500:~$ kill -12 33320
+konrad@konrad-Vostro-3500:~$ kill -13 33370
+konrad@konrad-Vostro-3500:~$ kill -14 33400
+konrad@konrad-Vostro-3500:~$ kill -15 33426
+konrad@konrad-Vostro-3500:~$ kill -1 33458
+konrad@konrad-Vostro-3500:~$ kill -2 33458
+konrad@konrad-Vostro-3500:~$ kill -3 33458
+konrad@konrad-Vostro-3500:~$ kill -4 33458
+konrad@konrad-Vostro-3500:~$ kill -5 33458
+konrad@konrad-Vostro-3500:~$ kill -6 33458
+konrad@konrad-Vostro-3500:~$ kill -7 33458
+konrad@konrad-Vostro-3500:~$ kill -7 33458
+konrad@konrad-Vostro-3500:~$ kill -8 33458
+konrad@konrad-Vostro-3500:~$ kill -10 33458
+konrad@konrad-Vostro-3500:~$ kill -11 33458
+konrad@konrad-Vostro-3500:~$ kill -12 33458
+konrad@konrad-Vostro-3500:~$ kill -13 33458
+konrad@konrad-Vostro-3500:~$ kill -14 33458
+konrad@konrad-Vostro-3500:~$ kill -15 33458
+konrad@konrad-Vostro-3500:~$ kill -9 33458
+
+Przed ustawieniem przechwytywania sygnałów program reaguje różnymi komunikatami na kolejne sygnały (w przypadku SIGPIPE przerywa wyświetlanie daty bez komunikatu, w przypadku SIGINT nie reaguje). Po ustawieniu przechwytywania sygnałów od 1 do 15 podane sygnały są przechwytywane przez 'trap' poza sygnałem 9 (SIGKILL), który mimo przechwytywania unicestwia proces. Wymienione sygnały: SIGINT - sygnał przerwania, SIGQUIT - sygnał zakończenia, SIGFPE - sygnał błędu zmiennoprzecinkowaego, SIGILL - sygnał błędnej instrukcji.

@@ -1,0 +1,13 @@
+Po utworzeniu potoku poleceniem 'mknod /tmp/potok p' i otworzeniu tego potoku przy pomocy dwóch 
+terminali do zapisu i kolejnych dwóch do odczytu (odpowiednio 'cat > /tmp/potok' i 'cat /tmp/
+potok') sprawdziłem sposób rozdziału danych z pliku pomiędzy procesy. System przydzielał dane do 
+czytania w sposób losowy terminalom czytającym z potoku. Zauważyłem też, że potok przesyła 
+wprowadzane dane paczkami.
+Ze sprawdzenia różnych kombinacji w zamykaniu teminali odpowiedzialnych za odczyt lub zapis 
+wynika, że dopóki potok jest otwarty z obu stron przez co najmiej jeden terminal z każdej strony 
+potok pozostaje otwarty (terminale czytające czekają na kolejne dane, a zapisujące na dane do 
+wpisania). Gdy wszystkie terminale, które mają ten potok otwarty do zapisu zamkną ten potok ze 
+strony zapisu to potok zostanie automatycznie zamknięty ze strony odczytu, ponieważ wiadomo, że 
+nic już nie zostanie do niego zapisane. Gdy wszystkie terminale, które mają ten potok otwarty do 
+odczytu zamkną ten potok ze strony odczytu to potok zostanie automatycznie zamknięty ze strony 
+zapisu, ponieważ wiadomo, że nic już nie zostanie z niego odczytane.  
