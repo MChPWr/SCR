@@ -1,0 +1,52 @@
+Zad 2.
+
+TTY pts/0
+konrad@konrad-Vostro-3500:~$ ps
+    PID TTY          TIME CMD
+  27646 pts/0    00:00:00 bash
+  27653 pts/0    00:00:00 ps
+konrad@konrad-Vostro-3500:~$ csh
+% tcsh
+konrad-Vostro-3500:~> ksh
+$ Killed
+% 
+
+% ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     27646   27499  0 15:52 pts/0    Ss     0:00 bash
+konrad     27773   27646  0 15:55 pts/0    S      0:00  \_ -sh
+konrad     27790   27773  0 15:57 pts/0    R+     0:00      \_ ps f -ft pts/0
+% exit
+% exit
+
+
+TTY pts/1
+konrad@konrad-Vostro-3500:~$ ps
+    PID TTY          TIME CMD
+  27514 pts/1    00:00:00 bash
+  27654 pts/1    00:00:00 ps
+konrad@konrad-Vostro-3500:~$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     27646   27499  0 15:52 pts/0    Ss+    0:00 bash
+konrad@konrad-Vostro-3500:~$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     27646   27499  0 15:52 pts/0    Ss     0:00 bash
+konrad     27773   27646  0 15:55 pts/0    S      0:00  \_ -sh
+konrad     27775   27773  0 15:55 pts/0    S      0:00      \_ -csh
+konrad     27778   27775  0 15:55 pts/0    S+     0:00          \_ ksh
+konrad@konrad-Vostro-3500:~$ kill -9 27775
+konrad@konrad-Vostro-3500:~$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     27646   27499  0 15:52 pts/0    Ss     0:00 bash
+konrad     27773   27646  0 15:55 pts/0    S+     0:00  \_ -sh
+konrad     27778    1743  0 15:55 pts/0    S      0:00 ksh
+konrad@konrad-Vostro-3500:~$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     27646   27499  0 15:52 pts/0    Ss     0:00 bash
+konrad     27773   27646  0 15:55 pts/0    S+     0:00  \_ -sh
+konrad@konrad-Vostro-3500:$ ps -u  konrad
+    PID TTY          TIME CMD
+   1743 ?        00:00:01 systemd
+... (pozostałe procesy użytkownika)
+
+Po stworzeniu trzech procesów w pierwszym terminalu sprawdzono, że każdy następny jest potomkiem poprzedniego. Po zabiciu procesu B (tcsh) jego potomek, proces C (ksh) zostal adoptowany przez proces o PID 1743 (systemd - pierwszy proces użytkownika), a nie przez init (PID 1). Nastepnie zostal zniszczony zgodnie z zadadami zdopcji procesów.
