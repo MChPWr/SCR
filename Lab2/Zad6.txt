@@ -1,0 +1,32 @@
+Zad. 6.
+
+TTY pts/1
+konrad@konrad-Vostro-3500:~$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     28937   28930  0 16:36 pts/0    Ss     0:00 bash
+konrad     29061   28937  0 16:48 pts/0    S+     0:00  \_ /bin/bash ./Zad6.sh
+konrad     29063   29061  0 16:48 pts/0    S+     0:00      \_ sleep 1
+konrad@konrad-Vostro-3500:~$ kill -19 29061
+konrad@konrad-Vostro-3500:~$ kill -18 29061
+konrad@konrad-Vostro-3500:~$ kill -19 29061
+konrad@konrad-Vostro-3500:~$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     28937   28930  0 16:36 pts/0    Ss+    0:00 bash
+konrad     29061   28937  0 16:48 pts/0    T      0:00  \_ /bin/bash ./Zad6.sh
+konrad     29107   29061  0 16:50 pts/0    Z      0:00      \_ [sleep] <defunct>
+konrad@konrad-Vostro-3500:~$ kill -18 29061
+konrad@konrad-Vostro-3500:~$ kill -18 29061
+konrad@konrad-Vostro-3500:~$ kill -19 29061
+konrad@konrad-Vostro-3500:~$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad     28937   28930  0 16:36 pts/0    Ss+    0:00 bash
+konrad     29061   28937  0 16:48 pts/0    T      0:00  \_ /bin/bash ./Zad6.sh
+konrad     29133   29061  0 16:51 pts/0    T      0:00      \_ sleep 1
+konrad@konrad-Vostro-3500:~$ kill -19 29061
+konrad@konrad-Vostro-3500:~$ kill -19 29061
+konrad@konrad-Vostro-3500:~$ kill -19 29061
+konrad@konrad-Vostro-3500:~$ kill -18 29061
+konrad@konrad-Vostro-3500:~$ kill -19 29061
+
+
+Po poleceniu 'kill -18 numer_procesu' (SIGCONT) i poleceniu 'bg' nie mozna ponownie zatrzymac procesu skrótem klawiszowym CTRL+Z - SIGSTOP działa. Jest to związanez tym, że SIGCONT i polecenie 'bg' wznawiają proces w tle. Po poleceniu 'fg' mozna to zrobic. Polecenie 'kill -19 numer_procesu' (SIGSTOP) i skrot klawiszowy CTRL+Z powoduja zatrzymanie procesu z mozliwoscia jego wznowienia.
