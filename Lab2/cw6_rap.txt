@@ -1,0 +1,30 @@
+Korzystając z polecenia kill -19 <PID> możemy wysłać do danego procesu sygnał SIGSTOP równoważny z kombinacją CTRL+Z
+Zademonstrowałem to na przykładzie skryptu cw3.sh
+
+Kombinacja CTRL+Z 
+
+pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab2$ ./cw3.sh 
+hello world
+hello world
+^Z
+[1]+  Stopped                 ./cw3.sh
+
+Mogę go następnie przywrócić sygnałem kill -18 <PID> który wysyła SIGCONT
+
+pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab2$ ps
+  PID TTY          TIME CMD
+ 7775 pts/0    00:00:00 bash
+ 8220 pts/0    00:00:00 cw3.sh
+ 8222 pts/0    00:00:00 sleep
+ 8232 pts/0    00:00:00 ps
+
+pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab2$ kill -18 8220
+pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab2$ jobs
+[1]+  Running                 ./cw3.sh &
+
+
+Wznawianie procesu możliwe jest też przez użycie komend fg lub bg, które odpowiednio kontynuują pracę procesu
+w obecnym terminalu (foreground) albo w tle (background) przy czym komenda bg nadal przekierowuje output z kontynuowanego
+procesu na obecny terminal, jednakże nie przeszkadza to w korzystaniu z niego i wywoływaniu dalszych komend.
+
+W przypadku wznowienia procesu sygnałem SIGCONT praca procesu kontynuuje się w tle i bez przekierowania wyjścia.

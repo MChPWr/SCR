@@ -1,0 +1,139 @@
+ 
+      ######################## 
+ Wykonanie polecenia ps -f "full format" 
+ 
+UID        PID  PPID  C STIME TTY          TIME CMD
+pszydlik  3585  3535  0 18:42 pts/0    00:00:00 /bin/bash
+pszydlik 28417  3585  0 21:42 pts/0    00:00:00 /bin/bash ./cw1.sh
+pszydlik 28418 28417  0 21:42 pts/0    00:00:00 ps -f
+ 
+      ######################## 
+ Wykonanie polecenia ps -l "long" 
+ 
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000  3585  3535  0  80   0 -  5190 do_wai pts/0    00:00:00 bash
+0 S  1000 28417  3585  0  80   0 -  4842 do_wai pts/0    00:00:00 cw1.sh
+4 R  1000 28419 28417  0  80   0 -  5286 -      pts/0    00:00:00 ps
+ 
+      ######################## 
+ Wykonanie polecenia ps -u pszydlik 
+ 
+  PID TTY          TIME CMD
+ 2550 ?        00:00:00 systemd
+ 2551 ?        00:00:00 (sd-pam)
+ 2577 ?        00:00:01 gnome-keyring-d
+ 2589 tty2     00:00:00 gdm-x-session
+ 2600 ?        00:00:01 dbus-daemon
+ 2603 tty2     00:00:00 gnome-session-b
+ 2677 ?        00:00:00 ssh-agent
+ 2697 ?        00:00:00 gvfsd
+ 2703 ?        00:00:00 gvfsd-fuse
+ 2718 ?        00:00:00 at-spi-bus-laun
+ 2730 ?        00:00:00 dbus-daemon
+ 2740 ?        00:00:01 at-spi2-registr
+ 2745 ?        00:00:00 xdg-desktop-por
+ 2758 ?        00:00:00 gnome-session-c
+ 2762 ?        00:14:01 pulseaudio
+ 2772 ?        00:00:00 gnome-session-b
+ 2776 ?        00:00:00 xdg-document-po
+ 2785 ?        00:00:00 xdg-permission-
+ 2816 ?        00:20:28 gnome-shell
+ 2849 ?        00:00:00 gnome-shell-cal
+ 2855 ?        00:00:00 evolution-sourc
+ 2860 ?        00:00:00 dconf-service
+ 2863 ?        00:00:00 gvfs-udisks2-vo
+ 2868 ?        00:00:00 gvfs-goa-volume
+ 2872 ?        00:00:00 goa-daemon
+ 2874 ?        00:00:00 gvfsd-metadata
+ 2885 ?        00:00:00 goa-identity-se
+ 2892 ?        00:00:00 evolution-calen
+ 2893 ?        00:00:00 gvfs-afc-volume
+ 2899 ?        00:00:00 gvfs-gphoto2-vo
+ 2905 ?        00:00:00 gvfs-mtp-volume
+ 2918 ?        00:00:00 evolution-addre
+ 2934 ?        00:00:45 ibus-daemon
+ 2939 ?        00:00:00 ibus-dconf
+ 2953 ?        00:00:08 ibus-extension-
+ 2959 ?        00:00:00 ibus-x11
+ 2962 ?        00:00:00 ibus-portal
+ 2990 ?        00:00:00 gsd-smartcard
+ 2991 ?        00:00:00 gsd-rfkill
+ 2992 ?        00:00:00 gsd-print-notif
+ 2993 ?        00:00:02 gsd-sharing
+ 2994 ?        00:00:00 gsd-color
+ 2996 ?        00:00:00 gsd-wacom
+ 2997 ?        00:00:00 gsd-housekeepin
+ 2998 ?        00:00:00 gsd-screensaver
+ 2999 ?        00:00:00 gsd-datetime
+ 3000 ?        00:00:00 gsd-xsettings
+ 3001 ?        00:00:00 gsd-media-keys
+ 3002 ?        00:00:00 gsd-wwan
+ 3005 ?        00:00:00 gsd-power
+ 3007 ?        00:00:00 gsd-keyboard
+ 3008 ?        00:00:00 gsd-sound
+ 3012 ?        00:00:00 gsd-a11y-settin
+ 3040 ?        00:00:00 gsd-disk-utilit
+ 3058 ?        00:00:00 hidpi-daemon
+ 3064 ?        00:00:00 evolution-alarm
+ 3066 ?        00:01:40 tracker-miner-f
+ 3067 ?        00:00:00 hidpi-notificat
+ 3106 ?        00:00:00 gsd-printer
+ 3118 ?        00:00:00 gvfsd-http
+ 3124 ?        00:00:13 ibus-engine-sim
+ 3215 ?        00:00:00 gvfsd-trash
+ 3474 ?        00:00:51 code
+ 3477 ?        00:00:00 code
+ 3478 ?        00:00:00 code
+ 3504 ?        00:01:29 code
+ 3518 ?        00:00:00 code
+ 3535 ?        00:04:41 code
+ 3585 pts/0    00:00:00 bash
+ 3593 ?        00:00:09 code
+ 3611 ?        00:00:04 code
+ 3629 ?        00:00:01 code
+ 3686 ?        00:00:01 io.elementary.a
+ 4732 ?        00:10:13 firefox
+ 4789 ?        00:00:20 Privileged Cont
+ 4858 ?        00:02:54 WebExtensions
+ 4916 ?        00:00:00 chrome-gnome-sh
+ 6406 ?        00:00:00 zoom
+ 6409 ?        00:00:00 sh
+ 6410 ?        00:52:26 zoom
+ 6522 ?        00:00:11 Web Content
+ 6625 ?        00:17:45 Web Content
+ 6700 ?        00:02:33 Web Content
+ 6864 ?        00:00:00 sd_espeak-ng
+ 6870 ?        00:00:00 sd_dummy
+ 6873 ?        00:00:00 sd_generic
+ 6876 ?        00:00:00 sd_generic
+ 6879 ?        00:00:00 speech-dispatch
+12013 ?        00:00:00 RDD Process
+16079 ?        00:00:00 gvfsd-network
+16103 ?        00:00:00 gvfsd-dnssd
+28158 ?        00:00:00 Web Content
+28417 pts/0    00:00:00 cw1.sh
+28422 pts/0    00:00:00 ps
+ 
+      ######################## 
+ Wykonanie polecenia ps -t  
+ 
+  PID TTY      STAT   TIME COMMAND
+ 3585 pts/0    Ss     0:00 /bin/bash
+ 5577 pts/0    Ss+    0:00 /bin/sh
+28417 pts/0    S+     0:00 /bin/bash ./cw1.sh
+28425 pts/0    R+     0:00 ps -t
+ 
+      ######################## 
+ Wykonanie polecenia ps -p 358 
+ 
+  PID TTY          TIME CMD
+ 
+      ######################## 
+ Wykonanie polecenia ps -u pszydlik | wc | cut -f 6 -d ' ' 
+ 
+97
+ 
+      ######################## 
+ Wykonanie polecenia  pgrep sh | wc | cut -f 5 -d ' ' 
+ 
+13
