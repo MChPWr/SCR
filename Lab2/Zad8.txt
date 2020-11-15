@@ -1,0 +1,42 @@
+Zad. 8.
+
+TTY pts/0
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR_LAB/lab2$ ulimit -u 500
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR_LAB/lab2$ ulimit -a
+...
+max user processes              (-u) 500
+...
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR_LAB/lab2$ ./Zad8.sh 
+214
+215
+...
+Zad8.sh: fork: retry: Zasoby chwilowo niedostępne
+Unicestwiony
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR_LAB/lab2$ Zad8.sh: fork: retry: Zasoby chwilowo niedostępne
+Zad8.sh: fork: retry: Zasoby chwilowo niedostępne
+
+
+TTY pts/1
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR_LAB/lab2$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad      7128    6811  0 11:31 pts/0    Ss     0:00 bash
+konrad      7566    7128  0 11:37 pts/0    S+     0:00  \_ /bin/bash ./Zad8.sh
+konrad      7570    7566  0 11:37 pts/0    S+     0:00      \_ bash Zad8.sh
+konrad      7574    7570  0 11:37 pts/0    S+     0:00          \_ bash Zad8.sh
+...
+
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR_LAB/lab2$ kill -9 7566
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR_LAB/lab2$ ps f -ft pts/0
+UID          PID    PPID  C STIME TTY      STAT   TIME CMD
+konrad      7128    6811  0 11:31 pts/0    Ss+    0:00 bash
+konrad      7570    5758  0 11:37 pts/0    S      0:00 bash Zad8.sh
+konrad      7574    7570  0 11:37 pts/0    S      0:00  \_ bash Zad8.sh
+...
+
+
+Po zmniejszeniu maksymalnej ilości procesów użytkownika i przy pomocy skryptu osiągnięciu liczby 
+bliskiej limitowi fork() przestał tworzyć nowe procesy. Zakonczenie sygnalem SIGKILL procesu 
+wywolanego recznie nie spowoduje zakonczenia wszystkich procesow potomnych. Procesy będące 
+bezpośrednimi potomkami unicestwionego procesu zostana adoptowane przez proces glowny uzytkownika 
+i zniszczone powodując adopcję kolejnych procesów, ale tworzenie kolejnych potomków może być 
+szybsze niż usuwanie procesów, a t ouniemożliwić powrót do normalnej pracy.
