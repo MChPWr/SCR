@@ -35,8 +35,8 @@ konrad      7574    7570  0 11:37 pts/0    S      0:00  \_ bash Zad8.sh
 
 
 Po zmniejszeniu maksymalnej ilości procesów użytkownika i przy pomocy skryptu osiągnięciu liczby 
-bliskiej limitowi fork() przestał tworzyć nowe procesy. Zakonczenie sygnalem SIGKILL procesu 
-wywolanego recznie nie spowoduje zakonczenia wszystkich procesow potomnych. Procesy będące 
-bezpośrednimi potomkami unicestwionego procesu zostana adoptowane przez proces glowny uzytkownika 
+bliskiej limitowi fork() przestał tworzyć nowe procesy. Zakończenie sygnalem SIGKILL procesu 
+wywołanego ręcznie nie spowoduje zakończenia wszystkich procesów potomnych. Procesy będące 
+bezpośrednimi potomkami unicestwionego procesu zostana adoptowane przez proces głowny uzytkownika 
 i zniszczone powodując adopcję kolejnych procesów, ale tworzenie kolejnych potomków może być 
-szybsze niż usuwanie procesów, a t ouniemożliwić powrót do normalnej pracy.
+szybsze niż usuwanie procesów, a to może uniemożliwić powrót do normalnej pracy.

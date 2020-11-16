@@ -1,4 +1,4 @@
-Zad 2.
+Zad. 2.
 
 TTY pts/0
 konrad@konrad-Vostro-3500:~$ ps
@@ -49,4 +49,7 @@ konrad@konrad-Vostro-3500:$ ps -u  konrad
    1743 ?        00:00:01 systemd
 ... (pozostałe procesy użytkownika)
 
-Po stworzeniu trzech procesów w pierwszym terminalu sprawdzono, że każdy następny jest potomkiem poprzedniego. Po zabiciu procesu B (tcsh) jego potomek, proces C (ksh) zostal adoptowany przez proces o PID 1743 (systemd - pierwszy proces użytkownika), a nie przez init (PID 1). Nastepnie zostal zniszczony zgodnie z zadadami zdopcji procesów.
+Po stworzeniu trzech procesów w pierwszym terminalu sprawdzono, że każdy następny jest potomkiem 
+poprzedniego. Po zabiciu procesu B (tcsh) jego potomek, proces C (ksh) zostal adoptowany przez 
+proces o PID 1743 (systemd - pierwszy proces użytkownika), a nie przez init (PID 1). Nastepnie 
+zostal zniszczony zgodnie z zasadami adopcji procesów.

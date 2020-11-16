@@ -38,4 +38,9 @@ konrad@konrad-Vostro-3500:~$ kill -14 33458
 konrad@konrad-Vostro-3500:~$ kill -15 33458
 konrad@konrad-Vostro-3500:~$ kill -9 33458
 
-Przed ustawieniem przechwytywania sygnałów program reaguje różnymi komunikatami na kolejne sygnały (w przypadku SIGPIPE przerywa wyświetlanie daty bez komunikatu, w przypadku SIGINT nie reaguje). Po ustawieniu przechwytywania sygnałów od 1 do 15 podane sygnały są przechwytywane przez 'trap' poza sygnałem 9 (SIGKILL), który mimo przechwytywania unicestwia proces. Wymienione sygnały: SIGINT - sygnał przerwania, SIGQUIT - sygnał zakończenia, SIGFPE - sygnał błędu zmiennoprzecinkowaego, SIGILL - sygnał błędnej instrukcji.
+Przed ustawieniem przechwytywania sygnałów program reaguje różnymi komunikatami na kolejne sygnały 
+(w przypadku SIGPIPE przerywa wyświetlanie daty bez komunikatu, w przypadku SIGINT nie reaguje). 
+Po ustawieniu przechwytywania sygnałów od 1 do 15 podane sygnały są przechwytywane przez 'trap' 
+poza sygnałem 9 (SIGKILL), który mimo przechwytywania unicestwia proces. Wymienione sygnały: 
+SIGINT - sygnał przerwania, SIGQUIT - sygnał zakończenia, SIGFPE - sygnał błędu 
+zmiennoprzecinkowaego, SIGILL - sygnał błędnej instrukcji.

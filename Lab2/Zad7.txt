@@ -1,12 +1,44 @@
 Zad. 7.
 
+TTY pts/0
+...
+    PID UŻYTK.    PR  NI    WIRT    REZ    WSP S  %CPU  %PAM     CZAS+ KOMENDA  
+   2735 konrad    20   0 3486416 425396 210780 S   2,3   5,3   1:48.14 firefox  
+   3034 konrad    20   0 2802304 255872 185104 S   2,0   3,2   1:08.58 Web Con+ 
+   1855 konrad    20   0 4361164 242364  95100 S   0,7   3,0   1:33.36 gnome-s+ 
+...
+konrad@konrad-Vostro-3500:~$ ps -l -p 2735
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S  1000    2735    1612  6  80   0 - 871860 poll_s ?       00:02:01 firefox
+konrad@konrad-Vostro-3500:~$ renice -n 10 2735
+2735 (process ID): stary priorytet 0, nowy priorytet 10
+konrad@konrad-Vostro-3500:~$ ps -l -p 2735
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S  1000    2735    1612  6  90  10 - 872116 poll_s ?       00:02:05 firefox
+konrad@konrad-Vostro-3500:~$ sudo renice -n 0 2735
+2735 (process ID): stary priorytet 10, nowy priorytet 0
+konrad@konrad-Vostro-3500:~$ ps -l -p 2735
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S  1000    2735    1612  6  80   0 - 882100 poll_s ?       00:02:12 firefox
+konrad@konrad-Vostro-3500:~$ sudo renice -n -25 2735
+2735 (process ID): stary priorytet 0, nowy priorytet -20
+konrad@konrad-Vostro-3500:~$ ps -l -p 2735
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S  1000    2735    1612  5  60 -20 - 882612 poll_s ?       00:02:26 firefox
+konrad@konrad-Vostro-3500:~$ sudo renice -n 0 2735
+2735 (process ID): stary priorytet -20, nowy priorytet 0
+konrad@konrad-Vostro-3500:~$ ps -l -p 2735
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S  1000    2735    1612  5  80   0 - 882612 poll_s ?       00:02:27 firefox
+
 Wartości priorytetów procesów można sprawdzić używając programu top wyświetlająego poza tym m. in. 
 użytkownika wykorzystującego proces, wykorzystanie CPU i pamięci. Spośród procesów na wyświetlonej 
 liście procesy użytkownika mają priorytet o wartościach od 0 do 20, a procesy jądra mogą też mieć 
 priorytety o wartościach mniejszych od 0. Im mniejsza wartość priorytetu tym większy priorytet. 
 Zmieniając wartości priorytetu przeglądarki firefox poleceniem 'renice -n x numer_procesu', gdzie 
 x oznacza liczbę NICE, a PRIORYTET=20+NICE możliwe było ustawienie wartości liczby NICE -20 lub 
-więcej, a więc wartości procesu 0 lub więcej.
+więcej, a więc wartości procesu 0 lub więcej. Wartość priorytetu równa 0 w programie 'top' 
+odpowiada wartości 60 w poleceniu 'ps'.
 
 Przykładem działania obniżonego priorytetu może być jednoczesne uruchomienie 2 skryptów, ale 
 pierwszy z nich (wyświetlający liczbę '1') ma zminejszoną wartosc priorytetu. Jako pierwszy 
