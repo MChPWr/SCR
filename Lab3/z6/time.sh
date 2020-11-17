@@ -1,5 +1,9 @@
 #!/bin/bash
 
-echo MY PID $$
-sleep 2
+a=1;
+
+while [ $a -le 100000 ] ; do
+	a=$[a + 1]
+	sleep ls
+done
 
