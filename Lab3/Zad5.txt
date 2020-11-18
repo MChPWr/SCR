@@ -1,0 +1,26 @@
+Zad. 5.
+
+Poza podstawowym poleceniem 'strace program' polecenie strace umożliwia lepsze badanie problemów 
+związanych z procesami przez wykorzystanie różnych opcji. Korzystanie z opisanych opcji (flag) 
+programu strace wymaga uprawnień administratora.
+
+Dodanie flagi '-p' i numeru procesu pozwala na śledzenie procesu na podstawie jego PID.
+Dodanie flagi '-c' powoduje wygenerowanie raportu zawierającego czas wywołań, ich liczbę i błędy 
+dotyczące śledzonego procesu.
+Dodanie flagi '-i' dodaje do wyświetlanych informacji wskaźnik na podane wywołanie instrukcji 
+systemowej wywołanej przez program.
+Dodanie flagi '-t' dodaje do wyświetlanych informacji godzinę wywołania każdej instrukcji przez 
+program.
+Dodanie flagi '-T' dodaje do wyświetlanych informacji czas trwania każdego wywołania systemowego 
+wykonanego przez program.
+Dodanie flagi '-e' i rodzaju śledzonych działań programu np. '-e trace=write' powoduje 
+wyświetlenie tylko określonych operacji wykonywanych przez program. Podanie sygnału zamiast 
+rodzaju działań powoduje śledzenie programu pod względem otrzymywania podanego sygnału.
+Dodanie flagi '-r' dodaje do wyświetlanych informacji czas wykonywania każdego wywołania 
+systemowego wykonanego przez program.
+Dodanie flagi '-o' i nazwy pliku tekstowego pozwala na zapis wyników śledzenia do podanego pliku.
+
+W wynikach śledzenia można znaleźć m. in. funkcje mmap() odpowiedzialną za alokację pamięci, 
+read() odpowiedzialną za odczyt danych i write() odpowiedzialną za zapis danych.
+
+
