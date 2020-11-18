@@ -1,0 +1,137 @@
+przechodząc do folderu /proc i używając funkcji ls -la mozemy możemy odczytać infromacje o procesach
+
+dr-xr-xr-x 307 root    root                  0 Nov  3 22:47 .
+drwxr-xr-x  17 root    root               4096 Oct  1 19:07 ..
+dr-xr-xr-x   9 root    root                  0 Nov  3 22:47 1
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 10
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 100
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 1009
+dr-xr-xr-x   9 lagon   lagon                 0 Nov  3 22:47 1012
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1014
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 102
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1027
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1028
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1035
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1037
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 104
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1042
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 105
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 106
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 107
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 107187
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 107225
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1074
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1075
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1076
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 108
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 109
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 11
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 110
+dr-xr-xr-x   9 lagon   lagon                 0 Nov  3 22:48 1101
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 111
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1113
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 112
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1120
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1122
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1129
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 113
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 114
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1142
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1144
+dr-xr-xr-x   9 lagon   lagon                 0 Nov  3 22:48 1148
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 115
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1155
+dr-xr-xr-x   9 lagon   lagon                 0 Nov  3 22:48 1166
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1173
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 118092
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1181
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1198
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 12
+dr-xr-xr-x   9 root    root                  0 Nov 18 17:59 120
+dr-xr-xr-x   9 root    root                  0 Nov  3 22:48 1203
+dr-xr-xr-x   9 lagon   lagon                 0 Nov 18 17:59 1204
+
+
+można w nim np za pomocą cat /proc/stat uzyskać informacje o statucie porcesów
+
+[lagon@maciek-x555ld proc]$ cat /proc/stat
+cpu  12890870 287349 3475206 43535698 601243 725369 526936 0 0 0
+cpu0 3098529 71431 912467 41497604 592147 266944 270769 0 0 0
+cpu1 3335813 72788 858792 632343 3201 147801 78972 0 0 0
+cpu2 3217102 71137 849876 697312 3019 165857 102450 0 0 0
+cpu3 3239425 71992 854069 708438 2874 144765 74744 0 0 0
+intr 597055564 6 152112 0 0 0 0 0 0 1 12859 0 0 42241 0 0 0 0 0 5 41998110 0 0 0 2577333 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8889930 25310 21 181 0 1025 14649359 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ctxt 1464195065
+btime 1604440022
+processes 210811
+procs_running 1
+procs_blocked 0
+softirq 426154898 3777570 33240562 376 53293 8824796 96 45037203 202175647 586161 132459194
+
+dodatkowo mozemy sprawdzić informacje o precesach które sa tu zapisywane w polsraci plików np.
+
+
+[lagon@maciek-x555ld 1]$ pwd
+/proc/1
+[lagon@maciek-x555ld 1]$ ls -la
+ls: cannot read symbolic link 'cwd': Permission denied
+ls: cannot read symbolic link 'root': Permission denied
+ls: cannot read symbolic link 'exe': Permission denied
+total 0
+dr-xr-xr-x   9 root root 0 Nov  3 22:47 .
+dr-xr-xr-x 306 root root 0 Nov  3 22:47 ..
+-r--r--r--   1 root root 0 Nov 18 20:25 arch_status
+dr-xr-xr-x   2 root root 0 Nov 18 20:25 attr
+-rw-r--r--   1 root root 0 Nov 18 20:25 autogroup
+-r--------   1 root root 0 Nov 18 20:25 auxv
+-r--r--r--   1 root root 0 Nov 18 18:01 cgroup
+--w-------   1 root root 0 Nov 18 20:25 clear_refs
+-r--r--r--   1 root root 0 Nov 18 18:01 cmdline
+-rw-r--r--   1 root root 0 Nov 18 18:01 comm
+-rw-r--r--   1 root root 0 Nov 18 20:25 coredump_filter
+-r--r--r--   1 root root 0 Nov 18 20:25 cpu_resctrl_groups
+-r--r--r--   1 root root 0 Nov 18 20:25 cpuset
+lrwxrwxrwx   1 root root 0 Nov 18 20:25 cwd
+-r--------   1 root root 0 Nov 18 18:01 environ
+lrwxrwxrwx   1 root root 0 Nov 18 18:01 exe
+dr-x------   2 root root 0 Nov 18 20:25 fd
+dr-x------   2 root root 0 Nov 18 20:25 fdinfo
+-rw-r--r--   1 root root 0 Nov 18 20:25 gid_map
+-r--------   1 root root 0 Nov 18 20:25 io
+-r--r--r--   1 root root 0 Nov 18 20:25 latency
+-r--r--r--   1 root root 0 Nov 18 20:25 limits
+-rw-r--r--   1 root root 0 Nov 18 18:01 loginuid
+dr-x------   2 root root 0 Nov 18 20:25 map_files
+-r--r--r--   1 root root 0 Nov 18 20:25 maps
+-rw-------   1 root root 0 Nov 18 20:25 mem
+-r--r--r--   1 root root 0 Nov  3 22:47 mountinfo
+-r--r--r--   1 root root 0 Nov 18 20:25 mounts
+-r--------   1 root root 0 Nov 18 20:25 mountstats
+dr-xr-xr-x  59 root root 0 Nov 18 20:25 net
+dr-x--x--x   2 root root 0 Nov 18 20:25 ns
+-r--r--r--   1 root root 0 Nov 18 20:25 numa_maps
+-rw-r--r--   1 root root 0 Nov 18 20:25 oom_adj
+-r--r--r--   1 root root 0 Nov 18 20:25 oom_score
+-rw-r--r--   1 root root 0 Nov 18 19:54 oom_score_adj
+-r--------   1 root root 0 Nov 18 20:25 pagemap
+-r--------   1 root root 0 Nov 18 20:25 personality
+-rw-r--r--   1 root root 0 Nov 18 20:25 projid_map
+lrwxrwxrwx   1 root root 0 Nov 18 20:25 root
+-rw-r--r--   1 root root 0 Nov 18 18:01 sched
+-r--r--r--   1 root root 0 Nov 18 20:25 schedstat
+-r--r--r--   1 root root 0 Nov 18 18:01 sessionid
+-rw-r--r--   1 root root 0 Nov 18 20:25 setgroups
+-r--r--r--   1 root root 0 Nov 18 20:25 smaps
+-r--r--r--   1 root root 0 Nov 18 20:25 smaps_rollup
+-r--------   1 root root 0 Nov 18 20:25 stack
+-r--r--r--   1 root root 0 Nov 18 18:12 stat
+-r--r--r--   1 root root 0 Nov 18 18:12 statm
+-r--r--r--   1 root root 0 Nov 18 18:01 status
+-r--------   1 root root 0 Nov 18 20:25 syscall
+dr-xr-xr-x   3 root root 0 Nov 18 20:25 task
+-rw-r--r--   1 root root 0 Nov 18 20:25 timens_offsets
+-r--r--r--   1 root root 0 Nov 18 20:25 timers
+-rw-rw-rw-   1 root root 0 Nov 18 20:25 timerslack_ns
+-rw-r--r--   1 root root 0 Nov 18 20:25 uid_map
+-r--r--r--   1 root root 0 Nov 18 20:25 wchan
+

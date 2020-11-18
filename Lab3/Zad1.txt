@@ -1,0 +1,38 @@
+ napisano program Skrypt1.cpp i użyto komendy top jak widać ponizej program ten znajduje sie na 1 miejscu listy top
+
+1    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                                         
+ 207536 lagon     20   0    2208    664    588 R  93,8   0,0   0:04.59 app                                                                                             
+   1198 lagon     20   0 3270120  11028   7588 S   6,2   0,1  49:46.35 pulseaudio                                                                                      
+  83316 lagon     20   0  733000 120112  57560 S   6,2   1,0  63:00.23 steam                                                                                           
+      1 root      20   0  175764   7116   5104 S   0,0   0,1   0:19.50 systemd                                                                                         
+      2 root      20   0       0      0      0 S   0,0   0,0   0:00.18 kthreadd                                                                                        
+      3 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 rcu_gp                                                                                          
+      4 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 rcu_par_gp                                                                                      
+      6 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 kworker/0:0H-kblockd                                                                            
+      8 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 mm_percpu_wq                                                                                    
+      9 root      20   0       0      0      0 S   0,0   0,0   1:13.27 ksoftirqd/0                                                                                     
+     10 root      -2   0       0      0      0 S   0,0   0,0   0:00.00 rcuc/0                                                                                          
+     11 root      -2   0       0      0      0 I   0,0   0,0   4:10.58 rcu_preempt                                                                                     
+     12 root      -2   0       0      0      0 S   0,0   0,0   0:00.00 rcub/0                                                                                          
+     13 root      rt   0       0      0      0 S   0,0   0,0   0:00.78 migration/0                                                                                     
+     14 root     -51   0       0      0      0 S   0,0   0,0   0:00.00 idle_inject/0             
+
+nastepnie dodano do petli komende sleep(1) i uzyto komendy top jeszcze raz 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                                                         
+  37247 lagon     20   0   12,6g 627916  70688 S   9,0   5,2 217:32.62 Discord                                                                                         
+    817 root      20   0  662860 222184  83776 S   3,3   1,8 109:46.99 Xorg                                                                                            
+ 207512 lagon     20   0  907524  73348  60444 S   3,3   0,6   0:01.21 konsole                                                                                         
+ 118092 lagon     20   0 3467672 158800  78112 S   3,0   1,3  42:20.63 kwin_x11                                                                                        
+  37155 lagon     20   0  324588  52880  37624 S   2,0   0,4  36:24.57 Discord                                                                                         
+  83316 lagon     20   0  733000 120112  57560 S   1,7   1,0  63:04.66 steam                                                                                           
+  37122 lagon     20   0  628640  97676  53364 S   0,7   0,8  49:39.24 Discord                                                                                         
+  83766 lagon     20   0  434576  99036  55980 S   0,7   0,8   6:44.46 steamwebhelper                                                                                  
+ 156697 lagon     20   0 3168224 200200 121336 S   0,7   1,6   1:57.28 spotify                                                                                         
+     28 root      20   0       0      0      0 S   0,3   0,0   0:51.09 ksoftirqd/2                                                                                     
+   1198 lagon     20   0 3270120  11028   7588 S   0,3   0,1  49:47.05 pulseaudio                                                                                      
+ 166389 lagon     20   0   18,6g 273984 147156 S   0,3   2,3   2:35.20 electron                                                                                        
+      1 root      20   0  175764   7116   5104 S   0,0   0,1   0:19.52 systemd              
+
+jak widać program juz nie jest pierwszy mprogramem na liscie.
+Odświeżanie programu top można zmienić poprzez dodanie -d do komendy np. top -d 0.001s 

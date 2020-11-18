@@ -1,0 +1,18 @@
+
+Tworząc proces A, B i C mozemy zauważyc ze A jest rodzicem B, a B jest rodzicem C 
+
+lagon      15987   14847  0 19:48 pts/2    S+     0:00  \_ /bin/bash ./skrypA.sh
+lagon      15988   15987  0 19:48 pts/2    S+     0:00      \_ /bin/bash ./skrypB.sh
+lagon      15989   15988  0 19:48 pts/2    S+     0:00          \_ /bin/bash ./skrypC.sh
+
+
+Zabijajac prorces B mozemy zauważyć że rodzicielstwo nad skryptem C przemuje proces o numerze 1
+
+lagon      15987   14847  0 19:48 pts/2    S+     0:00  \_ /bin/bash ./skrypA.sh
+lagon      16004   15987  0 19:48 pts/2    S+     0:00      \_ sleep 10m
+lagon      13000   12951  0 16:19 pts/4    Ss+    0:00 /bin/bash
+lagon       2220    1237  0 Nov03 pts/1    Ss+    0:00 /bin/bash
+lagon      15989       1  0 19:48 pts/2    S+     0:00 /bin/bash ./skrypC.sh
+
+czyli proces systemd
+

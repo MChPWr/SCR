@@ -1,0 +1,40 @@
+wykonano programy Skrypt2a.c - Skrypt2d.c i sprawdzono ich reakcje na sygnały 
+
+Skrypt2a.c
+
+kill -SIGUSR2 208433
+przeechwycono sygnał 12 <- odpowiedz terminala po tym program zakonczył prace
+kill -SIGUSR1 208468
+przeechwycono sygnał 10 <- odpowiedz terminala po tym program zakonczył prace
+kill -SIGAlTM 208489
+przeechwycono sygnał 14 <- odpowiedz terminala po tym program zakonczył prace
+kill -SIGTERM 208530
+przeechwycono sygnał 15 <- odpowiedz terminala po tym program zakonczył prace
+
+Skrypt2b.c
+
+kill -SIGUSR2 208596
+przeechwycono sygnał 12 <- odpowiedz terminala po tym program kontynuował prace
+kill -SIGUSR1 208610
+przeechwycono sygnał 10 <- odpowiedz terminala po tym program kontynuował prace
+kill -SIGAlTM 208630
+przeechwycono sygnał 14 <- odpowiedz terminala po tym program kontynuował prace
+kill -SIGTERM 208687
+przeechwycono sygnał 15 <- odpowiedz terminala po tym program kontynuował prace
+
+Skrypt2c.c
+
+kill -SIGUSR2 210123
+przetwarzanie sygnału 
+kill -SIGUSR2 210123
+kill -SIGUSR2 210123 -> sygnał← nie są odbierane przez ok 2s
+Skrypt2d.c
+
+kill -SIGUSR2 209031
+brak komunikatu i zatrzymania programu
+kill -SIGUSR1 209054
+brak komunikatu i zatrzymania programu
+kill -SIGAlTM 209070
+brak komunikatu i zatrzymania programu
+kill -SIGTERM 209073
+brak komunikatu i zatrzymania programu

@@ -1,0 +1,19 @@
+Wykorzystujac skrpyt "skryp5i6" zabadano działanie sygnału SIGSTOP i SIGCONT.
+
+Skrpyt został zatrzymany:
+kill -SIGSTOP 143330
+A następnie wznowiony:
+kill -SIGCONT 143330  
+
+Wyjście terminalu:
+
+Tue Nov 17 07:19:42 AM Poland 2020
+Tue Nov 17 07:19:52 AM Poland 2020
+Tue Nov 17 07:20:02 AM Poland 2020
+
+[1]+  Stopped                 ./skrypt5.sh
+[lagon@maciek-x555ld Lab2]$ Tue Nov 17 07:22:39 AM Poland 2020
+Tue Nov 17 07:22:49 AM Poland 2020
+Tue Nov 17 07:22:59 AM Poland 2020
+
+Mozemy zauważyć, że te sygnały działaja podobnie jak kombinacja klawiszy Ctrl + z i polecenie fg(wznowienie procesu).
