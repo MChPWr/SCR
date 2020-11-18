@@ -15,3 +15,8 @@ $ strace strace -p [numer PID procesu]
 
 lub mozna sledzic procesy potomne
 $ strace -f pwd
+
+
+uwazam ze jedna z najwazniejszych opcji jest znajdownie bugow w programie
+moze posluzyc jako narzedzie diagnostyczne
+
