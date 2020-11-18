@@ -1,0 +1,47 @@
+Po uruchomieniu programu i wywołaniu w nowym terminalu polecenia "top" 
+nasz uruchomiony program był na szczycie listy wykorzystującej zasoby
+
+top - 19:41:12 up  1:23,  1 user,  load average: 2.27, 1.81, 1.69
+Tasks: 295 total,   2 running, 293 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 36.8 us,  3.2 sy,  0.0 ni, 59.6 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st
+MiB Mem :  11884.2 total,   5281.2 free,   3562.5 used,   3040.5 buff/cache
+MiB Swap:  10239.5 total,  10239.5 free,      0.0 used.   7334.1 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                             
+16209 pszydlik  20   0    2348    776    708 R 100.0   0.0   0:38.97 a.out      <<<<<<<<<<<<                                                         
+ 3353 pszydlik  20   0 3218024 608912 149380 S  16.6   5.0  19:56.33 Web Content                                                         
+ 9246 pszydlik  20   0 5082484 395032 109944 S  11.6   3.2  20:51.61 zoom                                                                
+ 2743 pszydlik   9 -11 2730136  19536  15276 S   6.0   0.2   6:07.65 pulseaudio                                                          
+ 2808 pszydlik  20   0 3620988 513208 385904 S   3.7   4.2   7:59.11 gnome-shell 
+
+
+
+ Po dodaniu do kodu dodatkowej komendy usleep(1000) nasz program był teraz co jakiś czas wywłaszczany
+ z wykorzystania procesora i dlatego nie pojawiał się już na szczycie listy top
+
+ top - 19:50:25 up  1:32,  1 user,  load average: 1.40, 1.32, 1.47
+Tasks: 295 total,   1 running, 294 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 19.4 us,  5.7 sy,  0.0 ni, 74.1 id,  0.0 wa,  0.0 hi,  0.8 si,  0.0 st
+MiB Mem :  11884.2 total,   5224.3 free,   3519.9 used,   3140.0 buff/cache
+MiB Swap:  10239.5 total,  10239.5 free,      0.0 used.   7308.3 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND                                                             
+ 7624 pszydlik  20   0   18.6g 257036 108488 S  23.5   2.1   1:40.80 code                                                                
+ 9246 pszydlik  20   0 5082480 395024 109916 S  23.2   3.2  23:10.49 zoom                                                                
+ 2808 pszydlik  20   0 3694832 577988 449848 S  16.9   4.7   8:47.94 gnome-shell                                                         
+ 2743 pszydlik   9 -11 2730136  19536  15276 S  13.2   0.2   7:21.99 pulseaudio                                                          
+ 7596 pszydlik  20   0  324216  82024  58840 S   8.9   0.7   0:28.28 code                                                                
+ 2576 root      20   0  272032 111608  71248 S   8.3   0.9   3:52.81 Xorg                                                                
+ 7566 pszydlik  20   0 4726656 137544  91896 S   6.0   1.1   0:18.40 code                                                                
+ 3292 pszydlik  20   0 3527584 394552 151048 S   3.0   3.2  10:59.42 firefox                                                             
+ 3406 pszydlik  20   0 9148292 212944 103776 S   1.7   1.7   3:00.21 WebExtensions                                                       
+17703 pszydlik  20   0    2348    760    696 S   1.7   0.0   0:00.42 a.out     <<<<<<<<<<<<<<                                                         
+14078 pszydlik  20   0 2698964 234120 109144 S   1.3   1.9   0:55.61 Web Content                                                         
+ 1280 mysql     20   0 2066324 355160  34056 S   0.7   2.9   0:38.26 mysqld                
+
+
+
+
+ Aby zwiększyć częstotliwość odświeżania listy programem top można wykorzystać z opcji -d która pozwala
+ na ustalenie czasu odświeżania w sekundach np:
+ top -d 0.1     -> odświeża listę top co 0.1 sekundy (częstotliwość 10Hz)
