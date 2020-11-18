@@ -1,0 +1,6 @@
+Rzeczywiscie, program dodajacy i wyswietlajacy w nieskonczonej petli i=i+1
+znajduje sie na samej gorze, po odpaleniu programu top.
+Po dodaniu funkcji ktora usypia watek na 100ms, program a.out przestal sie
+wyswietlac na szczycie programu top. Nawet gdy uruchomimy go z parametrem
+-d 0.01. Jednakze przez tak czeste odswiezanie, program top zaczal sie wyswietlac
+na szczycie pod wzgledem zuzycia.

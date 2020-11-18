@@ -1,0 +1,6 @@
+Polecenie strace sluzy do obserwowania interakcji procesu z systemem operacyjnym
+mozemy z jego pomoca monitorowac wywolania systemowie i sygnaly.
+Deweloperzy uwazaja, ze jest to dobre narzedzie do debugowania i diagnostyki
+oprogramowania. Wedlug opisu w manualu linuxa, program ten moze byc wykorzystawany przez hackerow
+bo sledzenie interakcji miedzy nawet blahym procesem a systemem moze zapewnic wiele informacji
+na temat systemu.

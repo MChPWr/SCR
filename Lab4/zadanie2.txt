@@ -1,0 +1,6 @@
+Do programu z zadania 1. Zostaly zaimplementowane signal handlery.
+Dla sygnalu kill, zostaje wyswietlony komunikat o konczeniu programu.
+Dla sygnalu kill -14 (SIGALRM) zostaje wyswietlony komunikat alarmowy.
+Dla sygnalu kill -10 (SIGUSR1) zostaje wyswietlony komunikat o wstrzymaniu
+pracy programu na 10 iteracji (= 10s) i pominieciu ich.
+Dla sygnalu kill -12 (SIGUSR2) nic sie nie dzieje.

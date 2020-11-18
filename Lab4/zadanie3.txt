@@ -1,0 +1,6 @@
+W zadaniu trzecim, mielismy sie zapoznac z pseudo systemem plikow proc.
+Jest to tzw. first tier directory linuxa, znajduja sie tam katalogi, ktorych
+nazwa odpowiada pid uruchomionego procesu. Wsrod katalogow znajduja sie pliki,
+ktore po odczytaniu moga nam zdradzic rozne informacje na temat procesu, w ktorego
+katalogu sie znajdujemy. np. liczbe syscw - czyli liczbe wywolan systemowych
+zwiazanych z zapisem.
