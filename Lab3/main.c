@@ -1,12 +1,18 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <signal.h>
 
-int main(void){
+void sig_(int sig_num){
+	printf("Signal occured\n");
+}
 
+int main(){
+	signal(SIGALRM, sig_);
+	
 	int i = 0;
-
 	while(1){
 		++i;
-		sleep(0.10);
+		sleep(0.1);
 	}
+	return 0;
 }
