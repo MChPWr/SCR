@@ -1,0 +1,8 @@
+Terminale odczytują informacje losowo.
+
+Zamknięcie terminali:
+
+Terminale czytające zamkną się, jesli terminale piszące zostaną zamknięte.
+Terminale piszące nie zamkną się.
+W momencie bezczynności terminali piszących, terminale czytające czekają na
+informacje.

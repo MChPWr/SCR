@@ -1,0 +1,7 @@
+Uruchomienie procesów w hierarchii podanej w instrukcji, i wyświetlenie
+infromacji o procesach poleceniem ps -f wyświetla informacje o PID (id procesu)
+oraz PPID (id procesu "rodzica"). Każdy proces, który był uruchamiany przez
+inny proces posiada PPID tego procesu.
+
+Bo "zabiciu" procesu w środku poleceniem "kill -9 $PPID", powoduje, że proces
+potomny zostaje adoptowany przez zupełnie inny proces.
