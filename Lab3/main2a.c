@@ -4,6 +4,7 @@
 
 void sig_(int sig){
 	printf("Otrzymano sygnał\n");
+	exit(0);
 }
 
 int main(){
