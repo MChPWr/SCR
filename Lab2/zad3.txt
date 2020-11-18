@@ -1,0 +1,12 @@
+Stworzyłem skrypt skryptz3.sh i odpaliłem go w następujący sposób:
+
+./skryptz3.sh|grep cos1|grep cos2
+
+mozemy zauważyc że wszystkie lementy potoku są dziećmi basha
+
+lagon      14847  0.0  0.0  11100  5440 pts/2    Ss   17:52   0:00 /bin/bash --> bash
+
+lagon      16116   14847  0 19:57 pts/2    S+     0:00  \_ /bin/bash ./skryptz3.sh  --> potok
+lagon      16120   16116  0 19:57 pts/2    S+     0:00  |   \_ sleep 10s
+lagon      16117   14847  0 19:57 pts/2    S+     0:00  \_ grep --colour=auto cos1  --> potok
+lagon      16118   14847  0 19:57 pts/2    S+     0:00  \_ grep --colour=auto cos2  --> potok

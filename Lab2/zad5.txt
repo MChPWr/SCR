@@ -1,0 +1,23 @@
+Napisano skrypt (skrypt5i6.sh) a następnie sprawdzono działanie sygnałów kill (SIGINT, SIGQUIT ,SIGKILL, SIGFPE, SIGILL) 
+działenie poszzcególnych sygnał:
+SIGINT - syggnał zabija proces wyświetlając komunikat Terminated
+SIGQUIT - sygnał zabija proces wyświetlając komunikat Terminated
+SIGKILL - zabija proces
+SIGFPE - sygnał informuje o błędzie w sprzęcie uzywanym przez proces, wyświetla Floating point exception (core dumped) i zamyka proces.
+SIGILL - sygnał informujący o niedozwolonej operacji. wyświetla Illegal instruction (core dumped) i zamyka proces.
+
+
+Następnie rozbudowano skrypt o komende trap dla tych sygnałów.
+Następnie powtórzono użycie sygnałów kill z następujacym efektem:
+
+Tue Nov 17 07:07:47 AM Poland 2020
+Tue Nov 17 07:07:57 AM Poland 2020
+Tue Nov 17 07:08:07 AM Poland 2020
+SIGINT
+Tue Nov 17 07:08:17 AM Poland 2020
+SIGQUIT
+SIGFPE
+Tue Nov 17 07:08:27 AM Poland 2020
+Killed
+
+Mozemy wiec zauważyć, że jedynym sygnałem którego nie przechwyciła funkcja trap i który sie wykonał jest funkcja SIGKILL 

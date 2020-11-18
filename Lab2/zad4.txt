@@ -1,0 +1,2 @@
+System przydziela dane z pliku w sposób losowy.
+Zabijając porcesy czytające procesy piszące otzrymujemy komunikat SIGPIPE, a jeśli zabijemy procesy piszące to procesy czytające otrzymają 0 na wejście.
