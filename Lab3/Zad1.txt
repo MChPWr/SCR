@@ -1,0 +1,49 @@
+Zad. 1.
+
+Przed dodaniem opóźnienia:
+TTY pts/1
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ top
+
+top - 19:28:12 up  3:19,  1 user,  load average: 2,81, 2,51, 2,02
+Zadania:razem: 235, działających:   7, śpiących: 228, zatrzymanych:   0, zombie:   0
+%CPU: 38,9 uż, 39,6 sy,  0,0 ni, 20,9 be,  0,4 io,  0,0 hi,  0,2 si,  0,0 sk
+MiB RAM :   7824,9 razem,   3174,9 wolne,   2395,7 użyte,   2254,3 buf/cache
+MiB Swap:   2048,0 razem,   2048,0 wolne,      0,0 użyte.   4669,4 dost. RAM 
+
+    PID UŻYTK.    PR  NI    WIRT    REZ    WSP S  %CPU  %PAM     CZAS+ KOMENDA                       
+   8950 konrad    20   0    2488    588    520 R  79,5   0,0   0:04.63 a.out                         
+   5664 konrad    20   0  827744  62076  41396 S  62,6   0,8   1:24.67 gnome-terminal-               
+   4443 konrad    20   0 5607008 608136 125176 R  41,4   7,6  77:54.00 zoom                          
+   1844 konrad    20   0 4442692 278280 104268 R  20,5   3,5  18:53.34 gnome-shell                   
+   4998 konrad    20   0 9164976 361956 140940 S  15,9   4,5   2:13.14 Web Content                   
+   1690 konrad    20   0  818556 108344  75636 R  12,6   1,4  10:54.20 Xorg                          
+...
+
+Po dodaniu opóźnienia i przejściu na koniec listy programu top:
+TTY pts/1
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ top -u konrad
+
+top - 19:37:04 up  3:28,  1 user,  load average: 1,54, 1,61, 1,80
+Zadania:razem: 235, działających:   1, śpiących: 234, zatrzymanych:   0, zombie:   0
+%CPU: 12,3 uż,  5,6 sy,  0,0 ni, 81,6 be,  0,0 io,  0,0 hi,  0,6 si,  0,0 sk
+MiB RAM :   7824,9 razem,   3158,6 wolne,   2411,6 użyte,   2254,6 buf/cache
+MiB Swap:   2048,0 razem,   2048,0 wolne,      0,0 użyte.   4653,6 dost. RAM 
+
+    PID   UŻYTK.  PR  NI    WIRT    REZ    WSP S  %CPU  %PAM     CZAS+                       KOMENDA 
+   8024   konrad  20   0 2448924 144600 102796 S   0,0   1,8   0:08.27                   Web Content 
+   8424   konrad  20   0   14700   6440   3604 S   0,0   0,1   0:00.09                          bash 
+   8623   konrad  20   0 2394656  82792  66236 S   0,0   1,0   0:00.64                   Web Content 
+   8788   konrad  20   0   13668   5352   3476 S   0,0   0,1   0:00.10                          bash 
+   8866   konrad  20   0   13404   5252   3556 S   0,0   0,1   0:00.05                          bash 
+   9039   konrad  20   0    2488    516    452 S   0,0   0,0   0:00.00                         a.out 
+...
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ top -u konrad -d 0.1
+...
+
+
+Bez implementacji opóźnienia w pętli programu program znajduje się wysoko na liście programu top
+zajmując około 80% zasobów procesora. Dodanie opóźnienia 100ms spowodowało pojawienie się programu 
+na końcu listy programu top z niemal zerowym zużyciem zasobów procesora. Przy pomocy opcji '-d' 
+zmieniono częstotliwości odświerzania programu top z domyślnych 3 sekund do 0.1 sekundy. Nie 
+zmieniło to faktu, że program użytkownika z opóźnieniem 100 ms znajdował się na końcy listy 
+procesów. Załączono program po dodaniu opóźnienia.

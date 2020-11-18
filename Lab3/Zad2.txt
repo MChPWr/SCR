@@ -1,0 +1,97 @@
+Zad. 2.
+
+TTY pts/0
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ gcc Zad2.c -lrt
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ./a.out 
+9210 1
+9210 2
+...
+9210 113
+komunikat i zakonczenie sygnalem 15
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ./a.out 
+9217 1
+9217 2
+...
+9217 133
+9217 134
+komunikat - sygnal 10
+9217 135
+9217 136
+...
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ./a.out 
+9228 1
+9228 2
+...
+9228 158
+9228 159
+9228 160
+wstrzymanie odbierania 18
+9228 161
+9228 162
+9228 163
+9228 164
+9228 165
+9228 166
+9228 167
+9228 168
+9228 169
+9228 170
+9228 171
+9228 172
+wznowienie odbierania blokowanego sygnalu sygnalem 14
+9228 173
+9228 174
+...
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ./a.out 
+9234 1
+9234 2
+...
+9234 103
+9234 104
+9234 105
+9234 106
+9234 107
+9234 108
+9234 109
+9234 110
+9234 111
+9234 112
+9234 113
+9234 114
+9234 115
+9234 116
+9234 117
+9234 118
+9234 119
+9234 120
+9234 121
+9234 122
+^C
+...
+
+
+TTY pts/1
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGTERM 9210
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGUSR1 9217
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGCONT 9228
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGCONT 9228
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGCONT 9228
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGCONT 9228
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGUSR2 9234
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGUSR2 9234
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -SIGUSR2 9234
+...
+
+Uwaga: Do badania punktu (c) wykorzystano też sygnał SIGCONT, a sygnał SIGALARM jest 
+wykorzystywany do obsługi timera.
+Program reaguje na sygnały zgodnie z poleceniem tj. sygnał SIGTERM powoduje wyświetlenie 
+komunikatu i zakończenie programu, sygnał SIGUSR1 powoduje wyświetlenie komunikatu i 
+kontynuowanie programu, sygnał SIGCONT powoduje wstrzymanie odbierania tego sygnału przez 
+określony czas (określony czas jest liczony przez timer wysyłający do programu sygnał SIGALRM, 
+przez który wywoływane jest zakończenie blokady), sygnał SIGUSR2 jest ignorowany. Istotne 
+opóźnienie jest widoczne, gdy sygnał jest ignorowany od punktu 160 , awznawia pracę od punktu 172.
+Funkcje catch*() odpowiadają za porzechwytywanie sygnałów i reakcję na nie. Przy kompilacji 
+należy użyć flagi '-lrt', aby kompilator rozpoznał funkcje obsługujące timer. Osobno załączono 
+plik z programem do zadania.
+
+
