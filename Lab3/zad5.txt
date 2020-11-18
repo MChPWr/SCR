@@ -1,0 +1,17 @@
+
+
+polecenie strace na linuxie
+
+korzysta sie z niego aby sprawdzic interacje danego programu z systemem operacyjnym
+
+lub podstawowy podglad polecen systemowych
+strace [polecenie]
+
+lub wyswietlenie logow tylko jednego polecenia systemowego
+strace -e trace=[nazwa polecenia systemowego] [polecenie]
+
+lub mozna sie tez podlaczyc do istniejacego procesu
+$ strace strace -p [numer PID procesu]
+
+lub mozna sledzic procesy potomne
+$ strace -f pwd
