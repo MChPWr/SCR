@@ -1,0 +1,10 @@
+Wartosci priorytetow i liczby nice mozna sprawdzic za pomoca programu top lub jego ulepszonej wersji htop.
+Priorytety przyjmuja wartosci od -20 do 20(gdzie -20 to najwyzszy priorytet).
+Aby zmienic priorytet dzialajacego procesu trzeba zmodyfikowac go za pomoca liczby nice.
+Mozna to zrobic za pomoca polecenia np. renice -n -10 23033.
+
+W moim przypadku jest to program SublimeText wlaczany domyslnie z priorytetem rownym 20. 
+Poleceniem renice ustawiamy liczbe nice, ktora wpylywa na priorytet i okresla sie to rownaniem: PR = PR_domyslne + NI, gdzie NI moze byc liczba ujemna.
+W przypadku mojego testowania polecenia renice bylem w stanie wyjsc poza zakres z gory i priorytet wynosil wiecej niz 20 lecz nie chcial zejsc ponizej zera. Minimalnie liczba nice wynosila -20 nawet przy wpisaniu mniejszej liczby.
+
+Warto zaznaczyc, zeby zwiekszyc priorytet(ujemna liczba nice) trzeba posiadac uprawnienia roota. 

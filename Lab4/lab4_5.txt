@@ -1,0 +1,6 @@
+strace - narzedzie do sledzenia wywolan funkcji wewnatrz sledzonego programu oraz sygnalow do niego wysylanych. Strace sledzi wywolania funkcji systemowych.
+Po wywolaniu strace polecenie otrzymuje sie na ekranie za pomoca stderr.
+Najwiekszym jego mankamentem jest ilosc wysylanych informacji oraz problem z odnalezieniem tych istotnych.
+
+Narzedzie to moze zliczac i mierzyc czas poszczegolnych wywolan.
+Mozna je uruchomic razem z jakims programem lub dopiero do dzialajacego programu je zalaczyc.
