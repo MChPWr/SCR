@@ -10,12 +10,28 @@ void podpunktA()
 }
 
 
+void podpunktB()
+{
+	printf("podpunkt b.)\n");
+}
 
+
+void podpunktC()
+{
+	printf("podpunkt c.)\n");
+	for (int i = 0; i < 100; i++)
+	{
+		printf("%d \n", i);
+		sleep(1);
+	}
+}
 
 
 int main()
 {
 	signal(SIGTERM, podpunktA);
+	signal(SIGALRM, podpunktB);
+	signal(SIGUSR1, podpunktC);
 
 	int i=0;
 
