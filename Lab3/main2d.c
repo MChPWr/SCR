@@ -2,15 +2,11 @@
 #include <unistd.h>
 #include <signal.h>
 
-void sig_(int sig){
-	return;
-}
-
 int main(){
-	signal(SIGALRM, sig_);
-	signal(SIGTERM, sig_);
-	signal(SIGUSR1, sig_);
-	signal(SIGUSR2, sig_);
+	signal(SIGALRM, SIG_IGN);
+	signal(SIGTERM, SIG_IGN);
+	signal(SIGUSR1, SIG_IGN);
+	signal(SIGUSR2, SIG_IGN);
 		
 	int i = 0;
 	while(1){

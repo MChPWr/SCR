@@ -2,13 +2,16 @@
 #include <unistd.h>
 #include <signal.h>
 
+void def_(int sig){
+	return;
+}
+
 void sig_(int sig){
-	int a = 0;
-	while(a <= 1000){
-		++a;
-		sleep(0.1);
+	printf("Zatrzymanie \n");
+	for(int a = 0; a < 1000; a++){
+		sleep(1);
 	}
-	printf("Otrzymano\n");
+
 }
 
 int main(){
