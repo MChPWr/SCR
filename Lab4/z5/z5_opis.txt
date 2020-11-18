@@ -1,0 +1,8 @@
+Za pomocą programu strace możemy monitorować procesy i narzędzia diagnostyczne. Pozwala to na debuggowanie programów, śledzenie sygnałów itp.
+
+Na pierwszym screenie przykład zliczania wywołania polecenia ls.
+Na drugim screenie sprawdzenie wywołania systemowego write komendą ls.
+
+Przydatne flagi:
+-t, -T parametry czasowe
+-o zapis do pliku tekstowego tego co zwróci strace
