@@ -1,0 +1,31 @@
+Napisałem program wywołujący handler dla wymienionych sygnałów, który ma postać
+
+void handle_some_signals(int sig) 
+{ 
+    switch (sig)
+    {
+    case SIGALRM:
+        printf("Odebrano SIGALRM \n");
+        exit(0);
+        break;
+    case SIGTERM:
+        printf("Odebrano SIGTERM");
+        break;
+    case SIGUSR1:
+        for(int j=0; j<1000;j++);
+        break;
+    case SIGUSR2:
+        
+        break;
+    
+    default:
+        break;
+    }
+} 
+
+
+Jak widać po przekierowaniu sygnału funkcją signal() z funkcji main program wchodzi do powyższego handlera
+Dla przypadku a) czyli sygnału SIGALRM program wypisuje wiadomość "Odebrano SIGALRM" a następnie kończy pracę.
+Dla b) czyli SIGTERM program jedynie wyświetla wiadomość "Odebrano SIGTERM" a następnie konynuuje pracę
+Dla c) czyli SIGUSR1 program wykonuje pętle for powtarzaną 1000 razy a potem wraca do pracy
+Dla d) czyli SIGUSR2 program po prostu ignoruje sygnał i wychodzi z handlera
