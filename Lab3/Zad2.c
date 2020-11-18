@@ -65,4 +65,4 @@ int main() {
         nanosleep(&opoznij, (struct timespec *)NULL);
     } 
     return 0;
-}
+} 

@@ -46,4 +46,4 @@ zajmując około 80% zasobów procesora. Dodanie opóźnienia 100ms spowodowało
 na końcu listy programu top z niemal zerowym zużyciem zasobów procesora. Przy pomocy opcji '-d' 
 zmieniono częstotliwości odświerzania programu top z domyślnych 3 sekund do 0.1 sekundy. Nie 
 zmieniło to faktu, że program użytkownika z opóźnieniem 100 ms znajdował się na końcy listy 
-procesów. Załączono program po dodaniu opóźnienia.
+procesów. Załączono program po dodaniu opóźnienia. 

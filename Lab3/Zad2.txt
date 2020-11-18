@@ -93,5 +93,5 @@ opóźnienie jest widoczne, gdy sygnał jest ignorowany od punktu 160 , awznawia
 Funkcje catch*() odpowiadają za porzechwytywanie sygnałów i reakcję na nie. Przy kompilacji 
 należy użyć flagi '-lrt', aby kompilator rozpoznał funkcje obsługujące timer. Osobno załączono 
 plik z programem do zadania.
-
+ 
 
