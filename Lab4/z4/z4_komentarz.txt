@@ -1,0 +1,3 @@
+W jednym terminalu uruchomiłem napisany do zadania skrypt. W drugim terminalu wszedłem do katalogu proc, a następnie wyświetliłem status działającego procesu.
+
+Z SigCgt można odczytać liczbę szesnastkową i po zmianie jej na liczbę binarną można wywnioskować, które sygnały są przechwytywane.
