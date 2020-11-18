@@ -23,4 +23,4 @@ Dodanie flagi '-o' i nazwy pliku tekstowego pozwala na zapis wyników śledzenia
 W wynikach śledzenia można znaleźć m. in. funkcje mmap() odpowiedzialną za alokację pamięci, 
 read() odpowiedzialną za odczyt danych i write() odpowiedzialną za zapis danych.
 
-
+ 
