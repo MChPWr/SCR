@@ -7,6 +7,7 @@ int main()
 
 	while(1){
 		i++;
+		sleep(1);
 	}	
 
 	return 0;
