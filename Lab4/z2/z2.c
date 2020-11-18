@@ -26,12 +26,15 @@ void podpunktC()
 	}
 }
 
+void podpunktD(){}
+
 
 int main()
 {
 	signal(SIGTERM, podpunktA);
 	signal(SIGALRM, podpunktB);
 	signal(SIGUSR1, podpunktC);
+	signal(SIGUSR2, podpunktD);
 
 	int i=0;
 
