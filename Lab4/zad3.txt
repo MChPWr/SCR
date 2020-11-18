@@ -1,0 +1,131 @@
+Po wejściu w katalog /proc i wyświetlaniu jego zawartości otrzymałam: 
+patrycja@patrycja-VirtualBox:~$ cd /proc
+patrycja@patrycja-VirtualBox:/proc$ ls
+1     1413  1630  1858   281    5068  6795  9100         locks
+10    1414  1636  1882   2832   509   6805  93           mdstat
+102   1421  1646  1883   2895   510   6815  965          meminfo
+105   1422  1657  19     2977   5106  70    acpi         misc
+11    1424  1673  2      3      512   71    asound       modules
+1167  1428  1679  20     300    517   72    buddyinfo    mounts
+118   1430  1695  20083  30019  522   73    bus          mtrr
+1192  1431  1697  21     3089   5294  74    cgroups      net
+12    1469  1699  22     31168  531   75    cmdline      pagetypeinfo
+1212  1471  17    23     31393  544   76    consoles     partitions
+1215  1483  1700  2326   31406  5445  77    cpuinfo      pressure
+1221  1486  1703  2330   31479  545   7719  crypto       sched_debug
+1224  1491  1711  2341   3161   546   7730  devices      schedstat
+1226  15    1714  2343   3166   5469  7742  diskstats    scsi
+1230  1502  1715  2365   318    547   7757  dma          self
+1234  1509  1717  24     31877  5476  78    driver       slabinfo
+1239  1524  1719  2402   32024  548   81    execdomains  softirqs
+1252  1530  1723  2406   32091  554   82    fb           stat
+1263  1533  1728  2449   32121  5550  84    filesystems  swaps
+1267  1539  1735  2453   32151  560   842   fs           sys
+1271  1545  1738  2455   32228  578   85    interrupts   sysrq-trigger
+1276  1548  1740  2459   32430  6     8503  iomem        sysvipc
+1281  1557  1749  2462   32448  607   86    ioports      thread-self
+1285  1559  1751  2464   32459  610   8634  irq          timer_list
+1289  1570  1767  248    3572   616   87    kallsyms     tty
+1296  1576  1776  2486   4      6480  88    kcore        uptime
+13    1582  1778  249    468    6594  8811  keys         version
+1318  159   1784  250    473    6595  8829  key-users    version_signature
+1396  1598  18    256    475    6601  89    kmsg         vmallocinfo
+1397  16    1816  258    477    6622  8922  kpagecgroup  vmstat
+14    161   183   2581   478    6624  9     kpagecount   zoneinfo
+1406  1613  184   259    496    6629  904   kpageflags
+1407  163   1855  263    500    6784  91    loadavg
+
+Te pliki tworzą się podczas uruchamiania systemu i mamy do nich dostęp. Można je przeglądać i znaleźć wiele ciekawych informacji. Np. można zajrzeć do pliku status:
+patrycja@patrycja-VirtualBox:/proc$ cat /proc/stat
+cpu  321344 5090 71516 918831 5907 0 1940 0 0 0
+cpu0 321344 5090 71516 918831 5907 0 1940 0 0 0
+intr 5815732 29 23177 0 0 0 0 0 0 0 0 0 0 19082 0 0 13839 0 0 71142 232328 217604 573918 28 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ctxt 25678443
+btime 1605713387
+processes 32632
+procs_running 2
+procs_blocked 0
+softirq 3318947 3 1315933 2587 234719 644378 0 18357 0 0 1102970
+
+Lub do pliku meminfo:
+patrycja@patrycja-VirtualBox:/proc$ cat /proc/meminfo
+MemTotal:        2035504 kB
+MemFree:          153912 kB
+MemAvailable:     512928 kB
+Buffers:           70628 kB
+Cached:           479768 kB
+SwapCached:        22352 kB
+Active:          1156848 kB
+Inactive:         504268 kB
+Active(anon):     877008 kB
+Inactive(anon):   318436 kB
+Active(file):     279840 kB
+Inactive(file):   185832 kB
+Unevictable:          16 kB
+Mlocked:              16 kB
+SwapTotal:        752960 kB
+SwapFree:           5072 kB
+Dirty:              2412 kB
+Writeback:             0 kB
+AnonPages:       1088672 kB
+Mapped:           336576 kB
+Shmem:             84764 kB
+KReclaimable:      49792 kB
+Slab:             129016 kB
+SReclaimable:      49792 kB
+SUnreclaim:        79224 kB
+KernelStack:       10588 kB
+PageTables:        37532 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1770712 kB
+Committed_AS:    7501416 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       35792 kB
+VmallocChunk:          0 kB
+Percpu:              728 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:      206784 kB
+DirectMap2M:     1890304 kB
+
+Lub plik z informacjami o procesorze:
+patrycja@patrycja-VirtualBox:/proc$ cat /proc/cpuinfo
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 142
+model name	: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz
+stepping	: 12
+cpu MHz		: 1799.998
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq monitor ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single fsgsbase avx2 invpcid rdseed clflushopt md_clear flush_l1d arch_capabilities
+bugs		: spectre_v1 spectre_v2 spec_store_bypass swapgs itlb_multihit srbds
+bogomips	: 3599.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:

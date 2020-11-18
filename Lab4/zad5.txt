@@ -1,0 +1,11 @@
+Polecenie 'strace' śledzi wywołania systemowe oraz sygnały w procesie i może zliczać oraz mierzyć czas wywołań. 
+
+
+strace [polecenie] - uruchomienie procesu i podstawowy podgląd poleceń systemowych
+strace -o [plik wyjściowy] [polecenie] - zapis logów do pliku
+sudo strace -p [numer PID procesu] - podłączanie się do istniejącego procesu
+sudo strace -f [polecenie] - śledzenie procesów potomnych
+strace -fe trace=execve [polecenie] - sprawdzanie jakie inne programy otwiera proces
+strace -T [polecenie] - dołączenie czasu trwania wywołań systemowych
+strace -r [polecenie] - dołączenie względnego czasu wywołań systemowych
+strace -c [polecenie] - raport z czasu spędzonego na poszczególnych wywołaniach systemowych

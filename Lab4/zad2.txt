@@ -1,0 +1,11 @@
+Wywołanie programu: 
+patrycja@patrycja-VirtualBox:~/Pulpit/SCR_p$ ./a.out
+Sygnał 14 przechwycony
+patrycja@patrycja-VirtualBox:~/Pulpit/SCR_p$ ./a.out
+Sygnał 12 przechwycony
+Kontynuję
+
+SIGALRM wyświetlenie komunikatu i powrót do wykonywania programu
+SIGTERM wyświetlenie komunikatu i zakończenie pracy programu
+SIGUSR1 całkowite ignorowanie sygnału
+SIGUSR2 wstrzymywanie odebrania sygnału i następnie wznowienie odebrania sygnału
