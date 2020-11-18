@@ -1,0 +1,58 @@
+Napisałam program zad1.c bez opóźnienia, skompilowałam i uruchomiłam go (a.out), sprawdziłam, że po wpisaniu w okno terminala polecenia 'top' program ten znajduje się na pierwszym miejscu. 
+
+top - 19:12:24 up  2:02,  1 user,  load average: 5,59, 2,59, 1,55
+Zadania:razem: 245, działających:   3, śpiących: 217, zatrzymanych:   2, zombie:
+%CPU: 83,1 uż, 13,9 sy,  2,6 ni,  0,0 be,  0,0 io,  0,0 hi,  0,3 si,  0,0 sk
+MiB RAM :   1987,8 razem,     65,4 wolne,   1408,5 użyte,    513,9 buf/cache
+MiB Swap:    735,3 razem,      0,0 wolne,    735,3 użyte.    355,2 dost. RAM 
+
+    PID UŻYTK.    PR  NI    WIRT    REZ    WSP S  %CPU  %PAM     CZAS+ KOMENDA  
+  25163 patrycja  20   0    2356    584    520 R  63,6   0,0   1:24.44 a.out    
+  26327 root      20   0   56176  46888   2748 S  10,6   2,3   0:06.06 dpkg     
+  27774 patrycja  39  19  760896  35300  23864 S   3,6   1,7   0:00.11 tracker+ 
+  27126 patrycja  20   0  437716  28028  15948 S   2,0   1,4   0:00.20 tracker+ 
+   1882 patrycja  20   0 1057280  59032  13152 S   1,3   2,9   0:44.22 snap-st+ 
+   1598 patrycja  20   0 3843272 231700  52036 S   1,0  11,4   4:02.62 gnome-s+ 
+   6480 patrycja  20   0 1238920 125100  34888 S   1,0   6,1   1:01.07 chrome   
+     81 root      20   0       0      0      0 S   0,7   0,0   0:16.20 kswapd0  
+    163 root       0 -20       0      0      0 I   0,7   0,0   0:07.42 kworker+ 
+   1224 patrycja  39  19  514068   7308   4980 S   0,7   0,4   0:00.34 tracker+ 
+   1281 patrycja  20   0  331992  85008  34096 S   0,7   4,2   1:28.41 Xorg     
+   4756 patrycja  20   0  971512  24628  13800 S   0,7   1,2   0:10.19 gnome-t+ 
+   6795 patrycja  20   0 5472100  60836  46188 S   0,7   3,0   0:02.95 chrome   
+  24855 root      20   0  403548  60540   9152 S   0,7   3,0   0:06.57 package+ 
+     10 root      20   0       0      0      0 S   0,3   0,0   0:03.99 ksoftir+ 
+    183 root      20   0       0      0      0 S   0,3   0,0   0:01.29 jbd2/sd+ 
+   1212 patrycja  20   0   20784   4544   3360 S   0,3   0,2   0:00.59 systemd 
+   
+   
+   
+   
+Następnie zmodyfikowałam kod o opóźnienie sleep(1). Sprawdzając komendą 'top' można zauważyć, że nie widnieje on już na pierwszym miejscu, nie ma go w ogóle. 
+
+top - 19:19:17 up  2:09,  1 user,  load average: 0,32, 1,36, 1,42
+Zadania:razem: 239, działających:   1, śpiących: 213, zatrzymanych:   2, zombie:
+%CPU:  3,7 uż,  2,0 sy,  0,0 ni, 94,3 be,  0,0 io,  0,0 hi,  0,0 si,  0,0 sk
+MiB RAM :   1987,8 razem,    125,2 wolne,   1284,4 użyte,    578,2 buf/cache
+MiB Swap:    735,3 razem,      1,9 wolne,    733,4 użyte.    469,7 dost. RAM 
+
+    PID UŻYTK.    PR  NI    WIRT    REZ    WSP S  %CPU  %PAM     CZAS+ KOMENDA  
+   1598 patrycja  20   0 3843304 225152  45036 S   1,3  11,1   4:20.71 gnome-s+ 
+   1281 patrycja  20   0  340184  86888  35596 S   1,0   4,3   1:35.59 Xorg     
+   4756 patrycja  20   0  971680  22264  11276 S   0,7   1,1   0:12.31 gnome-t+ 
+   5550 patrycja  20   0   12,3g 150940  36884 S   0,7   7,4   2:50.26 Discord  
+  29873 patrycja  20   0   14636   4044   3240 R   0,7   0,2   0:00.05 top      
+   1221 patrycja   9 -11 2795788   8612   6516 S   0,3   0,4   0:07.56 pulseau+ 
+   1414 patrycja  20   0  157856    368    368 S   0,3   0,0   0:20.52 VBoxCli+ 
+   1559 patrycja  20   0  162904   2664   2348 S   0,3   0,1   0:00.28 at-spi2+ 
+   5294 patrycja  20   0  844752  42116   8104 S   0,3   2,1   0:51.91 Discord  
+   8829 root      19  -1  329948  48568  47336 S   0,3   2,4   0:04.80 systemd+ 
+      1 root      20   0  169064   5688   2068 S   0,0   0,3   0:09.40 systemd  
+      2 root      20   0       0      0      0 S   0,0   0,0   0:00.00 kthreadd 
+      3 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 rcu_gp   
+      4 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 rcu_par+ 
+      6 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 kworker+ 
+      9 root       0 -20       0      0      0 I   0,0   0,0   0:00.00 mm_perc+ 
+     10 root      20   0       0      0      0 S   0,0   0,0   0:04.12 ksoftir+
+     
+Częstotliwość odświeżania można zwiększyć dodając flagę -d, czyli 'top -d 0.1' 
