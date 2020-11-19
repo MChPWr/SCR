@@ -1,0 +1,93 @@
+a) wykonanie się polecenia hello world
+
+    pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab3$ strace ./a.out
+    execve("./a.out", ["./a.out"], 0x7ffee357c820 /* 72 vars */) = 0
+    brk(NULL)                               = 0x55833a390000
+    arch_prctl(0x3001 /* ARCH_??? */, 0x7ffdbcfec520) = -1 EINVAL (Invalid argument)
+    access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+    openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 6
+    fstat(6, {st_mode=S_IFREG|0644, st_size=118032, ...}) = 0
+    mmap(NULL, 118032, PROT_READ, MAP_PRIVATE, 6, 0) = 0x7f6475e4a000
+    close(6)                                = 0
+    openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 6
+    read(6, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360r\2\0\0\0\0\0"..., 832) = 832
+    lseek(6, 64, SEEK_SET)                  = 64
+    read(6, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784) = 784
+    lseek(6, 848, SEEK_SET)                 = 848
+    read(6, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32) = 32
+    lseek(6, 880, SEEK_SET)                 = 880
+    read(6, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\313\351\317\363\304;\227\2279\257\26\201\266\32=X"..., 68) = 68
+    fstat(6, {st_mode=S_IFREG|0755, st_size=2025032, ...}) = 0
+    mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f6475e48000
+    lseek(6, 64, SEEK_SET)                  = 64
+    read(6, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784) = 784
+    lseek(6, 848, SEEK_SET)                 = 848
+    read(6, "\4\0\0\0\20\0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0", 32) = 32
+    lseek(6, 880, SEEK_SET)                 = 880
+    read(6, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0\313\351\317\363\304;\227\2279\257\26\201\266\32=X"..., 68) = 68
+    mmap(NULL, 2032984, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 6, 0) = 0x7f6475c57000
+    mmap(0x7f6475c7c000, 1540096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x25000) = 0x7f6475c7c000
+    mmap(0x7f6475df4000, 303104, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x19d000) = 0x7f6475df4000
+    mmap(0x7f6475e3e000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x1e6000) = 0x7f6475e3e000
+    mmap(0x7f6475e44000, 13656, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f6475e44000
+    close(6)                                = 0
+    arch_prctl(ARCH_SET_FS, 0x7f6475e49540) = 0
+    mprotect(0x7f6475e3e000, 12288, PROT_READ) = 0
+    mprotect(0x558338c90000, 4096, PROT_READ) = 0
+    mprotect(0x7f6475e93000, 4096, PROT_READ) = 0
+    munmap(0x7f6475e4a000, 118032)          = 0
+    fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+    brk(NULL)                               = 0x55833a390000
+    brk(0x55833a3b1000)                     = 0x55833a3b1000
+    write(1, "Hello world \n", 13Hello world 
+    )          = 13
+    exit_group(0)                           = ?
+    +++ exited with 0 +++
+
+
+b) pliki otwierane podczas wywoływania nowej powłoki sh
+
+
+    pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab3$ strace -e trace=file sh
+    execve("/usr/bin/sh", ["sh"], 0x7ffdd24e6460 /* 72 vars */) = 0
+    access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+    openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 6
+    openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 6
+    stat("/home/pszydlik/Desktop/SCR L/SCR_2/SCR/Lab3", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+    stat(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+    openat(AT_FDCWD, "/dev/tty", O_RDWR)    = 6
+
+
+    Jak widać otwierane są pliki etc/ld.so.cache , /lib/x86_64-linux-gnu/libc.so.6 a na koniec /dev/tty
+
+
+c) otwieranie pliku programe pico
+
+
+
+    Jak można zauważyć poniżej, po dołączeniu programu strace do procesu edytora pico wyświetla się, że proces jest w trakcie czytania pliku
+    
+    pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab3$ pico cw7.c
+    pszydlik@pop-os:~/Desktop/SCR L$ ps -a
+    PID TTY          TIME CMD
+    1255 tty1     00:00:00 Xorg
+    1364 tty1     00:00:00 gnome-session-b
+    2589 tty2     00:03:33 Xorg
+    2604 tty2     00:00:00 gnome-session-b
+    23676 pts/1    00:00:00 pico
+    23686 pts/2    00:00:00 ps
+    pszydlik@pop-os:~/Desktop/SCR L$ sudo strace -p 23676
+    strace: Process 23676 attached
+    read(0, 
+
+    Kursor pozostaje w otwartym poleceniu read
+
+d) file descriptory przy aplikacji wyświetlającej hello world
+
+    pszydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab3$ strace -e trace=file ./a.out
+    execve("./a.out", ["./a.out"], 0x7ffcc0ce2af0 /* 72 vars */) = 0
+    access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+    openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 6
+    openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 6
+    Hello world 
+    +++ exited with 0 +++

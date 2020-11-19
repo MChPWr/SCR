@@ -1,0 +1,23 @@
+Uznałem poniższe opcje polecenia strace za przydatne podczas badania działania programów:
+
+-o filename   => pozwala na zapisanie wyniku programu strace do pliku
+-r            => pozwala na obserwowanie ile czasu proces spędza w każdym kolejnym kroku wywołania
+-t/-tt/-ttt   => pozwala na wyświetlenie dokładnego czasu w momencie wykonania się kolejnych kroków procesu
+-X raw        => w niektórych wypadkach wyglądało bardziej przejrzyście, gdy output był wyświetlany bez opcji abbrev
+
+Dla statystyk:
+-c            => wyświetla tabelę z wykorzystanymi wywołaniami systemowymi z informacjami ile razy nastąpiły oraz ile trwały i czy wystąpiły w nich błędy
+-C            => wyświetla przebieg działania procesu oraz na końcu tabelę taką jak -c
+-w            => oblicza czas od początku do zakończenia każdego z syscalls
+
+Wybieranie co śledzić:
+-e trace=signal             => śledzi wszystkie operacje związane z sygnałami
+-e trace=memory             => śledzi wszystkie operacje związane z pamięcią
+-e signal=<jakiś sygnał>    => śledzi tylko wybrane sygnały
+-v                          => wyświetla bardzo dużo szczegółów 
+
+-f            => śledzi również procesy potomne
+-b <syscall>  => gdy dany syscall jest osiągnięty w programie to przestaje śledzić wybrany proces
+
+-p PID        => pozwala zacząć śledzić aktualnie działający proces
+-d            => pokazuje informacje pomagające w debugowaniu
