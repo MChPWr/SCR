@@ -1,0 +1,161 @@
+Zad. 3.
+
+Wydruk z terminala jest długi dlatego wnioski są na początku.
+Pseudosystem plików proc znajduje się w katalogu /proc i jest montowany w linuksie. Zawiera 
+wszystkie wykonywane procesy zapisane w formie katalogów oraz inne katalogi i pliki.
+Poprzez polecenie ps -ef | grep $PID można obejżeć ogólne informacje o danym procesie (ja 
+znalazłem przeglądarkę firefoxa i rozpocząłem badania). W katalogu wybranego procesu można 
+znaleźć katalog cwd zawierający informacje o wejściu i wyjściach procesu. Katalog exe informuje, 
+że proces należy do użytkownika i ten proces to firefox. W pliku status w linijce opisanej jako 
+SigCgt znajduje się zakodowana heksadecymalnie lista procesów przechwytywanych przez proces
+(0000000fc0800cf8 zawiera dużo procesów więc ich nie wymieniam) oraz dużo innych informacji.
+W pliku comm znajduje się nazwa procesu. W pliku limits znajdują się limity dotyczące procesu.
+W pliku io znajdują się informacje o wejściach i wyjściach procesu. Plik exe jest nieczytelnym 
+plikiem binarnym.
+
+
+TTY pts/0
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ cd /proc
+konrad@konrad-Vostro-3500:/proc$ ls -la
+razem 4
+dr-xr-xr-x 243 root             root                           0 lis 18 17:08 .
+drwxr-xr-x  20 root             root                        4096 sie 27 09:34 ..
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 1
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 10
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 100
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 101
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 103
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 104
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 105
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 106
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 107
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 11
+dr-xr-xr-x   9 root             root                           0 lis 18 17:08 110
+...
+konrad@konrad-Vostro-3500:/proc$ ps -ef | grep 7977
+konrad      7977    2940  2 18:49 ?        00:02:13 /usr/lib/firefox/firefox -contentproc -childID 20 -isForBrowser -prefsLen 10122 -prefMapSize 226444 -parentBuildID 20201108180448 -appdir /usr/lib/firefox/browser 2940 true tab
+konrad      9684    9612  0 20:14 pts/0    00:00:00 grep --color=auto 7977
+konrad@konrad-Vostro-3500:/proc$ cd 7977
+konrad@konrad-Vostro-3500:/proc/7977$ ls
+arch_status      cpuset   loginuid    numa_maps      sched         status
+attr             cwd      map_files   oom_adj        schedstat     syscall
+autogroup        environ  maps        oom_score      sessionid     task
+auxv             exe      mem         oom_score_adj  setgroups     timers
+cgroup           fd       mountinfo   pagemap        smaps         timerslack_ns
+clear_refs       fdinfo   mounts      patch_state    smaps_rollup  uid_map
+cmdline          gid_map  mountstats  personality    stack         wchan
+comm             io       net         projid_map     stat
+coredump_filter  limits   ns          root           statm
+konrad@konrad-Vostro-3500:/proc/7977$ ls -la cwd
+lrwxrwxrwx 1 konrad konrad 0 lis 18 20:15 cwd -> /proc/7978/fdinfo
+konrad@konrad-Vostro-3500:/proc/7977$ ls -la exe
+lrwxrwxrwx 1 konrad konrad 0 lis 18 18:49 exe -> /usr/lib/firefox/firefox
+konrad@konrad-Vostro-3500:/proc/7977$ cat status
+Name:	Web Content
+Umask:	0002
+State:	S (sleeping)
+Tgid:	7977
+Ngid:	0
+Pid:	7977
+PPid:	2940
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	512
+Groups:	4 24 27 30 46 120 131 132 1000 
+NStgid:	7977
+NSpid:	7977
+NSpgid:	1844
+NSsid:	1844
+VmPeak:	 2432892 kB
+VmSize:	 2429668 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	  138140 kB
+VmRSS:	  131636 kB
+RssAnon:	   25792 kB
+RssFile:	   97616 kB
+RssShmem:	    8228 kB
+VmData:	   67776 kB
+VmStk:	     132 kB
+VmExe:	     592 kB
+VmLib:	  102324 kB
+VmPTE:	     612 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+Threads:	25
+SigQ:	0/31077
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000011002
+SigCgt:	0000000fc0800cf8
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000003fffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	1
+Seccomp:	2
+Speculation_Store_Bypass:	thread force mitigated
+Cpus_allowed:	f
+Cpus_allowed_list:	0-3
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	322778
+nonvoluntary_ctxt_switches:	51620
+konrad@konrad-Vostro-3500:/proc/7977$ cd ..
+konrad@konrad-Vostro-3500:/proc$ cd 7977
+konrad@konrad-Vostro-3500:/proc/7977$ cat comm
+Web Content
+konrad@konrad-Vostro-3500:/proc/7977$ cat limits
+Limit                     Soft Limit           Hard Limit           Units     
+Max cpu time              unlimited            unlimited            seconds   
+Max file size             unlimited            unlimited            bytes     
+Max data size             unlimited            unlimited            bytes     
+Max stack size            8388608              unlimited            bytes     
+Max core file size        0                    unlimited            bytes     
+Max resident set          unlimited            unlimited            bytes     
+Max processes             31077                31077                processes 
+Max open files            4096                 1048576              files     
+Max locked memory         67108864             67108864             bytes     
+Max address space         unlimited            unlimited            bytes     
+Max file locks            unlimited            unlimited            locks     
+Max pending signals       31077                31077                signals   
+Max msgqueue size         819200               819200               bytes     
+Max nice priority         0                    0                    
+Max realtime priority     0                    0                    
+Max realtime timeout      50000                200000               us        
+konrad@konrad-Vostro-3500:/proc/7977$ io
+io: nie znaleziono polecenia
+konrad@konrad-Vostro-3500:/proc/7977$ cat io
+rchar: 2063992
+wchar: 998334
+syscr: 994412
+syscw: 993789
+read_bytes: 0
+write_bytes: 0
+cancelled_write_bytes: 0
+konrad@konrad-Vostro-3500:/proc/7977$ cat exe
+ELF>�@�
+@8
+  @@@@����@�@������@	@	@	����x�
+x�
+x�
+X�&8�
+8�
+8�
+...
+�x�
+x�
+��
+�
+�`�
+`�
+p��
+��
+@��
+4�
+

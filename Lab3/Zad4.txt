@@ -1,0 +1,81 @@
+Zad. 4.
+
+W zadaniu wykorzystano program z zadania 2.
+
+TTY pts/0
+konrad@konrad-Vostro-3500:~$ cd /proc
+konrad@konrad-Vostro-3500:/proc$ cd 10912
+konrad@konrad-Vostro-3500:/proc/10912$ cat status
+Name:	a.out
+Umask:	0002
+...
+CoreDumping:	0
+THP_enabled:	1
+Threads:	1
+SigQ:	0/31077
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000180024a00
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000003fffffffff
+CapAmb:	0000000000000000
+...
+
+Tablica akcji przypisanych poszczególnym sygnałom znajduje się w pliku /proc/[pid]/status. W 
+linijce oznaczonej 'SigCgt' znajduje się lista sygmałów przechwytywanych przez dany proces 
+zakodowana w formacie hexadecymalnym. W przypadku programu z zadania 2. po odkodowaniu wychodzi 
+lista: 000110000000000000100100101000000000, więc przechwytywane są sygnały SIGUSR1, SIGUSR2, 
+SIGTERM i SIGCONT zgodnie z konfiguracją funkcji catch*() w programie. Gdyby został podany sygnał 
+SIGCONT to proces rozpocząłby przechwytywanie sygnału SIGALRM i linia SigCgt miałaby postać 
+0000000180026a00 ('4' na '6'). Sygnały 32 i 33 są również przechwytywane, ponieważ system linux 
+ich nie obsługuje. Sygnały predefiniowane kończą sią na 31 a w przedziale 34 do 64 są sygnały 
+Real-time.
+
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ./a.out | cat | cat > /dev/null &
+[1] 10871
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ps
+    PID TTY          TIME CMD
+  10178 pts/0    00:00:00 bash
+  10869 pts/0    00:00:00 a.out
+  10870 pts/0    00:00:00 cat
+  10871 pts/0    00:00:00 cat
+  10872 pts/0    00:00:00 ps
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ls -l /proc/10869/fd
+razem 0
+lrwx------ 1 konrad konrad 64 lis 18 21:17 0 -> /dev/pts/0
+l-wx------ 1 konrad konrad 64 lis 18 21:17 1 -> 'pipe:[194866]'
+lrwx------ 1 konrad konrad 64 lis 18 21:17 2 -> /dev/pts/0
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ls -l /proc/10870/fd
+razem 0
+lr-x------ 1 konrad konrad 64 lis 18 21:17 0 -> 'pipe:[194866]'
+l-wx------ 1 konrad konrad 64 lis 18 21:17 1 -> 'pipe:[194868]'
+lrwx------ 1 konrad konrad 64 lis 18 21:17 2 -> /dev/pts/0
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ls -l /proc/10871/fd
+razem 0
+lr-x------ 1 konrad konrad 64 lis 18 21:17 0 -> 'pipe:[194868]'
+l-wx------ 1 konrad konrad 64 lis 18 21:17 1 -> /dev/null
+lrwx------ 1 konrad konrad 64 lis 18 21:17 2 -> /dev/pts/0
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ kill -9 10869
+konrad@konrad-Vostro-3500:~/Pulpit/SCR/SCR/Lab3$ ps
+    PID TTY          TIME CMD
+  10178 pts/0    00:00:00 bash
+  10886 pts/0    00:00:00 ps
+[1]+  Zakończono             ./a.out | cat | cat > /dev/null
+
+
+Badanie plików otwartych przez procesy potoku wykonano wykorzystując polecenie 
+'./a.out | cat | cat > /dev/null &', gdzie a.out to program z zadania 2. Listy otwartych plików 
+dla każdego procesu można sprawdzić przy pomocy polecenia 'ls -l /proc/[pid]/fd'. Każdy z 
+procesów ma otwarte po 3 strumienie danych (0, 1, 2, czyli odpwoiednio stdin, stdout, stderr). 
+Potoki są opisane przez linki symboliczne i tylko dzięki tym linkom możliwe jest ustalenie 
+kolejności poleceń w potoku. Wyjście pierwszego priocesu jest ustawione do potoku 194866. Wejście 
+drugiego potoku jest z potoku 194866, a jego wyjście do potoku 194868. Wejście ptrzeciego procesu 
+jest z potoku 194868, a jego wyjście do /dev/null. Wejście pierwszego procesu i wyjścia stderr 
+każdego potoku są ustawione na /dev/pts/0, czyli okno terminala, w którym wywołano polecenie. 
+
+
+
