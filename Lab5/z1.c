@@ -4,6 +4,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#define BUFFER 1000
+
 int main(int argc, char const *argv[])
 {
 	int pid = fork();
@@ -17,6 +19,17 @@ int main(int argc, char const *argv[])
 			fprintf(stderr, "%s\n", "Błąd otwarcia pliku");
 			return 1;
 		}
+
+		char buffer[BUFFER];
+		fgets(buffer, BUFFER, fptr);
+		printf("Proces nadrzędny: %s", buffer);
+		fclose(fptr);
+	}
+
+
+	if(pid==0)
+	{
+		// rób jakieś rzeczy
 	}
 
 	return 0;
