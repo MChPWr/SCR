@@ -9,7 +9,8 @@
 int main(int argc, char const *argv[])
 {
 	int pid = fork();
-	
+	int tab[2];
+
 	if(pid!=0)
 	{
 		const char* filename = argv[1];
@@ -24,12 +25,18 @@ int main(int argc, char const *argv[])
 		fgets(buffer, BUFFER, fptr);
 		printf("Proces nadrzędny: %s", buffer);
 		fclose(fptr);
+		write(tab[1], buffer, sizeof(char)*BUFFER);
+		close(tab[1]);
 	}
 
 
 	if(pid==0)
 	{
-		// rób jakieś rzeczy
+		close(tab[1]);
+		char buffer[BUFFER];
+		read(tab[0], buffer, sizeof(char)*BUFFER);
+        printf("Podproces: #%s #", buffer);
+        close(tab[0]);
 	}
 
 	return 0;
