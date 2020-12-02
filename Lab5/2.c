@@ -9,6 +9,8 @@
 
 int main (int argc, char* argv[])
 {
+
+    //wieksza czesc zadania jest taka sama jak w zad 1, zmiany zachodza w dziecku
     int potok[2]; //2 konce potoku
     int id, k, file; //id - file descriptor
     char buffer[SIZE];
@@ -60,7 +62,7 @@ int main (int argc, char* argv[])
             close(id);
             close(potok[1]); //zamyka koniec potoku do wpisywania
         }
-
+        
     }
 
     //dziecko - proces podrzedny
@@ -69,7 +71,11 @@ int main (int argc, char* argv[])
 		close(potok[1]); //zamyka koniec potoku do wpisywania
         printf("Uruchomiono podproces. \n");
 
-        //tu zmiana na wyswietlanie display
+        close(0);
+        dup(potok[0]); //przekierowuje nr zduplikowanego deskryptora pliku
+        close(potok[0]); //zamyka koniec potoku do odczytu
+
+        execlp("display", "display", "-", NULL); //wyswietla obrazek programem display
     }
 
     return 0;
