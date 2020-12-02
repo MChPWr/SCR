@@ -43,21 +43,21 @@ int main(int argc, char *argv[])
                 if(argv[iterator][0] == 'q' && argv[iterator][1] =='\0') // koniec programu
 					break;
 		        if((plik_fd = open(argv[iterator], O_RDONLY)) < 0) 
-		        { // gdy nie znaleziono pliku
+		        { // gdy nie znaleziono potoku
 		    		fprintf(stderr, "Nie otworzono pliku.\n");
 		    		return 2;
 				}	
 				iterator++;
 			}
        		else 
-       		{
+       		{   // w przeciwnym wypadku
 		    	printf("Podaj nazwę pliku z rozszerzeniem np. file.txt\n"); 
 		    	printf("(zamknij program klawiszem 'q'):\n");
 				scanf("%s", nazwa_pliku);
 				if(nazwa_pliku[0] == 'q' && nazwa_pliku[1]=='\0') // koniec programu
 					break;
 				if((plik_fd = open(nazwa_pliku, O_RDONLY)) < 0) 
-				{
+				{   // gdy nie znaleziono pliku
 			    	fprintf(stderr, "Nie otworzono pliku.\n");
 			    	return 2;
 				}
@@ -74,9 +74,11 @@ int main(int argc, char *argv[])
 			close(plik_fd);  // zamykanie pliku
 			sleep(3); 		 // czas przerwy
 		}
-		close(potok_fd); // zamykanie potoku (ze strony potomka potok zamknie sie sam)
+		close(potok_fd); // zamykanie potoku
 	}
     return 0;
 }   
 
-
+// Program wykonuje sie zgodnie z poleceniem i czeka kilkasekund przed wyslaniem kolejnego pliku.
+// Dodano obsluge uzytkownika podczas dzialania programu, aby podal kolejne pliki lub zamknal 
+// program. Program wspolpracuje rowniez z poleceniem 'tall'.
