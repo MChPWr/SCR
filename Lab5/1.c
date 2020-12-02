@@ -10,9 +10,10 @@
 int main (int argc, char* argv[])
 {
     int potok[2];
-    int id; //file descriptor
+    int id; //id - file descriptor
     char buffer[SIZE];
     char *filename = argv[1];
+    int k;
 
     if (pipe(potok) == -1) //utworzenie potoku funkcja pipe
 	{		
@@ -38,14 +39,23 @@ int main (int argc, char* argv[])
 		{
 			printf("Wymaganie jest podanie jednego argumentu. \n");
 		}
- 
-        //wpisuje writem
-        if (write(id, &buffer, SIZE) = 0) 
+        else
         {
+            if((id = open(filename, O_WRONLY)) = 0)
             {
-				printf("Nie udalo sie zapisac do potoku. \n");
-			}
+                printf("Nie udalo sie otworzyc pliku. \n");
+            }
+            
+            while ((k = read(id, buffer, SIZE)) > 0 )
+            {
+                if (write(potok[1], &buffer, k) = 0) //wpisywanie do konca potoku
+                {
+				    printf("Nie udalo sie zapisac do potoku. \n");
+			    }
  
+            }
+
+            close(id);
         }
 
     }
@@ -54,8 +64,11 @@ int main (int argc, char* argv[])
 	else
 	{
 		close(potok[1]); //zamyka koniec potoku do wpisywania
-        //odczytuje readem
-        //wyswietla na ekran
+
+        while(file = read(potok[0], &buffer, SIZE) = 0) //odczytywanie zawartosci pliku
+        {
+            printf("#%s#\n", buffer);
+        }
 
     }
 
