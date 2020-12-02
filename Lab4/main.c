@@ -12,6 +12,7 @@ int main(int argc, char *argv[]){
   pid_num = fork();
 
   if(pid_num){
+    
     char buff[MAX_BUFFER];
 
     while(read(file_descriptor[0], buff, MAX_BUFFER)){
@@ -38,3 +39,28 @@ int main(int argc, char *argv[]){
     fclose(f);
   }
 }
+
+/*
+Po skompilowaniu program wyświetlił zawartość paczki na terminalu:
+
+amadeusz@amadeusz-VirtualBox:~/SCR/SCR/LAB2/SCR-1/Lab4$ ./program text.txt
+#So long since I've seen her, she can feel a change in me.
+#
+#Change, she could feel a change in me.
+#
+#So long since I've seen her, she can feel a change in me.
+#
+#...
+#
+#Love comes with a price tag and a barcode.
+#
+#Still love you when we part though.
+#
+#Blame me like is'my fault.
+#
+#Walk around like your heart could.
+#
+#Hop around like your parkour.
+#
+
+*/
