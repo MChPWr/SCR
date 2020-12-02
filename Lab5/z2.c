@@ -11,32 +11,40 @@ int main(int argc, char const *argv[])
 	int pid = fork();
 	int fd[2];
 	char buffer[BUFFER];
+	int isEmpty;
+	int pipe;
+	char filename[64];
 
-	if(pid>=0)
+	if(pid>=0) // rodzic
 	{
-		const char* filename = argv[1];
 		FILE *fptr;
+		printf("Podaj ścieżkę do pliku JPG/PNG\n");
+		scanf("%s", filename);
+		close(fd[1]);
+
 		if((fptr = fopen(filename, "r")) == NULL)
 		{
 			fprintf(stderr, "%s\n", "Błąd otwarcia pliku");
 			return 1;
 		}
 
-		fgets(buffer, BUFFER, fptr);
-		printf("Proces nadrzędny: %s", buffer);
-		fclose(fptr);
-		write(fd[1], buffer, sizeof(char)*BUFFER);
-		close(fd[1]);
+		isEmpty = read(pipe, &buffer, BUFFER);
+	
+		while(isEmpty>0){
+			write(fd[1],&buffer,isEmpty);
+		}
+
+	close(pipe);
 	}
 
 
-	if(pid==0)
+	if(pid==0) // dziecko
 	{
 		close(fd[1]);
-		read(fd[0], buffer, sizeof(char)*BUFFER);
-        printf("Podproces: #%s #", buffer);
+		dup(fd[0]);
         close(fd[0]);
 	}
+
 
 	return 0;
 }
