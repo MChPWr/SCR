@@ -2,7 +2,7 @@
 #include <unistd.h> 
 #include <fcntl.h> 
 
-#define ROZMIAR_BUFORA 128
+#define ROZMIAR_BUFORA 256
 #define ROZMIAR_NAZWY 32
 
 int main(int argc, char *argv[]) 
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
         dup(potok_fd[0]);    // przekierowanie zawartosci
         close(potok_fd[0]);
         
-        // wywolanie programu "display" poleceniem z grupy exec*
+        // wywolanie programu "display" poleceniem z grupy exec* (wazny argument '-')
         execlp("display", "display", "-", NULL);
     }
     else 
@@ -54,7 +54,6 @@ int main(int argc, char *argv[])
         	}
         }	
 
-       	write(1,"\n",2);
         while((rozmiar_tekstu = read(plik_fd, &bufor, ROZMIAR_BUFORA)) > 0) 
         {   // zapis do potoku
             if(write(potok_fd[1], &bufor, rozmiar_tekstu) < 0) 
@@ -63,10 +62,15 @@ int main(int argc, char *argv[])
                 return 3;
             }  
         }
-        //sleep(10); // program display uruchamia sie od razu, ale obraz wyswietla sie dopiero 
-        //po zamknieciu potoku.
+        sleep(5); // badanie kolejnosci czynnosci wykonywanych przez procesy
+        
         close(potok_fd[1]); // zamykanie potoku i pliku 
         close(plik_fd);     // (ze strony potomka potok zamknie sie sam)
     } 
 }
+// Program wykonuje sie zgodnie z poleceniem. Program display uruchamia sie od razu (badane 
+// poleceniem 'ps' z innego terminala), ale obraz wyswietla sie dopiero po zamknieciu potoku. 
+// W zadaniach 1. i 2. dodano pbsluge uzytkownika podczas dzialania programu, jezeli nie podal 
+// pliku do przeslania.
+
 
