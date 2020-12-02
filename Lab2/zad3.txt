@@ -1,0 +1,6 @@
+W efekcie po uruchomieniu polecenia bash zad3_a.sh| bash zad3_b.sh| bash zad3_c.sh otrzymuje:
+To mamy juz napis a 
+To mamy juz napis b
+To mamy juz napis c
+Następnie w drugim terminalu uruchamiam polecenie ps -alxw 
+Wniosek : Rodzicem kazdego jest bash 
