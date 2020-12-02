@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
 	int pid = fork();
 	int tab[2];
 
-	if(pid!=0)
+	if(pid>=0)
 	{
 		const char* filename = argv[1];
 		FILE *fptr;
