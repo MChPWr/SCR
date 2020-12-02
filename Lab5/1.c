@@ -9,7 +9,7 @@
 
 int main (int argc, char* argv[])
 {
-    int potok[2];
+    int potok[2]; //2 konce potoku
     int id, k, file; //id - file descriptor
     char buffer[SIZE];
     char *filename = argv[1];
@@ -71,7 +71,7 @@ int main (int argc, char* argv[])
 
         while(file = read(potok[0], &buffer, SIZE) > 0) //odczytywanie zawartosci pliku
         {
-            printf("\nZawartosc pliku: \n\n#%s#\n", buffer);
+            printf("\nZawartosc pliku: \n\n#%s#\n", buffer); //wypisywanie zawartosci pliku na ekran
         }
 
         close(potok[0]); //zamyka koniec potoku do odczytu
