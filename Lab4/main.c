@@ -12,7 +12,6 @@ int main(int argc, char *argv[]){
   pid_num = fork();
 
   if(pid_num){
-    
     char buff[MAX_BUFFER];
 
     while(read(file_descriptor[0], buff, MAX_BUFFER)){
@@ -62,5 +61,33 @@ amadeusz@amadeusz-VirtualBox:~/SCR/SCR/LAB2/SCR-1/Lab4$ ./program text.txt
 #
 #Hop around like your parkour.
 #
-
+#
+#
+#Zło to zło. Mniejsze, większe, średnie, wszystko jedno, pr#
+#oporcje są umowne a granice zatarte (...), jeżeli mam wybier#
+#ać pomiędzy jednym złem a drugim, to wolę nie wybierać wc#
+#ale.
+#
+#Geralt w rozmowie z magiem Stregoborem.
+#
+#
+#
+#– Zapomniałem Ci podziękować...
+#
+#– Nie wam, panie, dziękować, ale mnie. To wy mnie żeście#
+# ratowali, w mojej obronie ponieśliście uszczerbek. A ja? Co#
+# ja takiego uczyniłem? Że człeka rannego, bez czucia, opatr#
+#zyłem, na wóz pokładłem, nie dałem szczeznąć? To zwykł#
+#a rzecz, panie wiedźmin.
+#
+#– Nie taka znowu zwykła, Yurga. Zostawiano mnie już... w p#
+#odobnych sytuacjach... Jak psa...
+#
+#Kupiec, opuściwszy głowę, pomilczał.
+#
+#– Ano, cóż, paskudny otacza nas świat – mruknął wresz#
+#cie. – Ale to nie powód byśmy wszyscy paskudnieli.
+#
+#rozmowa Geralta z kupcem Yurgą.
+#
 */
