@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <stdio.h> 
+#include <fcntl.h>
 #define BUFF_SIZE 16
 
 
@@ -32,26 +33,25 @@ int main(int argc, char *argv[]){
 
     ///////////  DZIECKO  /////////////////
     }else if(pid==0){              
+        close(0);                   // zamykamy stdin
+        dup(pfd[0]);                // file descriptor 0 (zazwyczaj stdin) wskazuje na pfd[0]
         close(pfd[1]);              // zamykamy koniec piszący potoku
-        while(read(pfd[0], buffer, BUFF_SIZE)>0){  // czytamy dopóki przychodzą wiadomości
-            fprintf(stdout,"#%s#", buffer);        // wypisujemy wiadomość na stdout
-        };      
-        close(pfd[0]);              // zamykamy koniec czytający potoku
-        fprintf(stdout,"\n");
-
+        char * arguments[3];
+        arguments[0]="display";
+        arguments[1]=NULL;
+        fprintf(stdout,"C:  Uruchamiam exec \n");
+        execvp(arguments[0], arguments);
     ///////////  RODZIC  /////////////////
     }else{   
-        close(pfd[0]);              // zamykamy koniec czytający potoku
-        fptr=fopen(argv[1],"r");    // otwieramy plik do odczytu
-        do{
-            // odczytujemy BUFF_SIZE-1 znaków lub do końca linii 
-            if(fgets(buffer, BUFF_SIZE, fptr)==NULL){  
-                fprintf(stderr, "ERR:  Błąd przy czytaniu z pliku" ); 
-                return -1; 
-            };
-            write(pfd[1], buffer, BUFF_SIZE);  // wysyłamy wiadomość do potoku
-        }while(feof(fptr)==0);                 // wykonujemy te operacje dopóki nie dotrzemy do końca pliku 
+        close(pfd[0]);                      // zamykamy koniec czytający potoku
+        int fileDesc[2];
+        fileDesc[0] = open(argv[1], O_RDONLY);    // otwieramy plik do odczytu
+        while(read(fileDesc[0], buffer, BUFF_SIZE)>0){  // czytamy dopóki są dane
+            write(pfd[1], buffer, BUFF_SIZE);      // wysyłamy wiadomość do potoku 
+        }; 
+        fprintf(stdout,"P:  ZAMYKAM POTOK \n");
         close(pfd[1]);              // zamykamy koniec piszący potoku
-        fclose(fptr);               // zamykamy czytany plik
+        fprintf(stdout,"P:  POTOK ZAMKNIĘTY \n");
+        close(fileDesc[0]);         // zamykamy czytany plik
     };
 }
