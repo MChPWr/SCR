@@ -37,6 +37,7 @@ int main(int argc, char *argv[]){
             fprintf(stdout,"#%s#", buffer);        // wypisujemy wiadomość na stdout
         };      
         close(pfd[0]);              // zamykamy koniec czytający potoku
+        fprintf(stdout,"\n");
 
     ///////////  RODZIC  /////////////////
     }else{   
