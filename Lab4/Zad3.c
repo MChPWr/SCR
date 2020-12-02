@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 	}
     return 0;
 }   
-
+ 
 // Program wykonuje sie zgodnie z poleceniem i czeka kilkasekund przed wyslaniem kolejnego pliku.
 // Dodano obsluge uzytkownika podczas dzialania programu, aby podal kolejne pliki lub zamknal 
 // program. Program wspolpracuje rowniez z poleceniem 'tall'.
