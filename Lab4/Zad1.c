@@ -75,4 +75,5 @@ int main(int argc, char *argv[])
 
 // Program wykonuje sie zgodnie z poleceniem. Dla małego rozmiaru bufora (32 i mniej) proces 
 // potomny może wyswietlac program po wyswietleniu promptera w terminalu. To oznacza, że dzieje 
-// sie to po zakonczeniu dzialania programu nadrzednego.
+// sie to po zakonczeniu dzialania programu nadrzednego. W zadaniach 1. i 2. dodano pbsluge 
+// uzytkownika podczas dzialania programu, jezeli nie podal pliku do przeslania.
