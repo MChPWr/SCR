@@ -79,6 +79,13 @@ int main(int argc, char *argv[])
     return 0;
 }   
  
-// Program wykonuje sie zgodnie z poleceniem i czeka kilkasekund przed wyslaniem kolejnego pliku.
+// Program wykonuje sie zgodnie z poleceniem i czeka kilka sekund przed wyslaniem kolejnego pliku.
 // Dodano obsluge uzytkownika podczas dzialania programu, aby podal kolejne pliki lub zamknal 
-// program. Program wspolpracuje rowniez z poleceniem 'tail'.
+// program ('q'). Program wspolpracuje rowniez z poleceniem 'tail -c +1 -f /tmp/potok'. Program w 
+// postaci do zapisu (z argumentami w postaci plikow do przeslania) nalezy otworzyc w jednym 
+// terminalu, a w postaci do odczytu (bez argumentow poza nazwa programu) lub tylko powyzsze 
+// polecenie 'tail' w kolejnym terminalu. Pomiedzy wyswietlanymi plikami nie ma linii przerwy. W 
+// badaniu przesylu danych we wszystkich zadaniach przesylano pliki zrodlowe zadan (zadania 1. i 
+// 3.) lub zrzut ekranu (zadanie 2.).
+
+
