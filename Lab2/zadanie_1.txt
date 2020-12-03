@@ -1,0 +1,38 @@
+Polecenie ps wyświetla opis bieżących procesów.
+
+$ ps
+    PID TTY          TIME CMD
+   2846 pts/0    00:00:00 bash
+   3412 pts/0    00:00:00 ps
+
+################################################################################
+Opcja -f rozbudowuje wyświetlany opis bieżących procesów o dodatkowe
+opcje takie jak UID, PID, PPID (User ID, Process ID, Parent Process ID)
+
+ps -f
+UID          PID    PPID  C STIME TTY          TIME CMD
+amadeusz    2846    2838  0 16:03 pts/0    00:00:00 bash
+amadeusz    3374    2846  0 16:08 pts/0    00:00:00 ps -f
+
+################################################################################
+Opcja -l wyświetla opis bieżących procesów w rozszerzonym formacie.
+
+ps -l
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    2846    2838  0  80   0 -  3388 do_wai pts/0    00:00:00 bash
+4 R  1000    3375    2846  0  80   0 -  3508 -      pts/0    00:00:00 ps
+
+################################################################################
+-u userlist
+Opcja wybierająca procesy, których efektywna nazwa użytkownika, lub ID
+jest w userlist.
+
+################################################################################
+-p pidlist
+Opcja wybiera procesy, których identyfikator pojawia się w pidlist.
+
+################################################################################
+-t ttylist
+Opcja wybiera procesy, które są podłączone do terminali podanych w ttylist.
+
+W chwili wywołania polecenia ps istniały 2 procesy.

@@ -1,0 +1,24 @@
+Polecenie nice nadaje priorytet procesowi w momnecie uruchomienia.
+nice -n 2 [Jakiś proces]
+
+Polecenie renice może zmienić priorytet w trakcie wykonywania.
+renice -n 0 -p [PID]
+
+Priorytet jest liczbą opisującą ile zasobów procesor ma przeznaczyć na dany
+proces.
+
+Przykład obniżenia priorytetu:
+
+ps -l
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    3798    2838  0  82   2 -  3432 do_wai pts/1    00:00:00 bash
+0 S  1000    5144    3798  0  80   0 -  3432 do_wai pts/1    00:00:00 bash
+4 R  1000    8534    5144  0  80   0 -  3508 -      pts/1    00:00:00 ps
+
+renice -n 1 -p 3798
+
+ps -l
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    3798    2838  0  82   1 -  3432 do_wai pts/1    00:00:00 bash
+0 S  1000    5144    3798  0  80   0 -  3432 do_wai pts/1    00:00:00 bash
+4 R  1000    8534    5144  0  80   0 -  3508 -      pts/1    00:00:00 ps
