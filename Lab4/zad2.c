@@ -32,7 +32,7 @@ int main(){
   else if(pid == 0){ //dziecko
     close(fd[1]);
     close(0); //zamkniecie czytania
-    dup(fd[0]);
+    dup(fd[0]); //duplikacja deskryptora do czytania
     execlp("display","",NULL);
   }
   else{ //pid > 0 rodzic
