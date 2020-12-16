@@ -1,0 +1,10 @@
+Poleceniem: mknod /tmp/potok p utworzyem potok typu FIFO.
+W czterech terminalach z niego korzystalem:
+	* dwa z nich sluzyly do zapisu - wywolalem to poleceniem cat > /tmp/potok,
+	* dwa z nich sluzyly do odczytu danych - polecenie cat /tmp/potok.
+System rozdziela dane z pliku procesom losowo. Nie jest to w zaden sposob ustandaryzowane. Zaobserowac mozna to ze wpisywane stringi przechodza poprawnie lecz wysylane pakiety stringow juz niekoniecznie tzn. dane nie sa w zaden sposob zle odczytywane lecz czesci jednego pakietu stringow moga bywaja odczytywane w roznych terminalach.
+
+Proces cat czytajacy dane z potoku konczy prace automatycznie w momencie gdy zamkniete zostaja procesy pozwalajace na zapis czegos do potoku. W przypadku gdy istnieje jakikolwiek proces z mozliwoscia wpisania danych do potoku - proces czytajacy przechodzi w czas oczewiania i czeka na kolejny pakiet danych.
+
+Zamykanie procesow na przemian zaczynajac od procesu czytajacego.
+Gdy zamknalem trzeci proces - drugi proces czytajcy - po probie wpisania kolejnego pakietu danych do potoku, proces pozwalajacy na wpisywanie danych zostal automatycznie zamkniety. 

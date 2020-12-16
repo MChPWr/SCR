@@ -1,0 +1,157 @@
+proc jest pseudosystemem plikow, ktory sluzy jako lepszy interfejs do struktur jadra.
+Zazwyczaj jest montowany w katalogu /proc. Zawiera informacje o procesach.
+Jest on w wiekszosci przeznaczony tylko do oczytu, niektore pliki umozliwaja modyfikacje zmiennych jadra.
+
+
+ls -la /proc - pokazuje wszystkie procesy oraz przeznaczone dla nich foldery
+
+mbagnsk@pop-os:~/Desktop/SPC FORK/SCR-1/Lab4$ ls -la /proc
+total 4
+dr-xr-xr-x 353 root             root                           0 Nov  4 14:06 .
+drwxr-xr-x  18 root             root                        4096 Oct 14 15:09 ..
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:06 1
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 10
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1000
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1004
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1008
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1029
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1072
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 11
+dr-xr-xr-x   9 root             smmsp                          0 Nov  4 14:07 1195
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 12
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1208
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 1230
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 124
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1249
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 125
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1250
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1251
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 126
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 128
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 129
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 13
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 130
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 131
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1312
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 132
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 133
+dr-xr-xr-x   9 gdm              gdm                            0 Nov  4 14:07 1338
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 136
+dr-xr-xr-x   9 root             root                           0 Nov  4 14:07 137
+itd.
+
+ls -l /proc/41051 - wywolalem dla mojego procesu
+
+mbagnsk@pop-os:~/Desktop/SCRLAB/SCR/Lab3$ ls -l /proc/41051
+total 0
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 arch_status
+dr-xr-xr-x 2 mbagnsk mbagnsk 0 Nov 18 17:42 attr
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 autogroup
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 auxv
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 cgroup
+--w------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 clear_refs
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 cmdline
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 comm
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 coredump_filter
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 cpuset
+lrwxrwxrwx 1 mbagnsk mbagnsk 0 Nov 18 17:42 cwd -> /home/mbagnsk/Desktop/SCRLAB/SCR/Lab3
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 environ
+lrwxrwxrwx 1 mbagnsk mbagnsk 0 Nov 18 17:42 exe -> /usr/bin/bash
+dr-x------ 2 mbagnsk mbagnsk 0 Nov 18 17:42 fd
+dr-x------ 2 mbagnsk mbagnsk 0 Nov 18 17:42 fdinfo
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 gid_map
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 io
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 limits
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 loginuid
+dr-x------ 2 mbagnsk mbagnsk 0 Nov 18 17:42 map_files
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 maps
+-rw------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 mem
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 mountinfo
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 mounts
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 mountstats
+dr-xr-xr-x 5 mbagnsk mbagnsk 0 Nov 18 17:42 net
+dr-x--x--x 2 mbagnsk mbagnsk 0 Nov 18 17:42 ns
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 numa_maps
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 oom_adj
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 oom_score
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 oom_score_adj
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 pagemap
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 patch_state
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 personality
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 projid_map
+lrwxrwxrwx 1 mbagnsk mbagnsk 0 Nov 18 17:42 root -> /
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 sched
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 schedstat
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 sessionid
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 setgroups
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 smaps
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 smaps_rollup
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 stack
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 stat
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 statm
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 status
+-r-------- 1 mbagnsk mbagnsk 0 Nov 18 17:42 syscall
+dr-xr-xr-x 3 mbagnsk mbagnsk 0 Nov 18 17:42 task
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 timers
+-rw-rw-rw- 1 mbagnsk mbagnsk 0 Nov 18 17:42 timerslack_ns
+-rw-r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 uid_map
+-r--r--r-- 1 mbagnsk mbagnsk 0 Nov 18 17:42 wchan
+
+Wiele informacji na temat procesu mozemy odczytac ogladajac zawartosc pliku status.
+
+mbagnsk@pop-os:~/Desktop/SPC FORK/SCR-1/Lab4$ cat /proc/65015/status
+Name:	a
+Umask:	0002
+State:	S (sleeping)
+Tgid:	65015
+Ngid:	0
+Pid:	65015
+PPid:	64930
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	256
+Groups:	4 27 1000 
+NStgid:	65015
+NSpid:	65015
+NSpgid:	65015
+NSsid:	64930
+VmPeak:	    2432 kB
+VmSize:	    2356 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	     516 kB
+VmRSS:	     516 kB
+RssAnon:	      64 kB
+RssFile:	     452 kB
+RssShmem:	       0 kB
+VmData:	      48 kB
+VmStk:	     132 kB
+VmExe:	       8 kB
+VmLib:	    1644 kB
+VmPTE:	      36 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	1
+Threads:	1
+SigQ:	0/15279
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000000000000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000003fffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Speculation_Store_Bypass:	thread vulnerable
+Cpus_allowed:	ffffffff,ffffffff,ffffffff,ffffffff
+Cpus_allowed_list:	0-127
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	105
+nonvoluntary_ctxt_switches:	0
