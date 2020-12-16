@@ -58,5 +58,6 @@ int main()
 
 // Program wykonuje sie zgodnie z poleceniem, jeżeli plik obr_map istnieje w tym katalogu.
 // Wszystkie pliki zostały prawidłowo przepisane do "obr_map" i po zmapowaniu były odpowiednio
-// interpretowane ze względu na typ pliku.
+// interpretowane ze względu na typ pliku. Do badania działania programu wykorzystano plik 
+// źródłowy programu, plik wykonywalny i kilka plików graficznych.
 
