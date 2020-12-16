@@ -31,8 +31,13 @@ int main()
 
 		// zlecenie mapowania do pamięci
 		adres = mmap(NULL, status.st_size, PROT_WRITE | PROT_READ, MAP_SHARED, plik2, 0);
+		read(plik1, adres, status.st_size); // odczytanie rozmiaru pliku
+		msync(adres, status.st_size, MS_SYNC); // synchronizacja danych zapisanych do odwzorowania
 
+		close(plik1);
+		close(plik2);
 	}
 
+	munmap(adres, status.st_size); // usunięcie mapowania
 	return 0;
 }
