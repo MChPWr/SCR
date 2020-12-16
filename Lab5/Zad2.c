@@ -60,11 +60,12 @@ int main()
 			read(plik_fd, addr, plik.st_size);	
 			// czytanie z pliku połączone z zapisem do mapy		
 			msync(addr, plik.st_size,MS_SYNC); // synchronizacja pootoku potomnego
+			munmap(addr, plik.st_size); // zwolnienie pamięci przed końcem programu 
 			close(plik_fd);
 			close(mapa_fd);
 		}
 	}
-	munmap(addr, plik.st_size); // zwolnienie pamięci przed końcem programu 
+
 	return 0;
 }
 
