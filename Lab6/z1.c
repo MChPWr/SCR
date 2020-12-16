@@ -21,9 +21,15 @@ int main()
 	{
 		printf("Podaj nazwę pliku do odczytu \n");
 		scanf("%s", file_name);
-
 		plik1 = open(file_name, O_RDONLY);
-	
+
+		/* Obsługa błędów */
+		while(plik1<1)
+		{
+			printf("Błąd odczytu pliku.\n Wprowadź nazwę pliku jeszcze raz:\n");
+			scanf("%s", file_name);
+			plik1 = open(file_name, O_RDONLY);
+		}
 
 		stat(file_name, &status); // pobranie statusu pliku do struktury
 		plik2 = open(output_file, O_RDWR); // otwarcie 2 pliku przez deskryptor do mapowania

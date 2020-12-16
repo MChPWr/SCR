@@ -1,0 +1,2 @@
+To jest tekst. 
+Nie za krótki, nie za długi - taki w sam raz.
