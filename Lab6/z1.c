@@ -14,6 +14,7 @@ int main()
 	char file_name[64];
 	char output_file[] = "output.txt";
 	struct stat status; 
+	void *adres = NULL;
 
 
 	while(1)
@@ -27,6 +28,10 @@ int main()
 		stat(file_name, &status); // pobranie statusu pliku do struktury
 		plik2 = open(output_file, O_RDWR); // otwarcie 2 pliku przez deskryptor do mapowania
 		truncate(output_file, status.st_size); // utworzenie tablicy o odpowiednim rozmiarze
+
+		// zlecenie mapowania do pamięci
+		adres = mmap(NULL, status.st_size, PROT_WRITE | PROT_READ, MAP_SHARED, plik2, 0);
+
 	}
 
 	return 0;
