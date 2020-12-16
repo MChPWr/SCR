@@ -13,7 +13,7 @@ int main()
 	int plik_fd, mapa_fd;
 	struct stat plik;              // struktura analizy pliku
 	void *addr = NULL;             // adres pliku do mapowania 
-	int pid;			// proces potomny
+	int pid;		       // proces potomny
 
 	pid = fork(); // klonowanie potoku, zalozenie, że pid < 0 nie nastąpi
     
@@ -23,6 +23,7 @@ int main()
 		execlp("display", "display", "-update","1",obr_map, NULL);
 	}
 	else 
+	{
 		stat("./obr_map", &plik);    // wstępne mapowanie obszaru pamięci
 		mapa_fd = open(obr_map, O_RDWR); // 
 		addr = mmap(NULL, plik.st_size,PROT_WRITE | PROT_READ, MAP_SHARED, mapa_fd, 0); // 
@@ -47,8 +48,8 @@ int main()
 			}
 
 			if((mapa_fd = open(obr_map, O_RDWR)) < 0) {
-		    	fprintf(stderr, "Nie otworzono pliku.\n");
-		    	return 2;
+		    		fprintf(stderr, "Nie otworzono pliku.\n");
+		    		return 2;
 			} // gdy plik mapowany zostanie otwarty można otworzyć plik do mapowania
 			stat(nazwa_obr, &plik);  // analiza pliku 
 			addr = mmap(NULL, plik.st_size,PROT_WRITE | PROT_READ, MAP_SHARED, mapa_fd, 0);
@@ -62,12 +63,14 @@ int main()
 			close(plik_fd);
 			close(mapa_fd);
 		}
+	}
 	munmap(addr, plik.st_size); // zwolnienie pamięci przed końcem programu 
 	return 0;
 }
 
-
-// Program wykonuje sie zgodnie z poleceniem.
-
-
+// Program wykonuje sie zgodnie z poleceniem, jeżeli plik obr_map istnieje w tym katalogu i jest
+// plikiem graficznym na początku działania programu. W przeciwnym wypadku program "display"
+// wyświetla błąd. Wszystkie pliki zostały prawidłowo przepisane do "obr_map" i po zmapowaniu
+// były odpowiednio interpretowane ze względu na typ pliku. Do badania działania programu
+// wykorzystano kilka plików graficznych.
 
