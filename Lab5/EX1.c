@@ -22,6 +22,12 @@ while(1){
     length=sb.st_size;
     addr=mmap(NULL, length, PROT_READ|PROT_WRITE, MAP_SHARED,fd_map, 0);
     ftruncate(fd_map, length);
+    fd_file=open(file_path,O_RDONLY|O_CREAT,  S_IRWXU);
+    if (fd_file == -1){ 
+        fprintf(stderr,"ERR: Can't open file to read \n");
+    }else{
+        read(fd_file, addr, length);
+    };
 }
 munmap(addr, length);
 close(fd_map);
