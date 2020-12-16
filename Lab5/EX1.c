@@ -20,8 +20,9 @@ while(1){
     if(file_path[0]=='E' && file_path[1]=='X' && file_path[2]=='\0'){break;};
     stat(file_path, &sb);
     length=sb.st_size;
-    
+    addr=mmap(NULL, length, PROT_READ|PROT_WRITE, MAP_SHARED,fd_map, 0);
+    ftruncate(fd_map, length);
 }
-
+munmap(addr, length);
 close(fd_map);
 }
