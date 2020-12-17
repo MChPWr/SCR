@@ -1,0 +1,1 @@
+Pokrewieństwem tych poleceń jest wspólny rodzic, którym jest bash.

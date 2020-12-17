@@ -1,0 +1,21 @@
+2a
+	Po otrzymaniu sygnału, program wyświetla komunikat i kończy działanie.
+$ ./program
+Otrzymano sygnał
+
+2b
+	Po otrzymaniu sygnału program wyświetla komunikat, po czym kontynuuje pracę.
+$ ./program
+Otrzymano sygnał
+Otrzymano sygnał
+
+2c
+	Po otrzymaniu sygnału program ignoruje go na określony czas.
+$ ./program
+Zatrzymanie 
+
+2d
+	Po otrzymaniu sygnału, program będzie go ignorować przez cały czas działania.
+$ ./program
+
+
