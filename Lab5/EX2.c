@@ -25,7 +25,16 @@ int main(){
 
     ///////////  DZIECKO  /////////////////
     }else if(pid==0){   
-        
+        char * arguments[7];
+        arguments[0]="display";
+        arguments[1]="-update";
+        arguments[2]="1";
+        arguments[3]="-delay";
+        arguments[4]="1";
+        arguments[5]=mapped_filename;
+        arguments[6]=NULL;
+        fprintf(stdout,"C:  Uruchamiam exec \n");
+        execvp(arguments[0], arguments);
     ///////////  RODZIC  /////////////////
     }else{   
         while(1){
@@ -35,6 +44,7 @@ int main(){
             stat(file_path, &sb);
             length=sb.st_size;
             addr=mmap(NULL, length, PROT_READ|PROT_WRITE, MAP_SHARED,fd_map, 0);
+            msync(addr,length,MS_SYNC);
             ftruncate(fd_map, length);
             fd_file=open(file_path,O_RDONLY|O_CREAT,  S_IRWXU);
             if (fd_file == -1){ 
