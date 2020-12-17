@@ -25,14 +25,10 @@ int main(){
 
     ///////////  DZIECKO  /////////////////
     }else if(pid==0){   
-        char * arguments[7];
-        arguments[0]="display";
-        arguments[1]="-update";
-        arguments[2]="1";
-        arguments[3]="-delay";
-        arguments[4]="1";
-        arguments[5]=mapped_filename;
-        arguments[6]=NULL;
+        char * arguments[3];
+        arguments[0]="eog";
+        arguments[1]=mapped_filename;
+        arguments[2]=NULL;
         fprintf(stdout,"C:  Uruchamiam exec \n");
         execvp(arguments[0], arguments);
     ///////////  RODZIC  /////////////////
