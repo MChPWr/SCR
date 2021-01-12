@@ -1,0 +1,3 @@
+Wyjścia wątków nie są wyświetlane po kolei. Po drugim uruchomieniu ich kolejność była inna niż w przypadku pierwszego uruchomienia. 
+
+Dzieję się tak ponieważ o kolejności wykonywania wątków decyduje planista systemu operacyjnego.
