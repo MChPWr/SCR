@@ -1,0 +1,6 @@
+hello_arg1.c przekazuje pojedynczy argument do funkcji wykonywanej przez wątek.
+Przekazywany argument jest rzutowany (void *).
+
+hello_arg2.c przekazuje wiele argumentów do wykonywanej przez wątek funkcji korzystając ze struktury, która przechowuje tablicę charów oraz dwa inty.  
+
+bug3.c kompiluje się bez warningów, jednak każdy wątek wypisuje na wyjście ten sam komunikat. Aby program działał poprawnie, wystarczy poprawić aby threadid w funkcji PrintfHello było rzutowane na long oraz w mainie usunąć adres zmiennej t w funkcji pthread_create(). 
