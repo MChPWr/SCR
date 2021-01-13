@@ -1,0 +1,2 @@
+Pojawiają się przez problemy przez stos, który jest za mały i przekraczamy jego rozmiar.
+Żeby to naprawić należy zwiększyć stos lub zmniejszyć tablicę
