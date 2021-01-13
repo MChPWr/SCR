@@ -1,0 +1,1 @@
+w programie join.c funkcja join powoduje zatrzymanie wykonywania głównej funkcji i nie pozwala potomkom się skończyć przed zakończeniem obliczeń. Natomiast w drugim programie dzięki funkcji detached główna funkcja może się skończyć nie zabijając potomków.

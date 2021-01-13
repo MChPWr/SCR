@@ -1,0 +1,6 @@
+Pojedynczy argument można przekazać jako zmienną. 
+Wiele argumentów można przekazać przez strukturę wykorzystując wskażnik na void, a następnie uzywając rzutowania.
+
+W programie bug3.c błędem jest przekazywanie do funkcji zmiennej przez referencje.Aby to naprawić należy linię 19 zastąpić tym: 
+taskid = (long) threadid; 
+a linię 32: rc = pthread_create(&threads[t], NULL, PrintHello, (void *) t);

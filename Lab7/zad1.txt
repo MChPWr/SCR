@@ -1,0 +1,2 @@
+Patrząc na wyjście programu 1.c można zauważyć, że kolejność wykonywania jest losowa i jest ona inna za każdym razem gdy włączamy program.
+

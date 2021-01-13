@@ -1,0 +1,1 @@
+Wyjścia wątków są wyswietlane w losowej kolejności. Z każdym ponownym włączeniem programu kolejność jest inna. Zależy to od planisty, kolejność jest różna ponieważ wątki wykonują się w różnym czasie.
