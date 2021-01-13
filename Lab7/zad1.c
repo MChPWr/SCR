@@ -20,3 +20,8 @@ int main(){
 	}
 	pthread_exit(NULL);
 }
+
+/* Czy tego oczekiwaes?
+	Nie, mozna byloby sie spodziewac tego, ze watki beda wykonywane
+	w kolejnosci ich wywolywania tak jednak sie nie dzieje.
+*/
