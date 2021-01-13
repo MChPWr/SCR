@@ -1,0 +1,13 @@
+W systemach Linux i UNIX, procesy ktore maja nizsza liczbe priorytetu sa wykonywane z wiekszym
+priorytetem. Np. proces o zadanym priorytecie 20, ma nizszy priorytet niz proces o priorytecie
+-20.
+
+Mozna rowniez zmieniac priorytet procesu, zarowno podczas wykonania, jak i w trakcie dzialania procesu.
+
+Przy pomocy komendy nice, mozemy uruchomic proces z innym priorytetem niz jesty uruchamiany
+domyslnie, np. wywolanie nice -n -20 ls, wykona nam polecenie ls z wyzszym priorytetem
+(co w tym wypadku akurat nie ma wiekszego sensu i nie zauwazymy zadnej roznicy, gdyz nie jest
+to proces, ktory potrzebuje duzo zasobow procesora).
+
+Natomiast zmienie priorytetu dzialajacego procesu moze odbyc sie przy pomocy komendy
+renice -n [zadana liczba o ktora chcemy zmienic priorytet] -p [PID_procesu]
