@@ -1,0 +1,5 @@
+Proc to wirtualny system plików. Możemy wyświetlić jego zawartość wpisując:
+
+ls -l /proc
+
+Można poruszać się po niższych katalogach komendami cd, ls, grep itp.

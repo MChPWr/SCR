@@ -1,0 +1,8 @@
+Stworzyłem potok za pomocą komendy mknod fifo1 p
+Następnie otworzyłem dodatkowe terminale (wszystkie w tym samym katalogu):
+ - dwa przeznaczone do pisania w potoku 'cat > fifo1'
+ - dwa przeznaczone do czytania z potoku 'cat fifo1'
+
+Pisałem różne słowa na przemian w terminalach przeznaczonych do pisania. W terminalach do odczytu pojawiały się one losowo. 
+
+Terminale skonczyly czekac na wprowadzanie i odczyt danych po zabiciu procesów.

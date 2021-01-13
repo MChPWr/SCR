@@ -1,0 +1,3 @@
+Program bug5.c wykonuje tylko główny wątek. Wątki tworzone w mainie nie wykonują swoich funkcji. 
+
+Aby program działał poprawnie należy dopisać w funkcji PrintHello zmienną typu long, do której jest przypisywany argument popierany przez funkcję i rzutowany na long. Dodatkowo należy na końcu maina dopisać zakończenie głównego wątku.

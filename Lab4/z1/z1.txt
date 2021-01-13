@@ -1,0 +1,5 @@
+Aby zmienić częstotliwość odświeżania programu top można go wywołać np.:
+
+top -d 0.1
+
+podając czas odświeżania w sekundach
