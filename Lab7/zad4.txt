@@ -1,0 +1,5 @@
+zad4
+
+Watki zostaja zabijane zanim dokonczyc lub czesto nawet rozpoczac zadana im prace.
+Mozna to naprawic np. poprzez dodania opoznienia w funkcji main - sleep(10).
+Czas ten daje mozliwosc wykonania sie operacji w watkach.
