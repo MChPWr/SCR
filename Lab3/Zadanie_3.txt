@@ -1,0 +1,30 @@
+/proc/4384/$ cat status
+Name:	program
+Umask:	0002
+State:	S (sleeping)
+Tgid:	4384
+Ngid:	0
+Pid:	4384
+PPid:	2416
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	256
+Groups:	4 24 27 30 46 120 131 132 1000 
+NStgid:	4384
+NSpid:	4384
+NSpgid:	4384
+NSsid:	2416
+VmPeak:	    2432 kB
+VmSize:	    2356 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	     516 kB
+VmRSS:	     516 kB
+RssAnon:	      64 kB
+
+#######################################
+
+Przy pomocy nadziędzia proc można odczytywać różne informacje o interesującym nas
+procesie. W tym wypadku dane pochodzą z programu z zadania numer 1.
+

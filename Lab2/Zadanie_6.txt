@@ -1,0 +1,4 @@
+Za pomocą komendy kill -SIGSTOP [PID] możemy zatrzymać proces.
+
+Komenda kill -SIGCONT [PID] wznawia proces. Ta komenda jest równoważna
+komendzie fg. Komenda bg wyświetla informacje o zatrzymanych procesach.
