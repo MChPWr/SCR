@@ -1,0 +1,38 @@
+Wykonanie programu bu5.c 
+
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./bug5
+Main: creating thread 0
+Main: creating thread 1
+thread=0: starting...
+Main: creating thread 2
+thread=1: starting...
+Main: creating thread 3
+Main: creating thread 4
+Main: Done.
+
+
+
+Można zauważyć, że wątki uruchomione wcześniej w mainie nie zdążyły wykonać swojej pracy przed zamknięciem programu.
+Jedną z możliwości naprawy tego błędu byłoby wykonanie funkcji pthread_join, która czekałaby na zakończenie pracy podanego w niej
+wątku przed kontynuacją wykonania aktualnego programu.
+
+
+Po dodaniu lini join:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./bug5
+Main: creating thread 0
+Main: creating thread 1
+thread=0: starting...
+Main: creating thread 2
+Main: creating thread 3
+Main: creating thread 4
+thread=3: starting...
+thread=1: starting...
+thread=4: starting...
+thread=2: starting...
+thread=0 result=-3.153838e+06. Done.
+thread=4 result=-3.153838e+06. Done.
+thread=1 result=-3.153838e+06. Done.
+thread=3 result=-3.153838e+06. Done.
+thread=2 result=-3.153838e+06. Done.
