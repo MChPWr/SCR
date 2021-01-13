@@ -34,5 +34,6 @@ int main(int argc, char *argv[])
 // Wątki wykonują się w różnej kolejności w każdym wywołaniu programu i niezależnie od wątku 
 // głównego. Po zwiększeniu liczby wątków można zauważyć, że, pomimo pseudolosowości wykonania
 // wątków, wątki o bardzo małych indeksach wykonują się przed wątkami o bardzo dużych indeksach.
+// To nie jest to czego, się spodziewałem.
 
 
