@@ -1,0 +1,10 @@
+Testy testy
+
+Zad 1.
+	Testy
+
+Zad 2.
+	Testy
+
+Zad 3.
+	Testy
