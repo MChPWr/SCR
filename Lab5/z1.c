@@ -22,10 +22,10 @@ int main(int argc, char const *argv[])
 			return 1;
 		}
 
-		fgets(buffer, BUFFER, fptr);
-		printf("Proces nadrzędny: %s", buffer);
-		fclose(fptr);
-		write(fd[1], buffer, sizeof(char)*BUFFER);
+		fgets(buffer, BUFFER, fptr); // odczytanie kolejnych znakow ze strumienia i umieszczenie ich w tablicy znakowej buffer
+		printf("Proces nadrzędny: %s\n", buffer);
+		fclose(fptr); // zamkniecie pliku otwartego fopen()
+		write(fd[1], buffer, sizeof(char)*BUFFER); 
 		close(fd[1]);
 	}
 
@@ -34,7 +34,7 @@ int main(int argc, char const *argv[])
 	{
 		close(fd[1]);
 		read(fd[0], buffer, sizeof(char)*BUFFER);
-        printf("Podproces: #%s #", buffer);
+        printf("Podproces: #%s #\n", buffer);
         close(fd[0]);
 	}
 

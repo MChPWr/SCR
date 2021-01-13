@@ -41,7 +41,7 @@ int main(int argc, char const *argv[])
 	if(pid==0) // dziecko
 	{
 		close(fd[1]);
-		dup(fd[0]);
+		dup(fd[0]); // tworzy duplikat istniejacego deskryptora pliku i przekazuje numer nowego deskryptora zwiazanego z tym samym plikiem lub laczem
         close(fd[0]);
 	}
 
