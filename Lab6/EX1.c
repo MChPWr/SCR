@@ -5,10 +5,9 @@
 
 /* funkcja wykonywana w wątku */
 void* thread_func(void* thread_ID) {
-    int * ID = (int * ) thread_ID;
-	printf("Hello SCR. Written by thread %d \n", *ID);
+    long ID = (long) thread_ID;
+	printf("Hello SCR. Written by thread %ld \n", ID);
     pthread_exit(NULL);
-	return NULL;
 }
 
 int main(){
