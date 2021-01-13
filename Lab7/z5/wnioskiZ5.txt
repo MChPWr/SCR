@@ -1,0 +1,5 @@
+W kodzie join.c w funkcji BusyWork(void *t) poprawiono operację przypisywania wartości do zmiennej result w taki sposób, aby każdy wątek miał inny rezultat. 
+
+Program join.c korzysta z funkcji pthread_join aby zawieszać wywoływany wątek do momentu, aż wątek podawany w tej funkcji zakończy swoje działanie. 
+
+Program detached.c ustawia atrybut w taki sposób, że tworzone wątki są w stanie odłączonym. Nie można przez to zastosować funkcji pthread_join.
