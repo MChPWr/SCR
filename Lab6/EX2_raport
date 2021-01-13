@@ -1,0 +1,6 @@
+Program hello32.c generuje on 32 wątki z których każdy następnie wykonuje swoje zadanie obliczeniowe.
+
+Po wywołaniu programu kolejność z jaką wątki komunikują zakończenie pracy jest inna od tego w jakiej kolejności
+zostały one aktywowane. Dzieje się tak ponieważ pracują one wszystkie w tym samym czasie i to kiedy dla danego
+wątki przydzielone są zasoby jest na bieżąco kontrolowane przez system (planistę). Tak więc zdarza się, że wątki
+uruchomione później zakończą się szybciej.
