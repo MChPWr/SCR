@@ -1,0 +1,7 @@
+Oba programy podlegają zjawisku pseudolosowego szeregowania wątków, które zostało opisane w
+poprzednim zadaniu. Wykorzystanie struktury do przekazania argumentów, pomimo większego
+skomplikowania przekazania argumentów, można uznać za lepsze z uwagi na możliwość przekazania 
+wielu różnych informacji i zorganizowania tych informacji. W przykładzie z pliku hello_arg2.c 
+wykorzystanie struktury umożliwiło przesłanie do wątku potomnego wartości sumy kontrolnej (sumy 
+wartości ID dotychczas stworzonych wątków).
+ 

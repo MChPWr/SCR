@@ -43,4 +43,4 @@ pthread_exit(NULL);
 // dla referencji przez zbyt złożone rzutowanie). Należało usunąć referencję do t i wskaźniki z 
 // przypisania threadid do taskid.
  
-
+ 
