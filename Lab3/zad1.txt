@@ -1,0 +1,2 @@
+Przy wywolaniu (ps) wyswietla procesy aktualnej sesji terminala. Przy dodaniu opcji -f lub -l wyswietla informacje bardziej szczegolowo. 
+Po podaniu opcji -u wyswietla on procesy danego uzytkownika. Przy -t szuka procesow po TTY a przy podaniu -p, szuka procesow po identyfikatorze.

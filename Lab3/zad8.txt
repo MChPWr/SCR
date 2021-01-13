@@ -1,0 +1,3 @@
+Limit procesów został zmniejszony 5-krotnie, po wykonaniu samopowtarzającego się skryptu doszło do sytuacji
+w której fork nie chciał się wykonać.
+Po zabiciu procesu, można było wrócić do normalnej pracy.

@@ -1,0 +1,3 @@
+Z wyników wykonanego zadania wydaje się, że system rozdziela dane w sposób losowy.
+Przy zamknięciu potoku process zwraca SIGPIPE lub 0.
+Po zamknięciu procesu zapisującego proces czytającu otrzymuje 0.

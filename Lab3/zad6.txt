@@ -1,0 +1,4 @@
+Sygnał SIGSTOP działa analogicznie do CTRL+Z przy zatrzymywaniu procesu, jednak przy wznawianiu procesu 
+standardowe wyjście po zatrzymaniu SIGSTOP jest kierowane do konsoli w przeciwieństwie do CTRL+Z.
+
+SIGCONT działa podobniej do bg. Po zatrzymaniu i wznowieniu program zawsze wykonuje się w tle.

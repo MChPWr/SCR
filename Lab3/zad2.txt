@@ -1,0 +1,1 @@
+Proces C zgodnie z założaniem został zaadaptowany przez inita systemowego pid1

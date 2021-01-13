@@ -1,0 +1,16 @@
+z1
+Program wyświetla wiadomość z wątków w losowej kolejności, wynika to z algorytmu szeregowania zadań systemu operacyjnego.
+
+z2
+Sytuacja analogiczna do zadania 1.
+
+z3
+Aby program poprawnie wyświetlał ID wątku zmieniłem nieco jego budowę. Usunąłem wskaźnik i refernecję.
+
+z4
+W programie brakowało funkcji pthread_exit lub pthread_join. 
+Dodałem pthread_join.
+
+z5
+Program join.c został zmodyfikowany tak aby zwracał różne wartości dodając do wyniku wartość t.
+Program detached.c tworzy wątki jako detached zamiast domyślnego joinable. Zamiast je łączyć niszczymy obiekty za pomocą _destroy.

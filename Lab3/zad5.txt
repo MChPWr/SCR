@@ -1,0 +1,2 @@
+Polecenie 'trap' zgodnie z przewidywaniem nie jest w stanie powstrzymać sygniału SIGKILL.
+Skrypt zostaje zabity natychmiast.

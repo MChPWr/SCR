@@ -1,0 +1,2 @@
+Przy braku opóźnienia w pętli w main, proces znajduje się na górze listy w programie 'top'.
+Przy dodaniu polecenia nanosleep(), proces znajduję się już niżej na liście oraz bardzo mocno spada zużycie procesora.

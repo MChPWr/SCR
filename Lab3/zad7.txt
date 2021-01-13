@@ -1,0 +1,3 @@
+Po uruchomienu dwóch takich samych skryptów wypisujących znak na wyjście poleceniem:
+'nice -n 5 ./A.sh & ./B.sh &'
+Zostału uruchomione jednocześnie ale zgodnie z założeniem skrypt B wypisał się wcześniej.
