@@ -1,0 +1,10 @@
+zad3.
+
+W programie hello_arg1.c argument przekazywany jest w formie zmiennej.
+W programie hello_arg2.c dzieje sie to przy pomocy struktury.
+
+Dla pierwszego z nich mamy taka sama sytuacje co wczesniej tzn. kolejnosc watkow jest niejako za kazdym razem losowa.
+Dla drugiego kolejnosc wykonywania sie watkow jest zgodna z kolejnoscia danych w strukturze.
+
+
+W programie bug3.c kompiluje sie lecz jego problemem jest bledny sposob przekazywania danych.
