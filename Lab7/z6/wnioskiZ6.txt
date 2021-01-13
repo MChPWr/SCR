@@ -1,0 +1,3 @@
+Po uruchomieniu bug2.c otrzymujemy informację o przepełnieniu stosu. 
+
+W kodzie należy prawidłowo zdefiniować rozmiar stosu, ustawić go funkcją pthread_attr_setstacksize oraz zmienić NULL na adres &attr w funkcji pthread_create.
