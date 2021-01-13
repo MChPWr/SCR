@@ -1,0 +1,16 @@
+Strace jest to program moniturujący (pozwala na podgląd i analizę wywołań poleceń 
+systemowych wydawanych przez wskazany proces).
+
+strace [polecenie] -> uruchamian proces przy pomocy strace i daje podgląd 
+wszystkich poleceń systemowych do zakończenia procesu
+
+strace -o [plik wyjściowy][polecenie] -> zapisuje wszystkie wyniki działania programu strace do pliku
+
+sudo strace -p [numer PID procesu] -> uruchamia strace dla juz dzialajacego procesu
+
+sudo strace -f [polecenie] -> pozwala sledzic procesy potemne jakiegoś procesu
+
+strace -fe trace=execve[polecenie] -> pozwala sprawdzić jakie inne programy sa uruchomiane
+przez preces głowny i procesy potemne
+
+strace -T [polecenie] -> pokazuje czas wykonania kazdego z polecen systemowych
