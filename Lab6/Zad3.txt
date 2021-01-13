@@ -1,0 +1,3 @@
+Obserwując kody programów hello_arg1 i hello_arg2 mozemy zauważyć ze pojedyńcze element moze być przekazywany jako zmienna, a jeśli chcemy przekazać wiele elementów to musismy to zrobić za pomoca stuktury zapisując je w niej i następnie przekazując ją jako jeden element.
+
+Program bug3.c miał błędnie napisane przekazywanie wartości do wątku. Należało usunąć w nim wskaźnik z linii 19 i referencje z lini 32.
