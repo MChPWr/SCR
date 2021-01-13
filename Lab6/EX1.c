@@ -23,3 +23,14 @@ int main(){
 
     pthread_exit(NULL);
 }
+
+/*
+Komentarz
+
+Próbując wyświetlić ID wybranego wątku uznałem że muszę koniecznie skorzystać ze zmiennej pthread_t
+która w teorii nazywana jest identyfikatorem wątku.
+
+Jak się jednak okazało w przykładowym programie hello.c wykorzystywane było ID nadane przez użytkownika, czyli
+po prostu kolejne numery wywolywanych wątków.
+
+*/
