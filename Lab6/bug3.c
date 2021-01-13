@@ -42,5 +42,5 @@ pthread_exit(NULL);
 // Program wyświetlał taki sam numer ID wątku niezależnie od wątku (odczytywał wartość odpowiednią 
 // dla referencji przez zbyt złożone rzutowanie). Należało usunąć referencję do t i wskaźniki z 
 // przypisania threadid do taskid.
-
+ 
 

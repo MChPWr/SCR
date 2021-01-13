@@ -4,4 +4,4 @@ skomplikowania przekazania argumentów, można uznać za lepsze z uwagi na możl
 wielu różnych informacji i zorganizowania tych informacji. W przykładzie z pliku hello_arg2.c 
 wykorzystanie struktury umożliwiło przesłanie do wątku potomnego wartości sumy kontrolnej (sumy 
 wartości ID dotychczas stworzonych wątków).
-
+ 
