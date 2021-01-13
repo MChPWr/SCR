@@ -1,0 +1,31 @@
+# opis programus ps
+
+Program ps wyswietla opis biezacych procesow w postaci:
+	* PID - process ID,
+	* TTY - terminal,
+	* TIME
+	* CMD - nazwa programu wykonywalnego
+Jego wyjscie domyslnie nie jest posortowane.
+
+Wywolywanie z flagami:
+	-f - wyjscie w pelnym formacie,  dodatkowo:
+		* UID - User ID,
+		* PPID - Parent Process ID,
+		* C,
+		* STIME - czas wystartowania procesu.
+
+	-l - prezentuje rozszerzona ilosc informacji, dodatkowo:
+		* F, 
+		* S,
+		* PPID, 
+		* C - wykorzystanie procesora do planowania, 
+		* PRI - priorytet watku kernela, 
+		* NI - nice number,
+		* ADDR - adres struktury proc, 
+		* SZ - size, szacowana ilosc przestrzeni swap, ktora bylaby wymagana, gdyby proces mial oproznic wszystkie swoje zapisywalne strony a potem zostac wyswapowany, 
+		* WCHAN - adres funkcji jadra, w ktorej proces zostal uspiony.
+	
+	-u - wyswietla procesy uzytownika,
+	-t - wyswietla procesy podlaczone do terminali,
+	-p - pozwala na wyszukanie procesu poprzez PID.
+

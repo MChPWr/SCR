@@ -1,0 +1,25 @@
+Otworzylem w terminalu 3 razy proces bash. Zabilem proces 6439.
+
+mbagnsk@pop-os:~/Desktop$ ps -axlf
+0  1000    6262    1940  20   0 474388 50724 -      Ssl  ?          0:01  \_ /usr/libexec/gnome-terminal-server
+0  1000    6268    6262  20   0   8492  5324 do_wai Ss   pts/0      0:00      \_ bash
+0  1000    6439    6268  20   0   8232  5052 do_wai S    pts/0      0:00          \_ bash
+0  1000    6445    6439  20   0   8232  5024 do_wai S    pts/0      0:00              \_ bash
+0  1000    6451    6445  20   0   8232  5036 do_wai S    pts/0      0:00                  \_ bash
+0  1000    6458    6451  20   0   9176  3496 -      R+   pts/0      0:00                      \_ ps -axlf
+1  1000    1961       1  20   0 237548  7272 -      Sl   ?          0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+4     0    2931       1  20   0  99780 82148 -      S    ?          0:00 /usr/bin/python3 /usr/lib/pop-transition/service.py
+mbagnsk@pop-os:~/Desktop$ kill -9 6439
+mbagnsk@pop-os:~/Desktop$ Killed
+mbagnsk@pop-os:~/Desktop$ 
+mbagnsk@pop-os:~/Desktop$ ps -axlf
+0  1000    6262    1940  20   0 474572 50724 poll_s Ssl  ?          0:01  \_ /usr/libexec/gnome-terminal-server
+0  1000    6268    6262  20   0   8492  5324 do_wai Ss   pts/0      0:00  |   \_ bash
+0  1000    6459    6268  20   0   9176  3552 -      R+   pts/0      0:00  |       \_ ps -axlf
+0  1000    6445    1940  20   0   8232  5024 do_wai S    pts/0      0:00  \_ bash
+0  1000    6451    6445  20   0   8232  5036 poll_s S    pts/0      0:00      \_ bash
+1  1000    1961       1  20   0 237548  7272 -      Sl   ?          0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+
+
+Osierocony proces zostal przejety przez prosces 1940 - systemd.
+Domyslnie proces powinien ten zostac przejety przez init i nie wiem dlaczego tak sie nie stalo.

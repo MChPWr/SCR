@@ -1,0 +1,2 @@
+Nie, kolejnosc nie zawsze jest taka sama.
+Kolejnosc zalezy od aktualnie przydzielonej kolejnosci przez planiste.

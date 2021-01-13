@@ -1,0 +1,5 @@
+Zawiesic program mozna za pomoca SIGSTOP lub za pomoca kombinacji klawiszy Ctrl+z.
+Za pomoca polecenia SIGCONT mozna przywrocic dzialanie procesu.
+Komenda wyglada wtedy nastepujaco: kill SIGCONT [PID].
+Taki sam rezultat mozna osagnac za pomoca polecen fg lub bg lecz bg "bardziej".
+Polecenie bg uruchamia proces w tle a fg dodatkowo wrzuca nas do procesu i aby z niego wyjsc znow musimy wyslac sygnal STOP.
