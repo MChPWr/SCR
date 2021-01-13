@@ -1,0 +1,51 @@
+zad5
+
+Po zmodyfikowaniu programu join.c w taki sposob aby nie zwracal on tych samych wartosci
+dla kazdego watku program nie dziala poprawnie(program zmodyfikowalem w taki sposob, 
+ze "result = tid" w funkcji BusyWork).
+
+W przypadku programu detached.c sytuacja jest zgola inna jesli chodzi o kolejnosc wyswietlanych komunikatow. Jest to zwiazane z brakiem zastosowania funkcji join().
+
+Pozwala ona oczekiwac na zamkniecie watku.
+
+
+mbagnsk@pop-os:~/Desktop/SPC FORK/SCR-1/Lab7$ ./a
+Main: creating thread 0
+Main: creating thread 1
+Main: creating thread 2
+Main: creating thread 3
+Thread 0 starting...
+Thread 2 starting...
+Thread 3 starting...
+Thread 1 starting...
+Thread 1 done. Result = -3.153838e+06
+Thread 2 done. Result = -3.153838e+06
+Thread 3 done. Result = -3.153838e+06
+Thread 0 done. Result = -3.153838e+06
+Main: completed join with thread 0 having a status of 0
+Main: completed join with thread 1 having a status of 1
+Main: completed join with thread 2 having a status of 2
+Main: completed join with thread 3 having a status of 3
+Main: program completed. Exiting.
+
+mbagnsk@pop-os:~/Desktop/SPC FORK/SCR-1/Lab7$ gcc -o a join.c -pthread -lm
+mbagnsk@pop-os:~/Desktop/SPC FORK/SCR-1/Lab7$ ./a
+Main: creating thread 0
+Main: creating thread 1
+Thread 0 starting...
+Main: creating thread 2
+Main: creating thread 3
+Thread 1 starting...
+Thread 0 done. Result = 0.000000e+00
+Thread 2 starting...
+Thread 2 done. Result = 2.000000e+00
+Main: completed join with thread 0 having a status of 0
+Thread 3 starting...
+Thread 1 done. Result = 1.000000e+00
+Main: completed join with thread 1 having a status of 1
+Main: completed join with thread 2 having a status of 2
+Thread 3 done. Result = 3.000000e+00
+Main: completed join with thread 3 having a status of 3
+Main: program completed. Exiting.
+mbagnsk@pop-os:~/Desktop/SPC FORK/SCR-1/Lab7$ ^C
+mbagnsk@pop-os:~/Desktop/SPC FORK/SCR-1/Lab7$ 
