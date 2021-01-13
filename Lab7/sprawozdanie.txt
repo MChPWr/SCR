@@ -1,10 +1,57 @@
-Testy testy
-
 Zad 1.
-	Testy
+	Po skompilowaniu oraz uruchomieniu programu hello.c pojawiają się komunikaty 
+	wykonywane przez wątki. 
+	Raz wykonują się w kolejności a raz losowo. Jest to spowodowane tym, algorytmem
+	szeregowania zadań w systemie - nie wszystkie wątki są stworzone w momencie wykonywania 
+	tych, które już się pojawią.
+
+	Przykład:
+amadeusz@amadeusz-VirtualBox:~/SCR/SCR/LAB2/SCR-1/Lab7$ ./hello
+Thread created 0
+Thread created 1
+Hello SCR! Written by thread #0!
+Thread created 2
+Hello SCR! Written by thread #1!
+Thread created 3
+Hello SCR! Written by thread #2!
+Hello SCR! Written by thread #3!
+
+amadeusz@amadeusz-VirtualBox:~/SCR/SCR/LAB2/SCR-1/Lab7$ ./hello
+Thread created 0
+Thread created 1
+Thread created 2
+Hello SCR! Written by thread #1!
+Hello SCR! Written by thread #0!
+Hello SCR! Written by thread #2!
+Thread created 3
+Hello SCR! Written by thread #3!
 
 Zad 2.
-	Testy
+	Tak jak w poprzednim zadaniu, wyświetlanie wątków w losowej kolejności wynika z szeregowania
+	zadań przez system.
 
 Zad 3.
-	Testy
+	W programie jest źle przekazywane id wątku. Zostało to naprawione poprzez:
+	taskid = *(long*)threadid -> taskid = (long*)threadid; (Usunięty wskaźnik poprzedzający
+	(void *) &t -> (void *) t (Usunięta referencja)
+	
+	Po czym program poprawnie zaczął wyświetlać id wątku:
+
+amadeusz@amadeusz-VirtualBox:~/SCR/SCR/LAB2/SCR-1/Lab7$ ./bug3
+Creating thread 0
+Creating thread 1
+Creating thread 2
+Creating thread 3
+Creating thread 4
+Creating thread 5
+Creating thread 6
+Creating thread 7
+Hello from thread 0
+Hello from thread 3
+Hello from thread 5
+Hello from thread 1
+Hello from thread 6
+Hello from thread 2
+Hello from thread 4
+Hello from thread 7
+
