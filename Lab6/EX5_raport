@@ -1,0 +1,74 @@
+Po wykonaniu się program join.c wyświetla taki wynik:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./join
+Main: creating thread 0
+Main: creating thread 1
+Thread 0 starting...
+Main: creating thread 2
+Main: creating thread 3
+Thread 3 starting...
+Thread 2 starting...
+Thread 1 starting...
+Thread 3 done. Result = -3.153838e+06
+Thread 2 done. Result = -3.153838e+06
+Thread 1 done. Result = -3.153838e+06
+Thread 0 done. Result = -3.153838e+06
+Main: completed join with thread 0 having a status of 0
+Main: completed join with thread 1 having a status of 1
+Main: completed join with thread 2 having a status of 2
+Main: completed join with thread 3 having a status of 3
+Main: program completed. Exiting.
+
+Wprowadziłem zmianę w funkcji Busywork tak aby każdy wątek podczas obliczeń dodawał swoje ID do wyniku (dodawanie występowało milion razy).
+Wynik wykonania się programu po wprowadzeniu zmiany:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./join
+Main: creating thread 0
+Main: creating thread 1
+Thread 0 starting...
+Main: creating thread 2
+Thread 1 starting...
+Main: creating thread 3
+Thread 3 starting...
+Thread 2 starting...
+Thread 3 done. Result = -1.538376e+05
+Thread 0 done. Result = -3.153838e+06
+Main: completed join with thread 0 having a status of 0
+Thread 1 done. Result = -2.153838e+06
+Main: completed join with thread 1 having a status of 1
+Thread 2 done. Result = -1.153838e+06
+Main: completed join with thread 2 having a status of 2
+Main: completed join with thread 3 having a status of 3
+Main: program completed. Exiting.
+
+
+Jak widać wątki tym razem uzyskały inne wyniki oraz zakończyły swoją pracę w różnych momentach.
+Natomiast na koniec ich status zakończenia został skontrolowany w kolejności rosnącej 0-3 przy pomocy join.
+
+
+Wątki które zostały uruchomione jako detached po skończeniu swojej pracy mogą się samodzielnie zakończyć i zwrócić zasoby
+bez kontroli programu nadrzędnego, bez konieczności korzystania z join. W związku z tym program main zakończył swoją pracę 
+wcześniej natomiast wątki dopiero po wykonaniu swojego zadania zwróciły wartości.
+
+Przykład wykonania:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./detached
+Main: creating thread 0
+Main: creating thread 1
+Thread 0 starting...
+Main: creating thread 2
+Thread 1 starting...
+Main: creating thread 3
+Main: program completed. Exiting.
+Thread 3 starting...
+Thread 2 starting...
+Thread 1 done. Result = -3.153838e+06
+Thread 2 done. Result = -3.153838e+06
+Thread 0 done. Result = -3.153838e+06
+Thread 3 done. Result = -3.153838e+06
+
+W przykładzie join funkcja main oczekiwała na ukończenie się pracy wątków, aby mieć pewność, 
+że doszło do połączenia ich z wątkiem głównym, a potem zakończyć pracę programu. 
+Natomiast w przykładzie detached funkcja main zakończyła swoją pracę od razu po wywołaniu
+wątków i nie oczekiwała na ich zakończenie. Wątki zostały uruchomione jako detached tak, że po zakończeniu
+pracy nie musiały łączyć, że z innym wątkiem aby zwrócić swoje zasoby.
