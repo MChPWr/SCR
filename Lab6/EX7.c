@@ -1,19 +1,14 @@
 #include <pthread.h>
 #include <stdio.h>
-#include <random>
+#include <stdlib.h>
 
-#define N 20
-#define POINTS_CHECKED 10000
+#define N 100
+#define POINTS_CHECKED 100000
 
 
 /* funkcja wykonywana w wątku */
 void* MonteCarloMethod(void* result_ptr) {
-    long * pi = (long *) result_ptr;
-    // Generator liczb losowych
-    std::mt19937 gen{std::random_device{}()};
-    // Rozklad jednorodny na przedziale -1.0 do 1.0
-    std::uniform_real_distribution<double> {-1.0, 1.0};
-	
+    double * pi = (double *) result_ptr;
     int points_in_square=POINTS_CHECKED;
     int points_in_circle=0;
 
@@ -21,20 +16,22 @@ void* MonteCarloMethod(void* result_ptr) {
 
     for(int i=0; i < points_in_square; ++i)
     {
-        x = losuj(gen);
-        y = losuj(gen);
+        x = 2.0*rand()/RAND_MAX - 1;
+        y = 2.0*rand()/RAND_MAX - 1;
         if(x*x + y*y <= 1)
         {
             ++points_in_circle;
         }
     }
     *pi= 4.0 * points_in_circle / points_in_square;
+    printf("PI = %lf \n", *pi);
     pthread_exit(NULL);
 }
 
 int main(){
     pthread_t thread[N];
     pthread_attr_t attr;
+    double result[N];
     int rc;
     long t;
     void *status;
@@ -45,7 +42,7 @@ int main(){
 
     for(t=0; t<N; t++) {
         printf("Main: creating thread %ld\n", t);
-        rc = pthread_create(&thread[t], &attr, MonteCarloMethod, (void *)t); 
+        rc = pthread_create(&thread[t], &attr, MonteCarloMethod, (void *) &result[t]); 
         if (rc) {
             printf("ERROR; return code from pthread_create() is %d\n", rc);
             exit(-1);
@@ -54,15 +51,21 @@ int main(){
 
     /* Free attribute and wait for the other threads */
     pthread_attr_destroy(&attr);
-    for(t=0; t<N\; t++) {
+    for(t=0; t<N; t++) {
         rc = pthread_join(thread[t], &status);
         if (rc) {
             printf("ERROR; return code from pthread_join() is %d\n", rc);
             exit(-1);
-            }
-        printf("Main: completed join with thread %ld having a status of %ld\n",t,(long)status);
         }
-    
+    }
+
+
+    double PI_estimation=0.0;
+    for(int i=0; i<N; i++){
+        PI_estimation+=result[i];
+    };
+    PI_estimation=PI_estimation/N;
+    printf("Main: Final PI estimation calculated with Monte Carlo Method is  PI = %lf\n", PI_estimation);
     printf("Main: program completed. Exiting.\n");
     pthread_exit(NULL);
 }
