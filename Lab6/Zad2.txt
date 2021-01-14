@@ -1,0 +1,4 @@
+Kolejność wykonania wątków jest pseudolosowa i inna przy każdym wywołaniu programu. Planista 
+zostaje wywołany co jakiś czas i w tym przypadku część lub wszystkie wątki zostały stworzone 
+pomiędzy kolejnymi wywołaniami planisty, czyli z perspektywy planisty zostały wywołane 
+jednocześnie. Dlatego planista ustawił je w sposób pseudolosowy, a nie w kolejności wywołania.
