@@ -1,0 +1,14 @@
+
+sygnal SIGSTOP daje taki sam efekt jak nacisniecie ^Z (ctrl + z)
+
+$ kill -SIGSTOP PID
+za pomoca tego polecenia bylem w stanie zawiesic dzialanie programu
+
+
+$ kill -SIGCONT PID
+to polecenie 'odwiesza' dzialajacy program
+
+
+roznica miedzy SIGSTOP a ^Z polega na tym ze po wyslaniu sygnalu SIGSTOP program zatrzymuje sie ale trzeba nacisnac klawisz aby powrocic do konsoli terminala
+
+Naciskajac ^Z automatycznie wracamy do konsoli

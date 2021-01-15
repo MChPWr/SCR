@@ -1,0 +1,17 @@
+
+poleceniem mknod (tworzy pliki specjalne: blokowe lub znakowe)
+z dodaniem p, tworze potok nazwany - FIFO
+
+mknod fifo p
+
+w co najmniej czterech terminalach wywoluje rownoczesnie pisanie do i roznoczesne czytanie z tego potoku przez wiele procesow
+
+$ cat > fifo
+
+po wykonaniu polecen zauwazylem ze system zdaje sie rozdzielac dane z pliku w sposob losowy do czytania
+Zabijajac na przemian procesy piszace/czytajace zaobserwowalem ze:
+- zamykajac jednen z kilku procesow piszacych procesy czytajace podlaczyly sie do uruchomionego procesu piszacego; zamykajac zas wszystkie procesy piszace zamknely tez sie procesy czytajace
+- zamykajac jeden z kilku procesow czytajacych potok zostal przekierowywany do innych uruchomionych procesow czytajacych
+
+Kiedy zamyka sie proces piszacy to proces czytajacy dostanie 0 i wroci do konsoli
+Kiedy zamyka sie proces czytajacy to dostanie sie sygnal UNIX o nazwie SIGPIPE, powrot do konsoli nastepuje po wcisnieciu klawisza.

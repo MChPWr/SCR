@@ -1,0 +1,25 @@
+
+
+$ nice -n priorytet polecenie
+
+przykladowo
+-20 jest wiekszym priorytetem niz 10
+
+aby zmienic priorytet dzialajacego programu pisze:
+
+renice -n priorytet -p PID_procesu
+
+jakub@jakub-VirtualBox:~/Desktop/SCR/lab2$ renice -n 0 -p 3936
+3936 (process ID) old priority 0, new priority 0
+
+aby sprawdzic wartosc priorytetu pisze:
+$ ps -eo pid,ppid,ni,comm
+
+aby sprawdzic dzialanie programow
+stworzylem dwa skrypty wypisujace teskt
+uruchamiam je komenda:
+
+$ nice -n 10 ./zad3.sh & ./zad5.sh &
+
+programy maja rozne priorytety, choc zostaly uruchomione w tym samym momencie
+wyswietla sie najpierw tekst z programu o wyzszym priorytecie (mniejszej liczbie)
