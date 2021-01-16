@@ -1,0 +1,50 @@
+Po wykonaniu się program bug2.c zwrócił taki wynik:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./bug2
+Thread stack size = 8388608 bytes (hint, hint)
+Created 8 threads.
+Segmentation fault (core dumped)
+
+Problemem było to, że domyślny rozmiar stosu dla wątku był za mały aby pomieścić zadany rozmiar tablicy.
+Jedną z możliwości byłoby zmniejszenie rozmiaru stałej ARRAY_SIZE np do wartości 1000000. Przykład uruchomienia:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./bug2
+Thread stack size = 8388608 bytes (hint, hint)
+Created 8 threads.
+0: Hello World!   999999.000000
+5: Hello World!   999999.000000
+6: Hello World!   999999.000000
+3: Hello World!   999999.000000
+4: Hello World!   999999.000000
+1: Hello World!   999999.000000
+7: Hello World!   999999.000000
+2: Hello World!   999999.000000
+
+W przypadku jednak, gdy rozmiar musi pozostać stały to rozwiązaniem byłoby zwiększenie rozmiaru stosu, który 
+posiadają wątki. Można to zrobić funkcją pthread_attr_setstacksize() podająć w jej argumentach strukturę pthread_attr_t
+oraz nową wartość rozmiaru stosu.
+
+Takie rozwiązanie jest pokazane w kodzie programu bug2fix.c tam zmieniono domyślny rozmiar stosu i przekazano
+go do wątków w atrybucie.
+
+Wynik wykonania:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./bug2fix
+Thread stack size = 17000000 bytes (hint, hint)
+Created 8 threads.
+7: Hello World!   1999999.000000
+7: Thread stack size = 17000000 bytes 
+1: Hello World!   1999999.000000
+1: Thread stack size = 17000000 bytes 
+2: Hello World!   1999999.000000
+2: Thread stack size = 17000000 bytes 
+5: Hello World!   1999999.000000
+5: Thread stack size = 17000000 bytes 
+0: Hello World!   1999999.000000
+0: Thread stack size = 17000000 bytes 
+3: Hello World!   1999999.000000
+3: Thread stack size = 17000000 bytes 
+4: Hello World!   1999999.000000
+4: Thread stack size = 17000000 bytes 
+6: Hello World!   1999999.000000
+6: Thread stack size = 17000000 bytes 

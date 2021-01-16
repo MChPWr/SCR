@@ -1,0 +1,68 @@
+Wykonanie się programu pierwszego z przekazywaniem tylko jednego argumentu:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./hello_arg1
+Creating thread 0
+Creating thread 1
+Creating thread 2
+Creating thread 3
+Creating thread 4
+Creating thread 5
+Creating thread 6
+Creating thread 7
+Thread 2: Spanish: Hola al mundo
+Thread 3: Klingon: Nuq neH!
+Thread 4: German: Guten Tag, Welt!
+Thread 5: Russian: Zdravstvuyte, mir!
+Thread 1: French: Bonjour, le monde!
+Thread 6: Japan: Sekai e konnichiwa!
+Thread 7: Latin: Orbis, te saluto!
+Thread 0: English: Hello World!
+
+
+
+Wykonanie się drugiego programu z przekazywaniem wielu argumentów jako struktury:
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./hello_arg2
+Creating thread 0
+Creating thread 1
+Creating thread 2
+Creating thread 3
+Creating thread 4
+Creating thread 5
+Creating thread 6
+Creating thread 7
+Thread 0: English: Hello World!  Sum=0
+Thread 2: Spanish: Hola al mundo  Sum=3
+Thread 3: Klingon: Nuq neH!  Sum=6
+Thread 1: French: Bonjour, le monde!  Sum=1
+Thread 6: Japan: Sekai e konnichiwa!  Sum=21
+Thread 4: German: Guten Tag, Welt!  Sum=10
+Thread 7: Latin: Orbis, te saluto!  Sum=28
+Thread 5: Russian: Zdravstvytye, mir!  Sum=15
+
+
+Wykonanie się programu bug3.c
+
+p_szydlik@pop-os:~/Desktop/SCR L/SCR_2/SCR/Lab6$ ./bug3
+Creating thread 0
+Creating thread 1
+Creating thread 2
+Creating thread 3
+Creating thread 4
+Creating thread 5
+Creating thread 6
+Creating thread 7
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+Hello from thread 8
+
+
+
+Jak możemy zauważyć przez to, że przekazywany został wskaźnik do argumentu t, który był inkrementowany 
+w programie głównym to przed dokonaniem dereferencji został on już zinkrementowany do końcowej wartości 8
+dlatego we wszystkich wątkach wyświetlona wartość jest 8 mimo, że przy wywołaniu były one różne.
