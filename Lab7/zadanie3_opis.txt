@@ -1,0 +1,9 @@
+Argumenty sa przekazywane jako argument funkcji pthread_create.
+Aby przekazac jeden arguemnt, nalezy w powyzszej funkcji umiescic znacznik
+na pewna zmienna, ktora chcemy przekazac.
+
+Aby przekazac wiecej argumentow, przekazujemy znacznik na strukture, np. macierz
+argumentow.
+
+
+Bug w programie bug3.c polegal wlasnie na nieprawidlowym przekazaniu argumentow do nowego watku - zostal juz poprawiony.

@@ -1,0 +1,8 @@
+Kolejnosc wykonywania watkow jest zmienna.
+Mozna zauwazyc, ze przy kazdym wywolaniu programu, ok. 5 pierwszych wykonanych
+watkow to watki o numerach wzglednie niskich.
+
+Kolejnosc rozni sie za kazdym razem gdyz na algorytm planowania schedulera
+moga wplywac rozne rzeczy, m. in. w jakim stanie obecnie znajduje sie komputer.
+Poza tym, przy watkach o tym samym priorytecie, mozna domyslec sie, ze kolejosc
+bedzie w pewnym stopniu losowa. 

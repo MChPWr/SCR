@@ -1,0 +1,16 @@
+Przy wywolaniu ps -f, polecenie ps wykonuje sie w tzw. full
+ormat listing, wyswietla nam sie wowczas poza PID, Terminalen, czasem i
+poleceniem, rowniez PPID (czyli id rodzica danego procesu), STIME (czas systemu
+tzn. godzina w ktorej dany proces zostal utworzony, oraz UID (tzn. id uzytkownika,
+ktory utworzyl dany prcoes).
+
+Wywolujac polecenie ps -l, zamiast STIME, otrzymujemy parametr TIME, ktory informuje jak dlugo
+dzialal dany proces (zamiast tego kiedy sie wywolal), poza tym dostaje parametry PRI, NI,
+odpowiedzialne za priorytet danego procesu, poza tym, otrzymujemy rowniez parametr WCHAN, 
+ktory przechowuje adres/nazwe jadra funkcji, w ktorym proces przebywa, gdy jest nieaktywny,
+proces aktywny w tej kolumnie posiada "-".
+
+W przykladowej chwili wywolania, przy pomocy komendy ps -e | wc -l, sprawdzilem, ze na moim 
+komputerze jest uruchomionych 168 procesow.
+
+Dla porownania, na panamincie bylo uruchomione 784 procesy.

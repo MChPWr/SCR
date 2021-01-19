@@ -1,0 +1,2 @@
+Wartosci zwrocone przez program sa bardzo duze, w porownani do tego co zwraca
+hello.c - nie tego sie spodziewalem.

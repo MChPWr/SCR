@@ -1,0 +1,3 @@
+W mainie programu, na samym koncu, prakuje wywolania funkcji pthread_exit(NULL);
+
+Bez tego watek glowny, zakonczy program, zanim pozostale watki zdaza sie wykonac.
